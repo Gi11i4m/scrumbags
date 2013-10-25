@@ -103,6 +103,15 @@ namespace Scrumbags_Project {
         protected global::System.Web.UI.WebControls.TextBox lastNameInput;
         
         /// <summary>
+        /// lastNameRegexValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator lastNameRegexValidator;
+        
+        /// <summary>
         /// emailValidator control.
         /// </summary>
         /// <remarks>

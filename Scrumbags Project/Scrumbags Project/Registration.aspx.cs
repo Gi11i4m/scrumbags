@@ -18,9 +18,9 @@ namespace Scrumbags_Project
             password2Label.Text = "Repeat password: ";
         }
 
-        private void submit_Form()
+        protected void submitButton_Click(object sender, EventArgs e)
         {
-            //
+
         }
     }
 }

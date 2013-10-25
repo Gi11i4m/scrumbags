@@ -25,7 +25,7 @@
                     <td>
                         <asp:TextBox ID="firstNameInput" runat="server" /></td>
                     <td>
-                         <asp:RegularExpressionValidator ID="firstNameRegexValidator" runat="server" ControlToValidate="firstNameInput" ErrorMessage="ID must be 6-10 letters." ValidationExpression="[a-zA-Z]{6,10}" />
+                         <asp:RegularExpressionValidator ID="firstNameRegexValidator" runat="server" ControlToValidate="firstNameInput" ErrorMessage="First name can only contain letters" ValidationExpression="[a-zA-Z]" />
                     </td>
                 </tr>
 
@@ -37,6 +37,9 @@
                         <asp:Label ID="lastNameLabel" AssociatedControlID="lastNameInput" runat="server"></asp:Label></td>
                     <td>
                         <asp:TextBox ID="lastNameInput" runat="server" /></td>
+                    <td>
+                         <asp:RegularExpressionValidator ID="lastNameRegexValidator" runat="server" ControlToValidate="lastNameInput" ErrorMessage="Last name can only contain letters" ValidationExpression="[a-zA-Z]" />
+                    </td>
                 </tr>
 
                 <tr>
@@ -73,7 +76,7 @@
             </table>
         </div>
         <br />
-        <asp:Button ID="submitButton" runat="server" Text="Register" />
+        <asp:Button ID="submitButton" runat="server" Text="Register" OnClick="submitButton_Click" />
     </form>
 </body>
 </html>
