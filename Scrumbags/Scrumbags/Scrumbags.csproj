@@ -57,9 +57,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database_Scrumbags.mdf" />
-    <Content Include="App_Data\Database_Scrumbags_log.ldf">
-      <DependentUpon>Database_Scrumbags.mdf</DependentUpon>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />

@@ -9,7 +9,7 @@ namespace Scrumbags
     {
         public static void Register(string name, string email, string password)
         {
-            DBConnection.executeQuery("INSERT INTO lecturers (id, name, email, password) VALUES (1, " + name + "," + email + "," + password + ");");
+            DBConnection.executeQuery("INSERT INTO lecturers (name, email, password) VALUES ('" + name + "','" + email + "','" + password + "')");
         }
     }
 }
