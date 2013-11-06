@@ -11,11 +11,11 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            firstNameLabel.Text = "First Name: ";
-            lastNameLabel.Text = "Last Name: ";
-            emailLabel.Text = "Email address: ";
-            password1Label.Text = "Password: ";
-            password2Label.Text = "Repeat password: ";
+            firstNameLabel.Text = "First Name";
+            lastNameLabel.Text = "Last Name";
+            emailLabel.Text = "Email address";
+            password1Label.Text = "Password";
+            password2Label.Text = "Repeat password";
         }
 
         protected void submitButton_Click(object sender, EventArgs e)

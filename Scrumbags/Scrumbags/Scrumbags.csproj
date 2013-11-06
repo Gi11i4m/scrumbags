@@ -64,6 +64,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Registration.aspx" />
+    <Content Include="StyleSheet.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
