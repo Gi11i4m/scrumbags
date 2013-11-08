@@ -70,7 +70,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="DBQueries.cs" />
     <Compile Include="Default.aspx.cs">

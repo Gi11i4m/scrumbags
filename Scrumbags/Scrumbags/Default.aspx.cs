@@ -11,8 +11,21 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            textLabel.Text = DBQueries.login("tim.acke@artesis.be", "abc").ToString();
-            Hashing.GetHash("abc");
+            
+            emailLabel.Text = "Email adres";
+            passwordLabel.Text = "Password";
+            RegisterHyperlink.Text = "Register";
+        }
+        protected void submitButton_Click(object sender, EventArgs e)
+        {
+            if (DBQueries.login(emailInput.Text, Hashing.GetHash(passwordInput.Text)))
+            {
+                //navigatie naar volgende pagina
+            }
+            else
+            {
+                //error melding, ga ik nu nog niet doen er is geen test data
+            }
         }
     }
 }
