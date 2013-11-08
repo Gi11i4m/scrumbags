@@ -20,7 +20,13 @@ namespace Scrumbags
 
         protected void submitButton_Click(object sender, EventArgs e)
         {
+            string name = firstNameInput.Text + lastNameInput.Text;
 
+            if (Page.IsValid)
+            {
+                errorMessage.Text = password1Input.Text;
+                //DBQueries.Register(name, emailInput.Text, password1Input.Text);
+            }
         }
     }
 }
