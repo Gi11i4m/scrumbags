@@ -11,7 +11,8 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            textLabel.Text = DBQueries.login("tim.acke@artesis.be", "abc").ToString();
+            Hashing.GetHash("abc");
         }
     }
 }

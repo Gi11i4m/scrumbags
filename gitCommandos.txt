@@ -1,0 +1,26 @@
+in volgorde om te pushen:
+	cd Git/ChronoMaticProject/
+	git pull origin master
+	git add .
+	git commit -am "bericht"
+	git push origin master
+
+als ge ge het upfucked:
+	git clone git@github:Gi11i4m/ChronoMaticProject
+
+branching maken
+	git checkout -b branchnaam
+
+synch
+	git pull origin branchnaam
+	git add .
+	git commit -am "bericht"
+	git push orgin branchnaam
+
+mergen van branch
+	zien dat ge op de master branch zit
+	git merge branchnaam
+
+	of om te testen
+	in de branchnaam branch
+	git merge master
