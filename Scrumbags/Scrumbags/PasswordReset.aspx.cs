@@ -9,9 +9,46 @@ namespace Scrumbags
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        private static Random generator = new Random(); //Timestamp als seed meegeven dmv TimeStamp classe
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            resetButton.Attributes.Add("onclick", "popup()");
+        }
 
+        protected void resetButton_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                //Generate new password
+                String range = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!&$#*@_-";
+                char[] charray = new char[8];
+
+                for (int i = 0; i < 8; i++)
+                {
+                    charray[i] = range[generator.Next(range.Length)];
+                }
+
+                String password = new string(charray);
+
+                //Save hash in DB
+                DBQueries.changePassword(emailTexbox.Text, password);
+
+                //Send new password to email address 
+            }
+        }
+
+        protected void emailExistsValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            //Check if email exists
+            if (1 == 1) // Do DB lookup
+            {
+                args.IsValid = true;
+            }
+            else
+            {
+                args.IsValid = false;
+            }
         }
     }
 }
