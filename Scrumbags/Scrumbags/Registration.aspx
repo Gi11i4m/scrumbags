@@ -1,14 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="Scrumbags.Registration" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="Scrumbags.Registration" MasterPageFile="~/MasterPage.Master" Title="Registration Page"%>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    <title>Registration Page</title>
-    <link href="StyleSheet.css" rel="stylesheet" />
-</head>
-<body>
-    <%-- <asp:Content ID="Content1" ContentPlaceHolderId="C1" runat="server"> --%>
+    <asp:Content ID="BodyContent" ContentPlaceHolderId="MasterPageContentHolder" runat="server">
     <h1>Registration page</h1>
 
     <form id="form1" runat="server">
@@ -47,6 +39,4 @@
             <asp:Button ID="submitButton" runat="server" Text="Register" OnClick="submitButton_Click" />
         </div>
     </form>
-    <%-- </asp:Content> --%>
-</body>
-</html>
+</asp:Content>>
