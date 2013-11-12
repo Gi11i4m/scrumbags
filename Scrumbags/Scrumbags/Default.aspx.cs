@@ -11,7 +11,10 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            /**DIT ZIJN DE TE GEBRUIKEN COMMANDS OM TE MAILEN.
+             * 
+            MailingRegistration r = new MailingRegistration("yolan@coeman.net");
+            r.Send();*/
         }
     }
 }
