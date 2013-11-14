@@ -92,6 +92,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Hashing.cs" />
     <Compile Include="Mailing.cs" />
     <Compile Include="MailingRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
