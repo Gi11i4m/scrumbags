@@ -32,7 +32,7 @@
                 <br />
                 <asp:HyperLink ID="RegisterHyperlink" runat="server" CssClass="Hyperlink" NavigateUrl ="~/Registration.aspx"></asp:HyperLink>
             </div>
-        </div>
+        
     </form>
 </body>
 </html>
