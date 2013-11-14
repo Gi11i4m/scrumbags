@@ -48,8 +48,9 @@ namespace Scrumbags
         {
             DBConnection.executeQuery("UPDATE lecturers SET verified=true WHERE email=" + email + ";");
         }
-        public static Boolean login(string email, string hash)
+        public static Boolean login(string email, string password)
         {
+            string hash = Hashing.GetHash(password);
             //This Method returns true if the given hash equals the saved hash found in the database. Identified through the emailaddress
             DataTable t = DBConnection.executeQuery("SELECT password FROM lecturers WHERE email = '" + email + "'");
             Object o = t.Rows[0]["password"];

@@ -22,7 +22,7 @@ namespace Scrumbags
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
-            if (DBQueries.login(emailInput.Text, Hashing.GetHash(passwordInput.Text)))
+            if (DBQueries.login(emailInput.Text, passwordInput.Text))
             {
                 //navigatie naar volgende pagina
             }
