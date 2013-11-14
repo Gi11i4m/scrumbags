@@ -9,7 +9,7 @@ namespace Scrumbags
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        private static Random generator = new Random(); //Timestamp als seed meegeven dmv TimeStamp classe
+        private static Random generator = new Random(Convert.ToInt32(TimeStamp.DateTimeToUnixTimestamp(DateTime.Now)));
 
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -11,6 +11,7 @@
 <body>
     <form id="masterform" runat="server">
     <div>
+        <asp:Label ID="errorMessage" runat="server"></asp:Label>
         <asp:ContentPlaceHolder ID="MasterContentPlaceHolder" runat="server">
             <!-- Niks inzetten, placeholder voor content pages -->
         </asp:ContentPlaceHolder>

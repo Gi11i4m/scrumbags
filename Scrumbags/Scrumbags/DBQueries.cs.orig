@@ -15,6 +15,12 @@ namespace Scrumbags
             DBConnection.executeQuery("INSERT INTO lecturers (name, email, password) VALUES ('" + name + "','" + email + "','" + password + "')");
         }
 
+<<<<<<< HEAD
+        public static void changePassword(string email, string password)
+        {
+            //password nog hashen
+            DBConnection.executeQuery("UPDATE lecturers SET password='" + password +  "' WHERE email='" + email + "'");
+=======
         //Check capacity availability in slots // Just for extra checking!
         public static bool CheckCapacityInSlots(int slotID)
         {
@@ -37,17 +43,18 @@ namespace Scrumbags
             DBConnection.executeQuery("INSERT INTO reservations (slot_id, lecturer_id, created_at) VALUES ('" + slotID + "', '" + lecturerID + "', '" + TimeStamp.DateTimeToUnixTimestamp(DateTime.Now) + "')");
         }
 
-        //Change user password
-        public static void changePassword(string email, string password)
+        // Delete reservated slot
+        // Var capacity will be incremented by 1 when reservation is deleted
+        public static void DeleteReservation(int lecturerID, int slotID, int reservationID)
         {
-            //password nog hashen
-            DBConnection.executeQuery("UPDATE lecturers SET password='" + password +  "' WHERE email='" + email + "'");
+            DBConnection.executeQuery("UPDATE slots SET capacity = capacity + 1 WHERE id = '" + slotID + "'");
+            DBConnection.executeQuery("DELETE FROM reservations WHERE id = '" + reservationID + "' AND lecturer_id = '" + lecturerID + "'");
         }
 
-        //Set user to verified in DB
         public static void verifyUser(string email)
         {
-
+            DBConnection.executeQuery("UPDATE lecturers SET verified=true WHERE email=" + email + ";");
+>>>>>>> cfaf2be56993418ca820237da1e19f49317829fa
         }
     }
 }

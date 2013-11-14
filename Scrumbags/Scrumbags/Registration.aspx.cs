@@ -24,8 +24,11 @@ namespace Scrumbags
             
             if (Page.IsValid)
             {
-                errorMessage.Text = password1Input.Text;
-                //DBQueries.Register(name, emailInput.Text, password1Input.Text);
+                //Add user to DB
+                DBQueries.Register(name, emailInput.Text, password1Input.Text);
+
+                //Send verification email
+
             }
         }
     }
