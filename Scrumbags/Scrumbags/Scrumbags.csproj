@@ -72,8 +72,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\DBConnection.cs" />
-    <Compile Include="App_Code\DBQueries.cs" />
+    <Compile Include="DBConnection.cs" />
+    <Compile Include="DBQueries.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -84,9 +84,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\Hashing.cs" />
-    <Compile Include="App_Code\Mailing.cs" />
-    <Compile Include="App_Code\MailingRegistration.cs" />
+    <Compile Include="Hashing.cs" />
+    <Compile Include="Mailing.cs" />
+    <Compile Include="MailingRegistration.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -102,7 +102,7 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\Timestamp.cs" />
+    <Compile Include="Timestamp.cs" />
     <Compile Include="Reservations.aspx.cs">
       <DependentUpon>Reservations.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -118,6 +118,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
