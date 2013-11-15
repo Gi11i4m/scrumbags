@@ -3,10 +3,18 @@
     width: 140px;
     padding-bottom: 10px;
     }
-#registrationDiv .Textboxs {
+#registrationDiv .Textboxes {
     Width: 200px;
     margin-right: 20px;
 }
 #registrationDiv .Errormessage {
     color: red;
+}
+#loginContainer {
+    display: inline-block;
+    border: 1px outset gray;
+    padding: 10px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
 }

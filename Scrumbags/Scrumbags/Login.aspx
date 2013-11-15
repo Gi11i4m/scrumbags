@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Scrumbags.Login" MasterPageFile="~/MasterPage.Master" Title="Login Page" %>
+﻿<%@ Page Title="Login" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Scrumbags.Login" MasterPageFile="~/MasterPage.Master" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
-    <asp:Label ID="emailLabel" AssociatedControlID="emailTextBox" runat="server" Text="Email" CssClass="Labels"></asp:Label>
-    <asp:TextBox ID="emailTextBox" Text="Email" runat="server" CssClass="Textboxs" /><br />
-    <asp:Label ID="passwordLabel" AssociatedControlID="passwordTextBox" runat="server" Text="Password" CssClass="Labels"></asp:Label>
-    <asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server" CssClass="Textboxs" /><br />
-    <asp:LinkButton ID="passwordResetLinkButton" runat="server" Text="Reset your password" OnClick="passwordResetLinkButton_Click" />
+    <div id="loginContainer">
+        <asp:TextBox ID="emailTextBox" placeholder="Email" runat="server" CssClass="Textboxes" /><br />
+        <asp:TextBox ID="passwordTextBox" placeholder="Password" TextMode="Password" runat="server" CssClass="Textboxes" /><br />
+        <asp:Button ID="loginButton" runat="server" CssClass="Buttons" OnClick="loginButton_Click" /><br />
+        <asp:LinkButton ID="passwordResetLinkButton" runat="server" OnClick="passwordResetLinkButton_Click" />
+    </div>
 </asp:Content>

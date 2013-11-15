@@ -13,15 +13,6 @@ namespace Scrumbags {
     public partial class Login {
         
         /// <summary>
-        /// emailLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label emailLabel;
-        
-        /// <summary>
         /// emailTextBox control.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace Scrumbags {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox emailTextBox;
-        
-        /// <summary>
-        /// passwordLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label passwordLabel;
         
         /// <summary>
         /// passwordTextBox control.
