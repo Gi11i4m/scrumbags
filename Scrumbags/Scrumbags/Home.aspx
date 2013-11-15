@@ -17,6 +17,7 @@
         <asp:HyperLink ID="ReservationsHyperLink" runat="server" NavigateUrl="~/Reservations.aspx">Check my reservations</asp:HyperLink>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
+                <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="date" HeaderText="date" SortExpression="date" />
                 <asp:BoundField DataField="start" HeaderText="start" SortExpression="start" />
                 <asp:BoundField DataField="einde" HeaderText="einde" SortExpression="einde" />
@@ -24,7 +25,6 @@
                 <asp:BoundField DataField="capacity" HeaderText="capacity" SortExpression="capacity" />
                 <asp:BoundField DataField="digital" HeaderText="digital" SortExpression="digital" ReadOnly="True" />
                 <asp:BoundField DataField="city" HeaderText="city" SortExpression="city" />
-                <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
             </Columns>
             <EmptyDataTemplate>
                 jik<br />
