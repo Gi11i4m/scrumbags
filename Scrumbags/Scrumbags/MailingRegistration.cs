@@ -11,9 +11,11 @@ namespace Scrumbags
     {
 
         public string email { get; set; }
+        public string subject { get; set; }
+        public string body { get; set; }
 
 
-        public MailingRegistration(string email)
+        public MailingRegistration(string emailadres, string subject, string body)
         {
             this.email = email;
         }
@@ -22,9 +24,9 @@ namespace Scrumbags
         public void Send()
         {
             Mailing mail = new Mailing();
-            mail.to = email;   // HIER WORD HET EMAIL ADRES VAN DE ONTVANGER INGEVULD
-            mail.subject = "U piemel is net 2cm gekrompen."; // HIER KOMT HET ONDERWERP VAN DE MAIL
-            mail.body = "Buy my Penis enlarging product now!"; //HIER DE BOODSCHAP
+            mail.to = this.email;   // HIER WORD HET EMAIL ADRES VAN DE ONTVANGER INGEVULD
+            mail.subject = this.subject; // HIER KOMT HET ONDERWERP VAN DE MAIL
+            mail.body = this.body; //HIER DE BOODSCHAP
             mail.from = "";
             mail.send();
         }
