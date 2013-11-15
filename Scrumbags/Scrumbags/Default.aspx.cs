@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,9 +23,12 @@ namespace Scrumbags
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
-            if (DBQueries.login(emailInput.Text, Hashing.GetHash(passwordInput.Text)))
+            if (DBQueries.login(emailInput.Text, passwordInput.Text))
             {
-                //navigatie naar volgende pagina
+                DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput.Text + "'");
+                Object o = t.Rows[0]["id"];
+                Session["id"] = o.ToString();
+                Response.Redirect("Home.aspx", true);
             }
             else
             {

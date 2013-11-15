@@ -34,7 +34,9 @@ namespace Scrumbags
         public static void Reserve(int lecturerID, int slotID)
         {
             DBConnection.executeQuery("UPDATE slots SET capacity = capacity - 1 WHERE id = '" + slotID + "'");
-            DBConnection.executeQuery("INSERT INTO reservations (slot_id, lecturer_id, created_at) VALUES ('" + slotID + "', '" + lecturerID + "', '" + TimeStamp.DateTimeToUnixTimestamp(DateTime.Now) + "')");
+            //DBConnection.executeQuery("INSERT INTO reservations (slot_id, lecturer_id, created_at) VALUES ('" + slotID + "', '" + lecturerID + "', '" + TimeStamp.DateTimeToUnixTimestamp(DateTime.Now) + "')");
+            DBConnection.executeQuery("INSERT INTO reservations (slot_id, lecturer_id) VALUES ('" + slotID + "', '" + lecturerID + "')");
+        
         }
 
         //Change user password
@@ -49,8 +51,9 @@ namespace Scrumbags
         {
             DBConnection.executeQuery("UPDATE lecturers SET verified='1' WHERE email='" + email + "'");
         }
-        public static Boolean login(string email, string hash)
+        public static Boolean login(string email, string password)
         {
+            string hash = Hashing.GetHash(password);
             //This Method returns true if the given hash equals the saved hash found in the database. Identified through the emailaddress
             DataTable t = DBConnection.executeQuery("SELECT password FROM lecturers WHERE email = '" + email + "'");
             Object o = t.Rows[0]["password"];

@@ -28,11 +28,11 @@
                                 <asp:TextBox ID="passwordInput" runat="server" TextMode="Password" CssClass="Textboxs" />
 
                 <br /><br />
-                 <asp:Button ID="submitButton" runat="server" Text="Register" OnClick="submitButton_Click" />                 
+                 <asp:Button ID="submitButton" runat="server" Text="Login" OnClick="submitButton_Click" />                 
                 <br />
                 <asp:HyperLink ID="RegisterHyperlink" runat="server" CssClass="Hyperlink" NavigateUrl ="~/Registration.aspx"></asp:HyperLink>
             </div>
-        </div>
+        
     </form>
 </body>
 </html>
