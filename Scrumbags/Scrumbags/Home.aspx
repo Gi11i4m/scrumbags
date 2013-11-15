@@ -25,12 +25,13 @@
                 <asp:BoundField DataField="capacity" HeaderText="capacity" SortExpression="capacity" />
                 <asp:BoundField DataField="digital" HeaderText="digital" SortExpression="digital" ReadOnly="True" />
                 <asp:BoundField DataField="city" HeaderText="city" SortExpression="city" />
+                db
             </Columns>
             <EmptyDataTemplate>
                 jik<br />
             </EmptyDataTemplate>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LocalConnection %>" SelectCommand="SELECT [date], [start], [einde], [duration],[capacity], [digital] = CASE [digital] WHEN 1 then 'YES' else 'NO' END,  [city], [id] FROM [slots] "></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnections.connectionString %>" SelectCommand="SELECT [date], [start], [einde], [duration],[capacity], [digital] = CASE [digital] WHEN 1 then 'YES' else 'NO' END,  [city], [id] FROM [slots] "></asp:SqlDataSource>
     </form>
 </body>
 </html>
