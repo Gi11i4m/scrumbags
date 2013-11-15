@@ -11,14 +11,20 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Beveiligen!!
-            if (Request["email"] != null && Request["hash"] != null)
-            {
+            string email = Request["email"];
+            string hash = Request["hash"];
 
-                if (Request["hash"].Equals("aaa")) // vergelijken met hashfunctie
+            //Beveiligen!!
+            if (email != null && hash != null)
+            {
+                string emailhash = Hashing.GetHash(email);
+
+                //Verify if the suupplied hash is valid
+                if (hash.Equals("aaa")) 
                 {
+                    //Check of user bestaat en nog niet verified is
                     //Verify user in database
-                    DBQueries.verifyUser(Request["email"]);
+                    DBQueries.verifyUser(email);
                     messageLabel.Text = "Your account has been verified. \n You will be redirected automatically";
                     Response.AppendHeader("REFRESH", "5;URL=login.aspx"); 
                 }

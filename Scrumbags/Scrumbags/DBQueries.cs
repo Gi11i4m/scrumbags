@@ -11,8 +11,8 @@ namespace Scrumbags
         // Register user
         public static void Register(string name, string email, string password)
         {
-            //password eerst nog hashen!!
-            DBConnection.executeQuery("INSERT INTO lecturers (name, email, password) VALUES ('" + name + "','" + email + "','" + password + "')");
+            string pwhash = Hashing.GetHash(password);
+            DBConnection.executeQuery("INSERT INTO lecturers (name, email, password) VALUES ('" + name + "','" + email + "','" + pwhash + "')");
         }
 
         //Check capacity availability in slots // Just for extra checking!
@@ -40,14 +40,14 @@ namespace Scrumbags
         //Change user password
         public static void changePassword(string email, string password)
         {
-            //password nog hashen
-            DBConnection.executeQuery("UPDATE lecturers SET password='" + password +  "' WHERE email='" + email + "'");
+            string pwhash = Hashing.GetHash(password);
+            DBConnection.executeQuery("UPDATE lecturers SET password='" + pwhash +  "' WHERE email='" + email + "'");
         }
 
         //Set user to verified in DB
         public static void verifyUser(string email)
         {
-
+            DBConnection.executeQuery("UPDATE lecturers SET verified='1' WHERE email='" + email + "'");
         }
         public static Boolean login(string email, string hash)
         {
