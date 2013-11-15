@@ -57,7 +57,12 @@ namespace Scrumbags
             DataTable t = DBConnection.executeQuery("SELECT password FROM lecturers WHERE email = '" + email + "'");
             Object o = t.Rows[0]["password"];
             return hash.Equals(o.ToString());
+        }
 
+        //Query voor rooster weer te geven per departement (YENS)
+        public static void RoosterPerDepartement()
+        {
+            
         }
     }
 }
