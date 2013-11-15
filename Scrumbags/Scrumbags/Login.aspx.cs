@@ -11,7 +11,7 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            emailLabel.Text = "Email";
         }
 
         protected void passwordResetLinkButton_Click(object sender, EventArgs e)
