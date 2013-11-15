@@ -35,6 +35,7 @@ namespace Scrumbags
                 DBQueries.changePassword(emailTexbox.Text, password);
 
                 //Send new password to email address 
+
             }
         }
 
