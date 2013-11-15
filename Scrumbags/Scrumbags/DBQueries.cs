@@ -8,6 +8,14 @@ namespace Scrumbags
 {
     public class DBQueries
     {
+        //Checks if user exists
+        public static bool userExists(string email)
+        {
+            DataTable dt = DBConnection.executeQuery("SELECT * FROM lecturers WHERE email = '" + email + "'");
+
+            return dt.Rows.Count == 1;
+        }
+
         // Register user
         public static void Register(string name, string email, string password)
         {
@@ -49,6 +57,7 @@ namespace Scrumbags
         {
             DBConnection.executeQuery("UPDATE lecturers SET verified='1' WHERE email='" + email + "'");
         }
+
         public static Boolean login(string email, string hash)
         {
             //This Method returns true if the given hash equals the saved hash found in the database. Identified through the emailaddress

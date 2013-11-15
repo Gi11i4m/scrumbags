@@ -13,7 +13,7 @@ namespace Scrumbags
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            resetButton.Attributes.Add("onclick", "popup()");
+            emailLabel.Text = "Email address";
         }
 
         protected void resetButton_Click(object sender, EventArgs e)
@@ -31,18 +31,21 @@ namespace Scrumbags
 
                 String password = new string(charray);
 
-                //Save hash in DB
-                DBQueries.changePassword(emailTexbox.Text, password);
+                //Save new password in DB
+                DBQueries.changePassword(emailTextbox.Text, password);
 
                 //Send new password to email address 
 
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your new password has been sent to your email address');</script>");
+                Response.AppendHeader("REFRESH", "5;URL=Login.aspx");
             }
         }
 
         protected void emailExistsValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            //Check if email exists
-            if (1 == 1) // Do DB lookup
+            //Check if email exists, invalidate page if not
+            if (DBQueries.userExists(emailTextbox.Text)) 
             {
                 args.IsValid = true;
             }
