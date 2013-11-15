@@ -22,13 +22,13 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.Label emailLabel;
         
         /// <summary>
-        /// emailTexbox control.
+        /// emailTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailTexbox;
+        protected global::System.Web.UI.WebControls.TextBox emailTextbox;
         
         /// <summary>
         /// emailExistsValidator control.

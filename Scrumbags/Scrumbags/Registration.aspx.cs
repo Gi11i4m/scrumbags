@@ -25,12 +25,16 @@ namespace Scrumbags
             if (Page.IsValid)
             {
                 //Add user to DB
-                //Check of user al bestaat!!
                 DBQueries.Register(name, emailInput.Text, password1Input.Text);
 
                 //Send verification email
 
             }
+        }
+
+        protected void emailExistsValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+
         }
     }
 }

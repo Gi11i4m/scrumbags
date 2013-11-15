@@ -1,15 +1,22 @@
-﻿#registrationDiv .Labels {
+﻿.Labels {
     display: inline-block;
     width: 140px;
     padding-bottom: 10px;
-    }
-#registrationDiv .Textboxes {
+}
+.Textboxes {
     Width: 200px;
     margin-right: 20px;
 }
-#registrationDiv .Errormessage {
+
+.Errormessage {
     color: red;
 }
+
+.Message {
+    border-width: 2px;
+    padding: 5px;
+    margin: 3px;
+
 #loginContainer {
     display: inline-block;
     border: 1px outset gray;
