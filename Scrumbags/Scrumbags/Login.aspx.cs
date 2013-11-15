@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,29 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            loginButton.Text = "Log in";
+            passwordResetLinkButton.Text = "Reset your password";
+        }
 
+        protected void loginButton_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                String emailInput = emailTextBox.Text;
+                String passwordInput = passwordTextBox.Text;
+
+                if (DBQueries.login(emailInput, passwordInput))
+                {
+                    DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput + "'");
+                    Object o = t.Rows[0]["id"];
+                    Session["id"] = o.ToString();
+                    Response.Redirect("Home.aspx", true);
+                }
+                else
+                {
+                    //error melding, ga ik nu nog niet doen er is geen test data
+                }
+            }
         }
 
         protected void passwordResetLinkButton_Click(object sender, EventArgs e)

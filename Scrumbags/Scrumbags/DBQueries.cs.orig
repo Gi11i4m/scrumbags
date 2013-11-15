@@ -8,19 +8,21 @@ namespace Scrumbags
 {
     public class DBQueries
     {
+        //Checks if user exists
+        public static bool userExists(string email)
+        {
+            DataTable dt = DBConnection.executeQuery("SELECT * FROM lecturers WHERE email = '" + email + "'");
+
+            return dt.Rows.Count == 1;
+        }
+
         // Register user
         public static void Register(string name, string email, string password)
         {
-            //password eerst nog hashen!!
-            DBConnection.executeQuery("INSERT INTO lecturers (name, email, password) VALUES ('" + name + "','" + email + "','" + password + "')");
+            string pwhash = Hashing.GetHash(password);
+            DBConnection.executeQuery("INSERT INTO lecturers (name, email, password) VALUES ('" + name + "','" + email + "','" + pwhash + "')");
         }
 
-<<<<<<< HEAD
-        public static void changePassword(string email, string password)
-        {
-            //password nog hashen
-            DBConnection.executeQuery("UPDATE lecturers SET password='" + password +  "' WHERE email='" + email + "'");
-=======
         //Check capacity availability in slots // Just for extra checking!
         public static bool CheckCapacityInSlots(int slotID)
         {
@@ -40,21 +42,36 @@ namespace Scrumbags
         public static void Reserve(int lecturerID, int slotID)
         {
             DBConnection.executeQuery("UPDATE slots SET capacity = capacity - 1 WHERE id = '" + slotID + "'");
-            DBConnection.executeQuery("INSERT INTO reservations (slot_id, lecturer_id, created_at) VALUES ('" + slotID + "', '" + lecturerID + "', '" + TimeStamp.DateTimeToUnixTimestamp(DateTime.Now) + "')");
+            //DBConnection.executeQuery("INSERT INTO reservations (slot_id, lecturer_id, created_at) VALUES ('" + slotID + "', '" + lecturerID + "', '" + TimeStamp.DateTimeToUnixTimestamp(DateTime.Now) + "')");
+            DBConnection.executeQuery("INSERT INTO reservations (slot_id, lecturer_id) VALUES ('" + slotID + "', '" + lecturerID + "')");
+        
         }
 
-        // Delete reservated slot
-        // Var capacity will be incremented by 1 when reservation is deleted
-        public static void DeleteReservation(int lecturerID, int slotID, int reservationID)
+        //Change user password
+        public static void changePassword(string email, string password)
         {
-            DBConnection.executeQuery("UPDATE slots SET capacity = capacity + 1 WHERE id = '" + slotID + "'");
-            DBConnection.executeQuery("DELETE FROM reservations WHERE id = '" + reservationID + "' AND lecturer_id = '" + lecturerID + "'");
+            string pwhash = Hashing.GetHash(password);
+            DBConnection.executeQuery("UPDATE lecturers SET password='" + pwhash +  "' WHERE email='" + email + "'");
         }
 
+        //Set user to verified in DB
         public static void verifyUser(string email)
         {
-            DBConnection.executeQuery("UPDATE lecturers SET verified=true WHERE email=" + email + ";");
->>>>>>> cfaf2be56993418ca820237da1e19f49317829fa
+            DBConnection.executeQuery("UPDATE lecturers SET verified='1' WHERE email='" + email + "'");
+        }
+<<<<<<< HEAD
+
+        public static Boolean login(string email, string hash)
+=======
+        public static Boolean login(string email, string password)
+>>>>>>> f332f9db5e05760dba6bc0cde568230e79b33a2f
+        {
+            string hash = Hashing.GetHash(password);
+            //This Method returns true if the given hash equals the saved hash found in the database. Identified through the emailaddress
+            DataTable t = DBConnection.executeQuery("SELECT password FROM lecturers WHERE email = '" + email + "'");
+            Object o = t.Rows[0]["password"];
+            return hash.Equals(o.ToString());
+
         }
     }
 }
