@@ -20,7 +20,7 @@ namespace Scrumbags
         public static void Register(string name, string email, string password)
         {
             string pwhash = Hashing.GetHash(password);
-            DBConnection.executeQuery("INSERT INTO lecturers (name, email, password) VALUES ('" + name + "','" + email + "','" + pwhash + "')");
+            DBConnection.executeQuery("INSERT INTO lecturers (name, email, password, verified) VALUES ('" + name + "','" + email + "','" + pwhash + "', 'false')");
         }
 
         //Check capacity availability in slots // Just for extra checking!
@@ -59,6 +59,7 @@ namespace Scrumbags
         {
             DBConnection.executeQuery("UPDATE lecturers SET verified='1' WHERE email='" + email + "'");
         }
+
         public static Boolean login(string email, string password)
         {
             string hash = Hashing.GetHash(password);

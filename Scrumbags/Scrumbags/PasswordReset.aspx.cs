@@ -20,6 +20,8 @@ namespace Scrumbags
         {
             if (Page.IsValid)
             {
+                String email = emailTextbox.Text;
+
                 //Generate new password
                 String range = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!&$#*@_-";
                 char[] charray = new char[8];
@@ -32,27 +34,26 @@ namespace Scrumbags
                 String password = new string(charray);
 
                 //Save new password in DB
-                DBQueries.changePassword(emailTextbox.Text, password);
+                DBQueries.changePassword(email, password);
 
                 //Send new password to email address 
-
+                String subject = "Scrumbags - Password reset";
+                String body = "Dear,\n " + 
+                "You recently requested a password reset on our site.\n" +
+                "This is your new password: " + password;
+                MailSender mailsender = new MailSender(email, subject, body);
+                mailsender.Send();
+                emailLabel.Text = password;
 
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your new password has been sent to your email address');</script>");
-                Response.AppendHeader("REFRESH", "5;URL=Login.aspx");
+                Response.AppendHeader("REFRESH", "1;URL=Login.aspx");
             }
         }
 
         protected void emailExistsValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             //Check if email exists, invalidate page if not
-            if (DBQueries.userExists(emailTextbox.Text)) 
-            {
-                args.IsValid = true;
-            }
-            else
-            {
-                args.IsValid = false;
-            }
+            args.IsValid = DBQueries.userExists(emailTextbox.Text);
         }
     }
 }

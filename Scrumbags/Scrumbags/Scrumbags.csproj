@@ -95,7 +95,7 @@
     </Compile>
     <Compile Include="Hashing.cs" />
     <Compile Include="Mailing.cs" />
-    <Compile Include="MailingRegistration.cs" />
+    <Compile Include="MailSender.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

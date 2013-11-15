@@ -27,7 +27,7 @@ namespace Scrumbags
             }
             else
             {
-                messageLabel.Text = "There was a problem processing your request. (Invalid parameters)"; //Redirect?
+                messageLabel.Text = "There was a problem processing your request."; //Redirect?
             }
         }
     }

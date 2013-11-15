@@ -22,13 +22,13 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.Label firstNameLabel;
         
         /// <summary>
-        /// firstNameInput control.
+        /// firstNameTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox firstNameInput;
+        protected global::System.Web.UI.WebControls.TextBox firstNameTextbox;
         
         /// <summary>
         /// firstNameValidator control.
@@ -58,13 +58,13 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.Label lastNameLabel;
         
         /// <summary>
-        /// lastNameInput control.
+        /// lastNameTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastNameInput;
+        protected global::System.Web.UI.WebControls.TextBox lastNameTextbox;
         
         /// <summary>
         /// lastNameValidator control.
@@ -94,13 +94,13 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.Label emailLabel;
         
         /// <summary>
-        /// emailInput control.
+        /// emailTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailInput;
+        protected global::System.Web.UI.WebControls.TextBox emailTextbox;
         
         /// <summary>
         /// emailValidator control.
@@ -130,13 +130,13 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.Label password1Label;
         
         /// <summary>
-        /// password1Input control.
+        /// password1Textbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password1Input;
+        protected global::System.Web.UI.WebControls.TextBox password1Textbox;
         
         /// <summary>
         /// pw1Validator control.
@@ -157,13 +157,13 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.Label password2Label;
         
         /// <summary>
-        /// password2Input control.
+        /// password2Textbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password2Input;
+        protected global::System.Web.UI.WebControls.TextBox password2Textbox;
         
         /// <summary>
         /// CompareValidator control.
