@@ -10,6 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <h1>Login page</h1>
+        <h2> <asp:Label ID="LoginMessage" runat="server" Text="Banner Message"></asp:Label> </h2>
         <asp:Label ID="errorMessage" runat="server"></asp:Label>
             <div>
                 <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="There were errors on the page:" CssClass="Errors"/>
