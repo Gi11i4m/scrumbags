@@ -26,7 +26,7 @@ namespace Scrumbags
         {
             DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(GridView1.SelectedRow.Cells[8].Text));
             GridView1.DataBind();
-
+            //Label1.Text =GridView1.SelectedRow.Cells[8].Text;
         }
 
         protected void LogoutButton_Click(object sender, EventArgs e)

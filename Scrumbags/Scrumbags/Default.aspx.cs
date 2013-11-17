@@ -35,7 +35,7 @@ namespace Scrumbags
                 // If user is admin, Session Var "isAdmin" = true
                 Session["isAdmin"] = DBQueries.CheckAdmin(obj.ToString());
 
-                //Response.Redirect("Home.aspx", true);
+                Response.Redirect("Home.aspx", true);
             }
             else
             {
