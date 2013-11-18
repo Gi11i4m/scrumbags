@@ -1,0 +1,14 @@
+ola boyos
+Dus voor als jullie willen pushen naar de server zijn er 2dingen die ge moet instaleren
+Het eerste is Curl op de downloads page naar beneden scrollen naar windows en dan een 32 of 64bit versie instaleren
+Daarnaa moet ge git ftp binnen halen. das een github projectje dus gwn met git binnen clonen van de volgende url
+https://github.com/git-ftp/git-ftp
+
+Eens ge dat hebt moet ge het volgende doen:
+
+1 De connectionstring wisselen
+Als ge lokaal test gebruikt ge de connection string voor de lokale db
+in de klasse DBConnection de localconection string in comments zetten de cloudconnectionstring uitcomments halen.
+
+2 Daarna kunt ge pushen met het volgende commando 
+git ftp push -u "scrumbags" -p "Yolanisgay@" ftp://scrumbags.somee.com
