@@ -60,9 +60,10 @@ namespace Scrumbags
         }
 
         //Query voor rooster weer te geven per departement (YENS)
-        public static void RoosterPerDepartement()
+        public static DataTable RoosterPerDepartement(string departement)
         {
-            
+            DataTable depPerRooster = DBConnection.executeQuery("SELECT * FROM slots WHERE departement =" + departement + ";");
+            return depPerRooster;
         }
 
         public static bool CheckAdmin(string lecturer_id)
