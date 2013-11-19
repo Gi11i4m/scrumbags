@@ -28,6 +28,9 @@ namespace Scrumbags
                 DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput.Text + "'");
                 Object o = t.Rows[0]["id"];
                 Session["id"] = o.ToString();
+
+                //t = DBConnection.executeQuery("SELECT count(*) AS aantal FROM admins WHERE lecturer_id = '" + o.ToString() + "'");
+                //o = t.Rows[0]["id"];
                 Response.Redirect("Home.aspx", true);
             }
             else
