@@ -23,14 +23,18 @@ namespace Scrumbags
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
+            // Check if user and password match in database
             if (DBQueries.login(emailInput.Text, passwordInput.Text))
             {
-                DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput.Text + "'");
-                Object o = t.Rows[0]["id"];
-                Session["id"] = o.ToString();
+                // Get id from database to put in Session Var
+                DataTable table = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput.Text + "'");
+                Object obj = table.Rows[0]["id"];
+                Session["id"] = obj.ToString();
 
-                //t = DBConnection.executeQuery("SELECT count(*) AS aantal FROM admins WHERE lecturer_id = '" + o.ToString() + "'");
-                //o = t.Rows[0]["id"];
+                // Check if user is admin
+                // If user is admin, Session Var "isAdmin" = true
+                Session["isAdmin"] = DBQueries.CheckAdmin(obj.ToString());
+
                 Response.Redirect("Home.aspx", true);
             }
             else

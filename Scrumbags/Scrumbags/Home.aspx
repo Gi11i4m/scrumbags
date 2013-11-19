@@ -13,6 +13,7 @@
     </div>
         <asp:Button ID="LogoutButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" />
         <br />
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         <br />
         <asp:HyperLink ID="ReservationsHyperLink" runat="server" NavigateUrl="~/Reservations.aspx">Check my reservations</asp:HyperLink>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True" AllowSorting="True">
@@ -25,6 +26,7 @@
                 <asp:BoundField DataField="capacity" HeaderText="capacity" SortExpression="capacity" />
                 <asp:BoundField DataField="digital" HeaderText="digital" SortExpression="digital" ReadOnly="True" />
                 <asp:BoundField DataField="city" HeaderText="city" SortExpression="city" />
+                <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
             </Columns>
             <EmptyDataTemplate>
                 jik<br />

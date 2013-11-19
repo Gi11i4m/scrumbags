@@ -59,5 +59,12 @@ namespace Scrumbags
             return hash.Equals(o.ToString());
 
         }
+
+        public static bool CheckAdmin(string lecturer_id)
+        {
+            DataTable table = DBConnection.executeQuery("SELECT count(*) AS isAdmin FROM admins WHERE lecturer_id = '" + lecturer_id + "'");
+            Object obj = table.Rows[0]["isAdmin"];
+            return (obj.ToString().Equals("1"));
+        }
     }
 }
