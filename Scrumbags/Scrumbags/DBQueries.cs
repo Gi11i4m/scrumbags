@@ -67,7 +67,20 @@ namespace Scrumbags
             DataTable t = DBConnection.executeQuery("SELECT password FROM lecturers WHERE email = '" + email + "'");
             Object o = t.Rows[0]["password"];
             return hash.Equals(o.ToString());
+        }
 
+        //Query voor rooster weer te geven per departement (YENS)
+        public static DataTable RoosterPerDepartement(string departement)
+        {
+            DataTable depPerRooster = DBConnection.executeQuery("SELECT * FROM slots WHERE departement =" + departement + ";");
+            return depPerRooster;
+        }
+
+        public static bool CheckAdmin(string lecturer_id)
+        {
+            DataTable table = DBConnection.executeQuery("SELECT count(*) AS isAdmin FROM admins WHERE lecturer_id = '" + lecturer_id + "'");
+            Object obj = table.Rows[0]["isAdmin"];
+            return (obj.ToString().Equals("1"));
         }
     }
 }

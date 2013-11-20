@@ -11,17 +11,22 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Check if their is a Session atm. Else a big no no
             if (Session["id"] == null)
             {
                 Server.Transfer("Default.aspx", true);
             }
+
+            // Use this statement to check if the user is an Admin
+            if ((bool)Session["isAdmin"])
+            {}
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(GridView1.SelectedRow.Cells[8].Text));
             GridView1.DataBind();
-
+            //Label1.Text =GridView1.SelectedRow.Cells[8].Text;
         }
 
         protected void LogoutButton_Click(object sender, EventArgs e)

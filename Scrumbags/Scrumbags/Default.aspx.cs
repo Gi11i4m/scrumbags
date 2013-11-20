@@ -22,19 +22,26 @@ namespace Scrumbags
             //passwordLabel.Text = "Password";
             //RegisterHyperlink.Text = "Register";
         }
-        //protected void submitButton_Click(object sender, EventArgs e)
-        //{
-        //    if (DBQueries.login(emailInput.Text, passwordInput.Text))
-        //    {
-        //        DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput.Text + "'");
-        //        Object o = t.Rows[0]["id"];
-        //        Session["id"] = o.ToString();
-        //        Response.Redirect("Home.aspx", true);
-        //    }
-        //    else
-        //    {
-        //        //error melding, ga ik nu nog niet doen er is geen test data
-        //    }
-        //}
+        protected void submitButton_Click(object sender, EventArgs e)
+        {
+            // Check if user and password match in database
+            if (DBQueries.login(emailInput.Text, passwordInput.Text))
+            {
+                // Get id from database to put in Session Var
+                DataTable table = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput.Text + "'");
+                Object obj = table.Rows[0]["id"];
+                Session["id"] = obj.ToString();
+
+                // Check if user is admin
+                // If user is admin, Session Var "isAdmin" = true
+                Session["isAdmin"] = DBQueries.CheckAdmin(obj.ToString());
+
+                Response.Redirect("Home.aspx", true);
+            }
+            else
+            {
+                //error melding, ga ik nu nog niet doen er is geen test data
+            }
+        }
     }
 }

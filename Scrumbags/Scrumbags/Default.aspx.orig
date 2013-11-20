@@ -1,20 +1,19 @@
+<<<<<<< HEAD
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Scrumbags.Default" %>
+=======
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Scrumbags.Default" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<<<<<<< HEAD
-<head runat="server">    
-    <title></title>
-=======
 <head runat="server">
      <title>Login Page</title>
     <link href="StyleSheet.css" rel="stylesheet" />    
->>>>>>> 1e5421fedf61f2e2d9f4028d7f5632b44d1801d7
 </head>
 <body>
     <form id="form1" runat="server">
         <h1>Login page</h1>
+        <h2> <asp:Label ID="LoginMessage" runat="server" Text="Banner Message"></asp:Label> </h2>
         <asp:Label ID="errorMessage" runat="server"></asp:Label>
             <div>
                 <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="There were errors on the page:" CssClass="Errors"/>
@@ -33,11 +32,12 @@
                                 <asp:TextBox ID="passwordInput" runat="server" TextMode="Password" CssClass="Textboxs" />
 
                 <br /><br />
-                 <asp:Button ID="submitButton" runat="server" Text="Register" OnClick="submitButton_Click" />                 
+                 <asp:Button ID="submitButton" runat="server" Text="Login" OnClick="submitButton_Click" />                 
                 <br />
                 <asp:HyperLink ID="RegisterHyperlink" runat="server" CssClass="Hyperlink" NavigateUrl ="~/Registration.aspx"></asp:HyperLink>
             </div>
-        </div>
+        
     </form>
 </body>
 </html>
+>>>>>>> 06c34fdb4c001bb93e15ef1d6d20c7e786db8936
