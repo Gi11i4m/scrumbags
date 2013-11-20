@@ -1,0 +1,35 @@
+﻿.Labels {
+    display: inline-block;
+    width: 140px;
+    padding-bottom: 10px;
+<<<<<<< HEAD
+}
+
+.Textboxs {
+=======
+    }
+#registrationDiv .Textboxes {
+>>>>>>> f332f9db5e05760dba6bc0cde568230e79b33a2f
+    Width: 200px;
+    margin-right: 20px;
+}
+
+.Errormessage {
+    color: red;
+}
+<<<<<<< HEAD
+
+.Message {
+    border-width: 2px;
+    padding: 5px;
+    margin: 3px;
+=======
+#loginContainer {
+    display: inline-block;
+    border: 1px outset gray;
+    padding: 10px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+>>>>>>> f332f9db5e05760dba6bc0cde568230e79b33a2f
+}

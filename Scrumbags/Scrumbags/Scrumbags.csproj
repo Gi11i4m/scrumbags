@@ -72,6 +72,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="PasswordReset.aspx" />
+    <Content Include="UserSettings.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConnection.cs" />
@@ -132,6 +133,13 @@
     </Compile>
     <Compile Include="UserVerification.aspx.designer.cs">
       <DependentUpon>UserVerification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserSettings.aspx.cs">
+      <DependentUpon>UserSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserSettings.aspx.designer.cs">
+      <DependentUpon>UserSettings.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
