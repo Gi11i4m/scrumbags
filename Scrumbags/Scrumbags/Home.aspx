@@ -32,7 +32,7 @@
                 jik<br />
             </EmptyDataTemplate>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LocalConnection %>" SelectCommand="SELECT [date], [start], [einde], [duration],[capacity], [digital] = CASE [digital] WHEN 1 then 'YES' else 'NO' END,  [city], [id] FROM [slots] "></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnections.connectionString %>" SelectCommand="SELECT [date], [start], [einde], [duration],[capacity], [digital] = CASE [digital] WHEN 1 then 'YES' else 'NO' END,  [city], [id] FROM [slots] "></asp:SqlDataSource>
     </form>
 </body>
 </html>
