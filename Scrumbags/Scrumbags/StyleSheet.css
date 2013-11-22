@@ -1,0 +1,12 @@
+﻿#registrationDiv .Labels {
+    display: inline-block;
+    width: 140px;
+    padding-bottom: 10px;
+    }
+#registrationDiv .Textboxs {
+    Width: 200px;
+    margin-right: 20px;
+}
+#registrationDiv .Errormessage {
+    color: red;
+}
