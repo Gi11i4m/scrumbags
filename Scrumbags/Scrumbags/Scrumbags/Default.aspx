@@ -10,6 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <h1>Login page</h1>
+        <h2> <asp:Label ID="LoginMessage" runat="server" Text="Banner Message"></asp:Label> </h2>
         <asp:Label ID="errorMessage" runat="server"></asp:Label>
             <div>
                 <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="There were errors on the page:" CssClass="Errors"/>
@@ -28,11 +29,11 @@
                                 <asp:TextBox ID="passwordInput" runat="server" TextMode="Password" CssClass="Textboxs" />
 
                 <br /><br />
-                 <asp:Button ID="submitButton" runat="server" Text="Register" OnClick="submitButton_Click" />                 
+                 <asp:Button ID="submitButton" runat="server" Text="Login" OnClick="submitButton_Click" />                 
                 <br />
                 <asp:HyperLink ID="RegisterHyperlink" runat="server" CssClass="Hyperlink" NavigateUrl ="~/Registration.aspx"></asp:HyperLink>
             </div>
-        </div>
+        
     </form>
 </body>
 </html>

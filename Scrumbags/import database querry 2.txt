@@ -1,6 +1,7 @@
 ﻿BEGIN TRANSACTION;
 CREATE TABLE lecturers (id integer IDENTITY(1,1) NOT FOR REPLICATION NOT NULL, name varchar(255), email varchar(255),  password varchar(255), PRIMARY KEY(id));
 SET IDENTITY_INSERT lecturers ON
+INSERT INTO lecturers (id,name,email,password) VALUES(1157,'Test Account','test','F97FBE57FAA2D2F451DDA1557BAC6B43');
 INSERT INTO lecturers (id,name,email,password) VALUES(1157,'Acke Tim','tim.acke@artesis.be',NULL);
 INSERT INTO lecturers (id,name,email,password) VALUES(1158,'Adriaensen Heidi','heidi.adriaensen@artesis.be',NULL);
 INSERT INTO lecturers (id,name,email,password) VALUES(1159,'Aelbrecht Eddy','eddy.aelbrecht@artesis.be',NULL);
@@ -231,8 +232,17 @@ INSERT INTO lecturers (id,name,email,password) VALUES(1383,'Lector4','lector4','
 INSERT INTO lecturers (id,name,email,password) VALUES(1384,'Lector5','lector5','paswoord5');
 SET IDENTITY_INSERT lecturers OFF
 
-CREATE TABLE reservations (id integer IDENTITY(1,1) NOT FOR REPLICATION, slot_id integer, lecturer_id integer, created_at timestamp);
-CREATE TABLE slots (id integer IDENTITY(1,1) NOT FOR REPLICATION, date varchar(255), start varchar(255), einde varchar(255), duration varchar(255), capacity integer, digital numeric, city varchar(255), PRIMARY KEY(id));
+
+CREATE TABLE admins(id integer IDENTITY(1,1) NOT FOR REPLICATION NOT NULL, lecturer_id integer, PRIMARY KEY(id));
+SET IDENTITY_INSERT admins ON
+INSERT INTO admins(lecturer_id) VALUES('1157');
+SET IDENTITY_INSERT admins OFF
+
+
+CREATE TABLE reservations (id integer IDENTITY(1,1) NOT FOR REPLICATION, slot_id integer, lecturer_id integer, created_at varchar(255));
+
+
+CREATE TABLE slots (id integer IDENTITY(1,1) NOT FOR REPLICATION, date date, start varchar(255), einde varchar(255), duration varchar(255), capacity integer, digital numeric, city varchar(255), PRIMARY KEY(id));
 SET IDENTITY_INSERT slots ON
 INSERT INTO "slots" (id, date, start, einde, duration, capacity, digital, city) VALUES(2,'26/08/13','8:00','10:30','2:30',2,1,'antwerpen');
 INSERT INTO "slots" (id, date, start, einde, duration, capacity, digital, city) VALUES(3,'26/08/13','10:30','13:00','2:30',2,1,'antwerpen');

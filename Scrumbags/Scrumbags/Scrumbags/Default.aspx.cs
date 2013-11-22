@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,9 +23,19 @@ namespace Scrumbags
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
-            if (DBQueries.login(emailInput.Text, Hashing.GetHash(passwordInput.Text)))
+            // Check if user and password match in database
+            if (DBQueries.login(emailInput.Text, passwordInput.Text))
             {
-                //navigatie naar volgende pagina
+                // Get id from database to put in Session Var
+                DataTable table = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput.Text + "'");
+                Object obj = table.Rows[0]["id"];
+                Session["id"] = obj.ToString();
+
+                // Check if user is admin
+                // If user is admin, Session Var "isAdmin" = true
+                Session["isAdmin"] = DBQueries.CheckAdmin(obj.ToString());
+
+                Response.Redirect("Home.aspx", true);
             }
             else
             {
