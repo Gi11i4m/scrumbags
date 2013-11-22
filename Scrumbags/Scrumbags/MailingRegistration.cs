@@ -17,7 +17,9 @@ namespace Scrumbags
 
         public MailingRegistration(string emailadres, string subject, string body)
         {
-            this.email = email;
+            this.email = emailadres;
+            this.subject = subject;
+            this.body = body;
         }
 
         //SEND FUNCTION
