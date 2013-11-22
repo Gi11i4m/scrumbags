@@ -14,7 +14,7 @@ namespace Scrumbags
             //Check if their is a Session atm. Else a big no no
             if (Session["id"] == null)
             {
-                Server.Transfer("Default.aspx", true);
+                Server.Transfer("Login.aspx", true);
             }
 
             if (!Page.IsPostBack)
