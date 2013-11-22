@@ -18,8 +18,8 @@ namespace Scrumbags
             }
 
             // Use this statement to check if the user is an Admin
-            if ((bool)Session["isAdmin"])
-            {}
+            //if ((bool)Session["isAdmin"])
+            //{}
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
