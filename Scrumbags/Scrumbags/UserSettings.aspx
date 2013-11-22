@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="UserSettings.aspx.cs" Inherits="Scrumbags.WebForm2" %>
+﻿<%@ Page Title="User-settings Page" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="UserSettings.aspx.cs" Inherits="Scrumbags.UserSettings" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -23,7 +23,7 @@
             <asp:RequiredFieldValidator ID="emailValidator" Validationgroup="personalInfo" runat="server" ControlToValidate="emailTextbox" CssClass="Errormessage" ErrorMessage="Email is required." Display="Dynamic" />
             <asp:CustomValidator ID="emailInUseValidator" Validationgroup="personalInfo" runat="server" ErrorMessage="This email address is already in use" ControlToValidate="emailTextbox" OnServerValidate="emailInUseValidator_ServerValidate" Display="Dynamic" />
             <br />
-            <asp:Button ID="saveSettingsButton" runat="server" Text="Save settings" onClick="saveSettingsButton_Click"/>
+            <asp:Button ID="saveSettingsButton" Validationgroup="personalInfo" runat="server" Text="Save settings" onClick="saveSettingsButton_Click"/>
         </div>
 
         <div>
@@ -40,7 +40,7 @@
             <asp:TextBox ID="oldPasswordTextbox" runat="server" TextMode="Password" CssClass="Textboxes" />
             <asp:CustomValidator ID="passwordValidator" Validationgroup="passwords" runat="server" ControlToValidate="oldPasswordTextbox" ErrorMessage="The supplied password is incorrect" OnServerValidate="passwordValidator_ServerValidate" ValidateEmptyText="True" Display="Dynamic"></asp:CustomValidator>
             <br />
-            <asp:Button ID="changePasswordButton" runat="server" Text="Change password" OnClick="changePasswordButton_Click" />
+            <asp:Button ID="changePasswordButton" Validationgroup="passwords" runat="server" Text="Change password" OnClick="changePasswordButton_Click" />
             <br />
         </div>
         <asp:Label ID="Label1" runat="server"></asp:Label>

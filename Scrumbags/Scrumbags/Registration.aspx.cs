@@ -34,11 +34,11 @@ namespace Scrumbags
                 "You recently created an accounton our site.\n" +
                 "Please use the following link to verify your account: " +
                 "http://scrumbags.somee.com/UserVerification?email=" + email + "&hash=" + Hashing.GetHash(email); //juiste adres invullen!!
-                MailSender mailsender = new MailSender("tet", subject, body);
+                MailSender mailsender = new MailSender(email, subject, body);
                 mailsender.Send();
 
                 //Redirect to loginpage
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your account has been created');</script>");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your account has been created, an email has been sent to your email address to verify your accoutn');</script>");
                 Response.AppendHeader("REFRESH", "1;URL=Login.aspx");
             }
         }

@@ -10,7 +10,6 @@ namespace Scrumbags
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        String passwordhash;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,13 +30,13 @@ namespace Scrumbags
 
             if (!IsPostBack)
             {
-                fillUserFields();    
+                fillUserFields();
             }
 
             if (DBQueries.CheckAdmin(Session["id"].ToString()))
             {
                 //jwz
-            }  
+            }
         }
 
         //Fill the fields with the info of the current user
@@ -49,7 +48,6 @@ namespace Scrumbags
             String firstname = name[1];
             String lastName = name[0];
             ViewState["email"] = table.Rows[0]["email"].ToString();
-            passwordhash = table.Rows[0]["password"].ToString();
 
             firstNameTextbox.Text = firstname;
             lastNameTextbox.Text = lastName;
@@ -67,7 +65,7 @@ namespace Scrumbags
             {
                 args.IsValid = !DBQueries.userExists(emailTextbox.Text);
             }
-            
+
         }
 
         //Check if a new password is being set
@@ -92,15 +90,24 @@ namespace Scrumbags
         {
             if (Page.IsValid)
             {
-                if (true)
-                {
+                DBQueries.changePassword(ViewState["email"].ToString(), newPassword1Textbox.Text);
 
-                }
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your new password has been set.');</script>");
             }
+
+
         }
 
         protected void saveSettingsButton_Click(object sender, EventArgs e)
         {
+            if (Page.IsValid)
+            {
+                String name = lastNameTextbox.Text + firstNameTextbox.Text;
+                DBQueries.changeUserSettings(Session["id"].ToString(), name, emailTextbox.Text);
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your settings have been changed.');</script>");
+            }
+
 
         }
     }
