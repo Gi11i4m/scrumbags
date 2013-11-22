@@ -10,25 +10,7 @@
 #registrationDiv .Errormessage {
     color: red;
 }
-.Labels {
-    display: inline-block;
-    width: 140px;
-    padding-bottom: 10px;
-}
-.Textboxes {
-    Width: 200px;
-    margin-right: 20px;
-}
 
-.Errormessage {
-    color: red;
-}
-
-.Message {
-    border-width: 2px;
-    padding: 5px;
-    margin: 3px;
-}
 #loginContainer {
     display: inline-block;
     border: 1px outset gray;
@@ -36,4 +18,31 @@
     position: absolute;
     top: 40%;
     left: 40%;
+}
+#loginContainer .Labels {
+    display: inline-block;
+    width: 140px;
+    padding-bottom: 10px;
+}
+#loginContainer .Textboxes {
+    Width: 200px;
+    margin-right: 20px;
+}
+
+.Errormessage {
+    color: red;
+}
+.Message {
+    border-width: 2px;
+    padding: 5px;
+    margin: 3px;
+}
+
+#masterHeader {
+    width: 100%;
+    background: rgba(128, 128, 128, 0.4);
+}
+#masterHeader button {
+    display: inline-block;
+    float: right;
 }

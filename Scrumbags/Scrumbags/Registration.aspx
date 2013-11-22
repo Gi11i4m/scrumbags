@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="Scrumbags.Registration" MasterPageFile="~/MasterPage.Master" Title="Registration Page"%>
 
-    <asp:Content ID="BodyContent" ContentPlaceHolderId="MasterPageContentHolder" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
     <h1>Registration page</h1>
 
     <form id="form1" runat="server">
@@ -32,11 +32,11 @@
 
                 <asp:Label ID="password2Label" AssociatedControlID="password2Input" runat="server" CssClass="Labels"></asp:Label>
                 <asp:TextBox ID="password2Input" runat="server" TextMode="Password" CssClass="Textboxs" />
-                <asp:CompareValidator ID="CompareValidator" runat="server" ControlToValidate="password1Input" ControlToCompare="password2Input" CssClass="Errormessage" ErrorMessage="Passwords do not match." Display="Dynamic"/>
+                <asp:CompareValidator ID="CompareValidator" runat="server" ControlToValidate="password1Input" ControlToCompare="password2Input" CssClass="Errormessage" ErrorMessage="Passwords do not match." Display="Dynamic" />
             </div>
             <br />
             <br />
             <asp:Button ID="submitButton" runat="server" Text="Register" OnClick="submitButton_Click" />
         </div>
     </form>
-</asp:Content>>
+</asp:Content>

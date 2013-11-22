@@ -41,5 +41,10 @@ namespace Scrumbags
         {
             Response.Redirect("PasswordReset.aspx");
         }
+
+        protected void newUserLinkButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Registration.aspx");
+        }
     }
 }
