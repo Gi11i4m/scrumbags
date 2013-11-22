@@ -32,7 +32,7 @@ namespace Scrumbags
                 }
                 else
                 {
-                    //error melding, ga ik nu nog niet doen er is geen test data
+                    // ERROR
                 }
             }
         }
