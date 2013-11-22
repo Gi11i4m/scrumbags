@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="Scrumbags.MasterPageClass" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="Scrumbags.MasterPageClass" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,6 +10,9 @@
 </head>
 <body>
     <form id="masterform" runat="server">
+    <div id="masterHeader">
+        <asp:Button ID="logoutButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" />        
+    </div>
     <div>
         <asp:Label ID="errorMessage" runat="server"></asp:Label>
         <asp:ContentPlaceHolder ID="MasterContentPlaceHolder" runat="server">

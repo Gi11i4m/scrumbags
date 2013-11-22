@@ -2,14 +2,8 @@
     display: inline-block;
     width: 140px;
     padding-bottom: 10px;
-<<<<<<< HEAD
 }
-
-.Textboxs {
-=======
-    }
-#registrationDiv .Textboxes {
->>>>>>> f332f9db5e05760dba6bc0cde568230e79b33a2f
+.Textboxes {
     Width: 200px;
     margin-right: 20px;
 }
@@ -17,13 +11,15 @@
 .Errormessage {
     color: red;
 }
-<<<<<<< HEAD
 
+<<<<<<< HEAD
 .Message {
     border-width: 2px;
     padding: 5px;
     margin: 3px;
+}
 =======
+>>>>>>> e79cdab1cebd3ac02136595e82ba3703faf37e81
 #loginContainer {
     display: inline-block;
     border: 1px outset gray;
@@ -31,5 +27,34 @@
     position: absolute;
     top: 40%;
     left: 40%;
->>>>>>> f332f9db5e05760dba6bc0cde568230e79b33a2f
 }
+<<<<<<< HEAD
+=======
+#loginContainer .Labels {
+    display: inline-block;
+    width: 140px;
+    padding-bottom: 10px;
+}
+#loginContainer .Textboxes {
+    Width: 200px;
+    margin-right: 20px;
+}
+
+.Errormessage {
+    color: red;
+}
+.Message {
+    border-width: 2px;
+    padding: 5px;
+    margin: 3px;
+}
+
+#masterHeader {
+    width: 100%;
+    background: rgba(128, 128, 128, 0.4);
+}
+#masterHeader button {
+    display: inline-block;
+    float: right;
+}
+>>>>>>> e79cdab1cebd3ac02136595e82ba3703faf37e81

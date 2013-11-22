@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
+using System.Data;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -25,8 +25,6 @@ namespace Scrumbags
 
                 if (DBQueries.login(emailInput, passwordInput))
                 {
-                    //Maak hier aub een functie voor in de DBquery klasse, die uw Id returnt!
-                    //Check of account geverified is.
                     DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput + "'");
                     Object o = t.Rows[0]["id"];
                     Session["id"] = o.ToString();
@@ -42,6 +40,11 @@ namespace Scrumbags
         protected void passwordResetLinkButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("PasswordReset.aspx");
+        }
+
+        protected void newUserLinkButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Registration.aspx");
         }
     }
 }

@@ -1,17 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reservations.aspx.cs" Inherits="Scrumbags.Reservations" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reservations.aspx.cs" Inherits="Scrumbags.Reservations" MasterPageFile="~/MasterPage.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
     <div>
-    
-        <asp:HyperLink ID="HomePageHyperLink" runat="server" NavigateUrl="~/Home.aspx">Back to slots</asp:HyperLink>
-    
+        <asp:HyperLink ID="HomePageHyperLink" runat="server" NavigateUrl="~/Home.aspx">Back to slots</asp:HyperLink>    
     </div>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
@@ -31,6 +22,4 @@
                 <asp:SessionParameter Name="id" SessionField="id" />
             </SelectParameters>
         </asp:SqlDataSource>
-    </form>
-</body>
-</html>
+</asp:Content>

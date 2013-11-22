@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +11,20 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            logoutButton.Visible = !MasterContentPlaceHolder.Page.Title.Equals("Login");
+        }
 
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Session.Abandon();
+                Response.Redirect("Login.aspx", true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

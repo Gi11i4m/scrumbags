@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Registration Page" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="Scrumbags.Registration" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+    <asp:Content ID="BodyContent" ContentPlaceHolderId="MasterPageContentHolder" runat="server">
+    <h1>Registration page</h1>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
     <h1>Registration page</h1>

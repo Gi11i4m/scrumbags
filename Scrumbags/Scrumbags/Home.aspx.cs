@@ -14,7 +14,7 @@ namespace Scrumbags
             //Check if their is a Session atm. Else a big no no
             if (Session["id"] == null)
             {
-                Server.Transfer("Default.aspx", true);
+                Server.Transfer("Login.aspx", true);
             }
 
             if (!Page.IsPostBack)
@@ -22,14 +22,10 @@ namespace Scrumbags
                 SlotsDataGrid.DataSource = DBQueries.getSlots();
                 SlotsDataGrid.DataBind();
             }
-           
-            
-            
-            
-            
+
             // Use this statement to check if the user is an Admin
-            if ((bool)Session["isAdmin"])
-            {}
+            //if ((bool)Session["isAdmin"])
+            //{}
         }
 
         protected void SlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
@@ -37,7 +33,7 @@ namespace Scrumbags
             DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
             SlotsDataGrid.DataSource = DBQueries.getSlots();
             SlotsDataGrid.DataBind();
-            
+
         }
 
         protected void SlotsDataGrid_ItemDataBound(object sender, DataGridItemEventArgs e)
@@ -51,7 +47,7 @@ namespace Scrumbags
                     {
                         DateTime myDate = DateTime.Parse(e.Item.Cells[0].Text.ToString());
                         e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + myDate.Month;
-                        
+
                         //De breedte van de toegevoegde subheader
                         e.Item.Cells[1].ColumnSpan = e.Item.Cells.Count;
 
@@ -65,19 +61,6 @@ namespace Scrumbags
             }
         }
 
-
-        protected void LogoutButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Session.Abandon();
-                Response.Redirect("Default.aspx", true);
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
         protected void gvEmp_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "SelectSlots")
@@ -90,7 +73,5 @@ namespace Scrumbags
             SlotsDataGrid.DataBind();
             Label1.Text = "blap";
         }
-
-       
     }
 }
