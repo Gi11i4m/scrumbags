@@ -10,8 +10,8 @@ namespace Scrumbags
 {
     public class DBConnection
     {
-        //public static string connectionString = "LocalConnection";
-        public static string connectionString = "CloudConnection";
+        public static string connectionString = "LocalConnection";
+        // public static string connectionString = "CloudConnection";
 
         public static DataTable executeQuery(string query)
         {

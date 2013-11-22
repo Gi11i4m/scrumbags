@@ -16,23 +16,26 @@
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         <br />
         <asp:HyperLink ID="ReservationsHyperLink" runat="server" NavigateUrl="~/Reservations.aspx">Check my reservations</asp:HyperLink>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True" AllowSorting="True">
-            <Columns>
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:BoundField DataField="date" HeaderText="date" SortExpression="date" />
-                <asp:BoundField DataField="start" HeaderText="start" SortExpression="start" />
-                <asp:BoundField DataField="einde" HeaderText="einde" SortExpression="einde" />
-                <asp:BoundField DataField="duration" HeaderText="duration" SortExpression="duration" />
-                <asp:BoundField DataField="capacity" HeaderText="capacity" SortExpression="capacity" />
-                <asp:BoundField DataField="digital" HeaderText="digital" SortExpression="digital" ReadOnly="True" />
-                <asp:BoundField DataField="city" HeaderText="city" SortExpression="city" />
-                <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
-            </Columns>
-            <EmptyDataTemplate>
-                jik<br />
-            </EmptyDataTemplate>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnections.connectionString %>" SelectCommand="SELECT [date], [start], [einde], [duration],[capacity], [digital] = CASE [digital] WHEN 1 then 'YES' else 'NO' END,  [city], [id] FROM [slots] "></asp:SqlDataSource>
+        <div style="margin-left: 40px">
+            <asp:datagrid ID ="SlotsDataGrid" runat="server" 
+        AutoGenerateColumns="False" 
+        OnItemDataBound="SlotsDataGrid_ItemDataBound"
+                onItemCommand="SlotsDataGrid_OnItemCommand">
+                <Columns>
+                    <asp:BoundColumn DataField="date" Visible="false" />
+                    <asp:BoundColumn DataField="start" HeaderText="Start hour" />
+                    <asp:BoundColumn DataField ="einde" HeaderText="End hour" />
+                    <asp:BoundColumn DataField="duration" HeaderText="duration" />
+                    <asp:BoundColumn DataField="capacity" HeaderText="Teachers needed" />
+                    <asp:BoundColumn DataField="digital" HeaderText="Digital?" />
+                    <asp:BoundColumn DataField="city" HeaderText="City" />
+                    <asp:BoundColumn DataField="id" Visible="false" />
+                    <asp:ButtonColumn HeaderText="Select Slot" ButtonType="PushButton" Text="Select" CommandName="SelectSlot" />
+                </Columns>
+            </asp:datagrid>
+        </div>
+    
+    
     </form>
 </body>
 </html>
