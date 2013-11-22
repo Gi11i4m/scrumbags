@@ -16,11 +16,23 @@ namespace Scrumbags
             return dt.Rows.Count == 1;
         }
 
+        public static DataTable getUserTable(string id)
+        {
+            DataTable t = DBConnection.executeQuery("SELECT * FROM lecturers WHERE id = '" + id + "'");
+            return t;           
+        }
+
         // Register user
         public static void Register(string name, string email, string password)
         {
             string pwhash = Hashing.GetHash(password);
             DBConnection.executeQuery("INSERT INTO lecturers (name, email, password, verified) VALUES ('" + name + "','" + email + "','" + pwhash + "', 'false')");
+        }
+
+        //Set user setting with the supplied parameters
+        public static void changeUserSettings(string id, string name, string email)
+        {
+            DBConnection.executeQuery("UPDATE lecturers SET name='" + name + "', email='" + email + "' WHERE id='" + id + "'");
         }
 
         //Check capacity availability in slots // Just for extra checking!
@@ -60,10 +72,10 @@ namespace Scrumbags
             DBConnection.executeQuery("UPDATE lecturers SET verified='1' WHERE email='" + email + "'");
         }
 
+        //This Method returns true if the given hash equals the saved hash found in the database. Identified through the emailaddress
         public static Boolean login(string email, string password)
         {
             string hash = Hashing.GetHash(password);
-            //This Method returns true if the given hash equals the saved hash found in the database. Identified through the emailaddress
             DataTable t = DBConnection.executeQuery("SELECT password FROM lecturers WHERE email = '" + email + "'");
             Object o = t.Rows[0]["password"];
             return hash.Equals(o.ToString());
@@ -76,6 +88,7 @@ namespace Scrumbags
             return depPerRooster;
         }
 
+        //Check if a lecturer with the supplied ID exists in the admins table
         public static bool CheckAdmin(string lecturer_id)
         {
             DataTable table = DBConnection.executeQuery("SELECT count(*) AS isAdmin FROM admins WHERE lecturer_id = '" + lecturer_id + "'");

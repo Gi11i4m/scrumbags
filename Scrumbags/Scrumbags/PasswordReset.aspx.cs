@@ -33,9 +33,6 @@ namespace Scrumbags
 
                 String password = new string(charray);
 
-                //Save new password in DB
-                DBQueries.changePassword(email, password);
-
                 //Send new password to email address 
                 String subject = "Scrumbags - Password reset";
                 String body = "Dear,\n " + 
@@ -44,6 +41,9 @@ namespace Scrumbags
                 MailSender mailsender = new MailSender(email, subject, body);
                 mailsender.Send();
                 emailLabel.Text = password;
+
+                //Save new password in DB
+                DBQueries.changePassword(email, password);
 
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your new password has been sent to your email address');</script>");
                 Response.AppendHeader("REFRESH", "1;URL=Login.aspx");

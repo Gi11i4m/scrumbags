@@ -33,7 +33,7 @@ namespace Scrumbags
                 String body = "Dear " + name + ",\n " +
                 "You recently created an accounton our site.\n" +
                 "Please use the following link to verify your account: " +
-                "scrumbags.somee.com/.../UserVerification?email=" + email + "&hash=" + Hashing.GetHash(email); //juiste adres invullen!!
+                "http://scrumbags.somee.com/UserVerification?email=" + email + "&hash=" + Hashing.GetHash(email); //juiste adres invullen!!
                 MailSender mailsender = new MailSender("tet", subject, body);
                 mailsender.Send();
 
@@ -45,7 +45,7 @@ namespace Scrumbags
 
         protected void emailExistsValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            //Check if email exists, invalidate page if it does
+            //Check if email already exists, invalidate page if it does
             args.IsValid = !DBQueries.userExists(emailTextbox.Text);
         }
     }

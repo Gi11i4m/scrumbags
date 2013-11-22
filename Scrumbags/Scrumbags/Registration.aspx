@@ -6,7 +6,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
     <h1>Registration page</h1>
     <div id="registrationDiv">
-        <asp:Label ID="firstNameLabel" AssociatedControlID="firstNameTextbox" runat="server" CssClass="Labels"></asp:Label>
+        <asp:Label ID="firstNameLabel" AssociatedControlID="firstNameTextbox" runat="server" CssClass="Labels" />
         <asp:TextBox ID="firstNameTextbox" runat="server" CssClass="Textboxes" />
         <asp:RequiredFieldValidator ID="firstNameValidator" runat="server" ControlToValidate="firstNameTextbox" CssClass="Errormessage" ErrorMessage="First name is required." Display="Dynamic" />
         <asp:RegularExpressionValidator ID="firstNameRegexValidator" runat="server" ControlToValidate="firstNameTextbox" CssClass="Errormessage" ErrorMessage="First name can only contain letters" ValidationExpression="^[A-z][-A-z]+$" />
