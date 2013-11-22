@@ -16,6 +16,13 @@ namespace Scrumbags
             return dt.Rows.Count == 1;
         }
 
+        public static bool userIsVefied(string email)
+        {
+            DataTable dt = DBConnection.executeQuery("SELECT verified FROM lecturers WHERE email = '" + email + "'");
+
+            return (bool)dt.Rows[0]["verified"];
+        }
+
         public static DataTable getUserTable(string id)
         {
             DataTable t = DBConnection.executeQuery("SELECT * FROM lecturers WHERE id = '" + id + "'");

@@ -10,124 +10,7 @@
 namespace Scrumbags {
     
     
-    public partial class WebForm2 {
-        
-        /// <summary>
-        /// firstNameLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label firstNameLabel;
-        
-        /// <summary>
-        /// firstNameTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox firstNameTextbox;
-        
-        /// <summary>
-        /// firstNameValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator firstNameValidator;
-        
-        /// <summary>
-        /// firstNameRegexValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator firstNameRegexValidator;
-        
-        /// <summary>
-        /// lastNameLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lastNameLabel;
-        
-        /// <summary>
-        /// lastNameTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastNameTextbox;
-        
-        /// <summary>
-        /// lastNameValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator lastNameValidator;
-        
-        /// <summary>
-        /// lastNameRegexValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator lastNameRegexValidator;
-        
-        /// <summary>
-        /// emailLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label emailLabel;
-        
-        /// <summary>
-        /// emailTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailTextbox;
-        
-        /// <summary>
-        /// emailValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator emailValidator;
-        
-        /// <summary>
-        /// emailInUseValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator emailInUseValidator;
-        
-        /// <summary>
-        /// saveSettingsButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveSettingsButton;
+    public partial class UserSettings {
         
         /// <summary>
         /// newPassword1Label control.
@@ -148,6 +31,15 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.TextBox newPassword1Textbox;
         
         /// <summary>
+        /// newPassword1Validator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator newPassword1Validator;
+        
+        /// <summary>
         /// newPassword2Label control.
         /// </summary>
         /// <remarks>
@@ -166,13 +58,13 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.TextBox newPassword2Textbox;
         
         /// <summary>
-        /// CompareValidator control.
+        /// passwordsCompareValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator;
+        protected global::System.Web.UI.WebControls.CompareValidator passwordsCompareValidator;
         
         /// <summary>
         /// oldPasswordLabel control.
@@ -193,13 +85,13 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.TextBox oldPasswordTextbox;
         
         /// <summary>
-        /// passwordValidator control.
+        /// oldPasswordValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator passwordValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator oldPasswordValidator;
         
         /// <summary>
         /// changePasswordButton control.

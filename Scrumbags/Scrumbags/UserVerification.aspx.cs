@@ -15,8 +15,16 @@ namespace Scrumbags
             string email = Request["email"];
             string hash = Request["hash"];
 
-            //Check if parameters are present, user exists and hash is valid
-            if (email != null && hash != null && DBQueries.userExists(email) && hash.Equals(Hashing.GetHash(email)))
+            //Check if parameters are present, user is already verified, user exists and hash is valid
+            if (email == null || hash == null)
+            {
+                messageLabel.Text = "There was a problem processing your request - The supplied link is not correct.";
+            }
+            else if (DBQueries.userIsVefied(email))
+            {
+                messageLabel.Text = "Your account has already been verified.";
+            }
+            else if (DBQueries.userExists(email) && hash.Equals(Hashing.GetHash(email)))
             {
                 //Verify user in DB
                 DBQueries.verifyUser(email);
@@ -27,7 +35,7 @@ namespace Scrumbags
             }
             else
             {
-                messageLabel.Text = "There was a problem processing your request."; //Redirect?
+                messageLabel.Text = "There was a problem processing your request - Your email address does not exist."; //Redirect?
             }
         }
     }
