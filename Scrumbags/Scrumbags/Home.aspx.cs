@@ -34,7 +34,7 @@ namespace Scrumbags
             try
             {
                 Session.Abandon();
-                Response.Redirect("Default.aspx", true);
+                Response.Redirect("Login.aspx", true);
             }
             catch(Exception ex)
             {
