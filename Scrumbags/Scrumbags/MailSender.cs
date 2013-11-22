@@ -18,6 +18,8 @@ namespace Scrumbags
         public MailSender(string emailaddress, string subject, string body)
         {
             this.emailaddress = emailaddress;
+            this.subject = subject;
+            this.body = body;
         }
 
         //SEND FUNCTION

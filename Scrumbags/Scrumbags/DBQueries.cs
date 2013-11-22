@@ -95,5 +95,31 @@ namespace Scrumbags
             Object obj = table.Rows[0]["isAdmin"];
             return (obj.ToString().Equals("1"));
         }
+        //Code Pauwel voor de Dataset op te vragen
+        public static DataSet getSlots()
+        {
+            DataSet ds = DBConnection.executeQueryDataSet("SELECT * FROM slots ORDER BY date;");
+            int i = 0;
+            string prevDate = "";
+
+            while (i <= ds.Tables[0].Rows.Count - 1)
+            {
+                DataRow dr = ds.Tables[0].Rows[i];
+
+                // if category field value changes add a new row
+                if (dr["date"].ToString() != prevDate)
+                {
+                    prevDate = dr["date"].ToString();
+                    DataRow newrow = ds.Tables[0].NewRow();
+                    newrow["city"] = "SubHeading";      // sub heading flag
+                    newrow["date"] = dr["date"];  // sub heading text
+                    // add row and increment counter to accommodate new row
+                    ds.Tables[0].Rows.InsertAt(newrow, i++);
+                }
+                i++;
+            }
+
+            return ds;
+        }
     }
 }

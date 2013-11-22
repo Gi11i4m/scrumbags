@@ -10,9 +10,12 @@ namespace Scrumbags
 {
     public class DBConnection
     {
+        public static string connectionString = "LocalConnection";
+        // public static string connectionString = "CloudConnection";
+
         public static DataTable executeQuery(string query)
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalConnection"].ConnectionString);
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings[connectionString].ConnectionString);
             SqlCommand cmd = new SqlCommand(query, conn);
             conn.Open();
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -21,6 +24,22 @@ namespace Scrumbags
             conn.Close();
 
             return dt;
+        }
+
+        //Code pauwel voor een dataset terug te krijgen voor in de datagrid te steken
+        public static DataSet executeQueryDataSet(string query)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalConnection"].ConnectionString);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            return ds;
         }
     }
 }
