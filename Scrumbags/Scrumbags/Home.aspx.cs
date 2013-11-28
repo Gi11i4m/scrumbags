@@ -13,15 +13,23 @@ namespace Scrumbags
         protected void Page_Load(object sender, EventArgs e)
         {
             //Check if their is a Session atm. Else a big no no
-            if (Session["id"] == null)
+            //if (Session["id"] == null)
+            //{
+            //    Server.Transfer("Login.aspx", true);
+            //}
+
+            /**
+             * 1. Check if their is a Session atm
+             * 2. 
+            */
+            if (Session["id"] != null && !Page.IsPostBack)
             {
-                Server.Transfer("Login.aspx", true);
-            }
-            if (!Page.IsPostBack)
-            {
-                GridView Gridview1 = (GridView)FindControl("SlotsDataGrid");
                 Gridview1.DataSource = DBQueries.getSlots();
                 Gridview1.DataBind();
+            }
+            else
+            {
+                Server.Transfer("Login.aspx", true);
             }
 
             // Use this statement to check if the user is an Admin
@@ -31,7 +39,6 @@ namespace Scrumbags
 
         protected void SlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
-            GridView Gridview1 = (GridView)FindControl("SlotsDataGrid");
             DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
             Gridview1.DataSource = DBQueries.getSlots();
             Gridview1.DataBind();
@@ -71,7 +78,6 @@ namespace Scrumbags
 
         protected void SlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridView Gridview1 = (GridView)FindControl("SlotsDataGrid");
             Gridview1.DataSource = DBQueries.getSlots();
             Gridview1.DataBind();
             //Label1.Text = "blap";
