@@ -97,6 +97,13 @@ namespace Scrumbags
             return depPerRooster;
         }
 
+        //Query voor rooster weer te geven per campus (PIET)
+        public static DataTable RoosterPerCampus(string campus)
+        {
+            DataTable campusPerRooster = DBConnection.executeQuery("SELECT * FROM slots WHERE city =" + campus + ";");
+            return campusPerRooster;
+        }
+
         //Check if a lecturer with the supplied ID exists in the admins table
         public static bool CheckAdmin(string lecturer_id)
         {
@@ -111,10 +118,19 @@ namespace Scrumbags
             DBConnection.executeQuery("UPDATE message SET motd='" + message + "'");
         }
 
+        //Get the site message
+        public static DataTable GetSiteMessage()
+        {
+            DataTable message = DBConnection.executeQuery("SELECT motd FROM message");
+            return message;
+        }
+
+
+
         //Code Pauwel voor de Dataset op te vragen
         public static DataSet getSlots()
         {
-            DataSet ds = DBConnection.executeQueryDataSet("SELECT * FROM slots ORDER BY date;");
+            DataSet ds = DBConnection.executeQueryDataSet("SELECT * FROM slots WHERE capacity !=0 ORDER BY date;");
             int i = 0;
             string prevDate = "";
 
