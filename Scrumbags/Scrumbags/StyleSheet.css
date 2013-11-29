@@ -18,6 +18,8 @@
     position: absolute;
     top: 40%;
     left: 40%;
+    height: 105px;
+    width: 232px;
 }
 #loginContainer .Labels {
     display: inline-block;

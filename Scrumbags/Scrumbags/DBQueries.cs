@@ -97,6 +97,13 @@ namespace Scrumbags
             return depPerRooster;
         }
 
+        //Query voor rooster weer te geven per campus (PIET)
+        public static DataTable RoosterPerCampus(string campus)
+        {
+            DataTable campusPerRooster = DBConnection.executeQuery("SELECT * FROM slots WHERE city =" + campus + ";");
+            return campusPerRooster;
+        }
+
         //Check if a lecturer with the supplied ID exists in the admins table
         public static bool CheckAdmin(string lecturer_id)
         {
@@ -109,6 +116,13 @@ namespace Scrumbags
         public static void SetSiteMessage(string message)
         {
             DBConnection.executeQuery("UPDATE siteMessage SET message='" + message + "'");
+        }
+
+        //Get the site message
+        public static DataTable GetSiteMessage()
+        {
+            DataTable message = DBConnection.executeQuery("SELECT motd FROM message");
+            return message;
         }
 
 
