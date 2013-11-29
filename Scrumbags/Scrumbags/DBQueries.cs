@@ -8,10 +8,40 @@ namespace Scrumbags
 {
     public class DBQueries
     {
+        //Checks if user exists
+        public static bool UserExists(string email)
+        {
+            DataTable dt = DBConnection.executeQuery("SELECT * FROM lecturers WHERE email = '" + email + "'");
+
+            return dt.Rows.Count == 1;
+        }
+
+        //Check if user is already verified
+        public static bool userIsVefied(string email)
+        {
+            DataTable dt = DBConnection.executeQuery("SELECT verified FROM lecturers WHERE email = '" + email + "'");
+
+            return (bool)dt.Rows[0]["verified"];
+        }
+
+        //Get a datatable with all the user data
+        public static DataTable getUserTable(string id)
+        {
+            DataTable t = DBConnection.executeQuery("SELECT * FROM lecturers WHERE id = '" + id + "'");
+            return t;           
+        }
+
         // Register user
         public static void Register(string name, string email, string password)
         {
-            DBConnection.executeQuery("INSERT INTO lecturers (name, email, password) VALUES ('" + name + "','" + email + "','" + password + "')");
+            string pwhash = Hashing.GetHash(password);
+            DBConnection.executeQuery("INSERT INTO lecturers (name, email, password, verified) VALUES ('" + name + "','" + email + "','" + pwhash + "', 'false')");
+        }
+
+        //Set user setting with the supplied parameters
+        public static void changeUserSettings(string id, string name, string email)
+        {
+            DBConnection.executeQuery("UPDATE lecturers SET name='" + name + "', email='" + email + "' WHERE id='" + id + "'");
         }
 
         //Check capacity availability in slots // Just for extra checking!
@@ -38,22 +68,23 @@ namespace Scrumbags
         
         }
 
-        // Delete reservated slot
-        // Var capacity will be incremented by 1 when reservation is deleted
-        public static void DeleteReservation(int lecturerID, int slotID, int reservationID)
+        //Change user password
+        public static void changePassword(string email, string password)
         {
-            DBConnection.executeQuery("UPDATE slots SET capacity = capacity + 1 WHERE id = '" + slotID + "'");
-            DBConnection.executeQuery("DELETE FROM reservations WHERE id = '" + reservationID + "' AND lecturer_id = '" + lecturerID + "'");
+            string pwhash = Hashing.GetHash(password);
+            DBConnection.executeQuery("UPDATE lecturers SET password='" + pwhash +  "' WHERE email='" + email + "'");
         }
 
+        //Set user to verified in DB
         public static void verifyUser(string email)
         {
-            DBConnection.executeQuery("UPDATE lecturers SET verified=true WHERE email=" + email + ";");
+            DBConnection.executeQuery("UPDATE lecturers SET verified='1' WHERE email='" + email + "'");
         }
+
+        //This Method returns true if the given hash equals the saved hash found in the database. Identified through the emailaddress
         public static Boolean login(string email, string password)
         {
             string hash = Hashing.GetHash(password);
-            //This Method returns true if the given hash equals the saved hash found in the database. Identified through the emailaddress
             DataTable t = DBConnection.executeQuery("SELECT password FROM lecturers WHERE email = '" + email + "'");
             Object o = t.Rows[0]["password"];
             return hash.Equals(o.ToString());
@@ -66,11 +97,47 @@ namespace Scrumbags
             return depPerRooster;
         }
 
+        //Check if a lecturer with the supplied ID exists in the admins table
         public static bool CheckAdmin(string lecturer_id)
         {
             DataTable table = DBConnection.executeQuery("SELECT count(*) AS isAdmin FROM admins WHERE lecturer_id = '" + lecturer_id + "'");
             Object obj = table.Rows[0]["isAdmin"];
             return (obj.ToString().Equals("1"));
+        }
+
+        //Set the site message
+        public static void SetSiteMessage(string message)
+        {
+            DBConnection.executeQuery("UPDATE siteMessage SET message='" + message + "'");
+        }
+
+
+
+        //Code Pauwel voor de Dataset op te vragen
+        public static DataSet getSlots()
+        {
+            DataSet ds = DBConnection.executeQueryDataSet("SELECT * FROM slots ORDER BY date;");
+            int i = 0;
+            string prevDate = "";
+
+            while (i <= ds.Tables[0].Rows.Count - 1)
+            {
+                DataRow dr = ds.Tables[0].Rows[i];
+
+                // if category field value changes add a new row
+                if (dr["date"].ToString() != prevDate)
+                {
+                    prevDate = dr["date"].ToString();
+                    DataRow newrow = ds.Tables[0].NewRow();
+                    newrow["city"] = "SubHeading";      // sub heading flag
+                    newrow["date"] = dr["date"];  // sub heading text
+                    // add row and increment counter to accommodate new row
+                    ds.Tables[0].Rows.InsertAt(newrow, i++);
+                }
+                i++;
+            }
+
+            return ds;
         }
     }
 }

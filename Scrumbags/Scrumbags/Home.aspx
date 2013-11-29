@@ -1,38 +1,25 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Scrumbags.Home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="Home.aspx.cs" Inherits="Scrumbags.Home" MasterPageFile="~/MasterPage.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-        <asp:Button ID="LogoutButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" />
-        <br />
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        <br />
-        <asp:HyperLink ID="ReservationsHyperLink" runat="server" NavigateUrl="~/Reservations.aspx">Check my reservations</asp:HyperLink>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True" AllowSorting="True">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    <br />
+    <asp:HyperLink ID="ReservationsHyperLink" runat="server" NavigateUrl="~/Reservations.aspx">Check my reservations</asp:HyperLink>
+    <div style="margin-left: 40px">
+        <asp:DataGrid ID="SlotsDataGrid" runat="server"
+            AutoGenerateColumns="False"
+            OnItemDataBound="SlotsDataGrid_ItemDataBound"
+            OnItemCommand="SlotsDataGrid_OnItemCommand">
             <Columns>
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:BoundField DataField="date" HeaderText="date" SortExpression="date" />
-                <asp:BoundField DataField="start" HeaderText="start" SortExpression="start" />
-                <asp:BoundField DataField="einde" HeaderText="einde" SortExpression="einde" />
-                <asp:BoundField DataField="duration" HeaderText="duration" SortExpression="duration" />
-                <asp:BoundField DataField="capacity" HeaderText="capacity" SortExpression="capacity" />
-                <asp:BoundField DataField="digital" HeaderText="digital" SortExpression="digital" ReadOnly="True" />
-                <asp:BoundField DataField="city" HeaderText="city" SortExpression="city" />
-                <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
+                <asp:BoundColumn DataField="date" Visible="false" />
+                <asp:BoundColumn DataField="start" HeaderText="Start hour" />
+                <asp:BoundColumn DataField="einde" HeaderText="End hour" />
+                <asp:BoundColumn DataField="duration" HeaderText="duration" />
+                <asp:BoundColumn DataField="capacity" HeaderText="Teachers needed" />
+                <asp:BoundColumn DataField="digital" HeaderText="Digital?" />
+                <asp:BoundColumn DataField="city" HeaderText="City" />
+                <asp:BoundColumn DataField="id" Visible="false" />
+                <asp:ButtonColumn HeaderText="Select Slot" ButtonType="PushButton" Text="Select" CommandName="SelectSlot" />
             </Columns>
-            <EmptyDataTemplate>
-                jik<br />
-            </EmptyDataTemplate>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnections.connectionString %>" SelectCommand="SELECT [date], [start], [einde], [duration],[capacity], [digital] = CASE [digital] WHEN 1 then 'YES' else 'NO' END,  [city], [id] FROM [slots] "></asp:SqlDataSource>
-    </form>
-</body>
-</html>
+        </asp:DataGrid>
+    </div>
+</asp:Content>
