@@ -265,4 +265,10 @@ INSERT INTO "slots" (id, date, start, einde, duration, capacity, digital, city, 
 INSERT INTO "slots" (id, date, start, einde, duration, capacity, digital, city, department) VALUES(20,'2013/08/29','15:30','18:00','2:30',2,1,'antwerpen', 'MC');
 
 SET IDENTITY_INSERT slots OFF
+
+
+
+CREATE TABLE message (motd varchar(255));
+INSERT INTO message(motd) VALUES('Messaag van de dag');
+
 COMMIT;

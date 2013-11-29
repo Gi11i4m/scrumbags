@@ -9,19 +9,29 @@ namespace Scrumbags
 {
     public partial class Home : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Check if their is a Session atm. Else a big no no
+            //if (Session["id"] == null)
+            //{
+            //    Server.Transfer("Login.aspx", true);
+            //}
+
+            /**
+             * 1. Check if their is a Session atm
+             * 2. 
+            */
             if (Session["id"] == null)
             {
                 Server.Transfer("Login.aspx", true);
             }
-
             if (!Page.IsPostBack)
             {
                 SlotsDataGrid.DataSource = DBQueries.getSlots();
                 SlotsDataGrid.DataBind();
             }
+            
 
             // Use this statement to check if the user is an Admin
             //if ((bool)Session["isAdmin"])
@@ -71,7 +81,7 @@ namespace Scrumbags
         {
             SlotsDataGrid.DataSource = DBQueries.getSlots();
             SlotsDataGrid.DataBind();
-            Label1.Text = "blap";
+            //Label1.Text = "blap";
         }
     }
 }
