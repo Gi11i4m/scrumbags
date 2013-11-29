@@ -9,7 +9,7 @@
         <div>
             <asp:Label ID="newPassword1Label" AssociatedControlID="newPassword1Textbox" runat="server" CssClass="Labels"></asp:Label>
             <asp:TextBox ID="newPassword1Textbox" runat="server" TextMode="Password" CssClass="Textboxes" Validationgroup="passwordControls" />
-            <asp:RequiredFieldValidator ID="newPassword1Validator" runat="server" ErrorMessage="Please enter a new password"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="newPassword1Validator" ControlToValidate="newPassword1Textbox" runat="server" ErrorMessage="Please enter a new password" Display="Dynamic"></asp:RequiredFieldValidator>
             <br />
 
             <asp:Label ID="newPassword2Label" AssociatedControlID="newPassword2Textbox" runat="server" CssClass="Labels"></asp:Label>
@@ -19,14 +19,15 @@
 
             <asp:Label ID="oldPasswordLabel" AssociatedControlID="oldPasswordTextbox" runat="server" CssClass="Labels"></asp:Label>
             <asp:TextBox ID="oldPasswordTextbox" runat="server" TextMode="Password" CssClass="Textboxes" Validationgroup="passwordControls" />
-            <asp:RequiredFieldValidator ID="oldPasswordValidator" runat="server" ErrorMessage="Please enter your old password"></asp:RequiredFieldValidator>
-            <asp:CustomValidator ID="oldPasswordExistsValidator"" runat="server" ControlToValidate="oldPasswordTextbox" ErrorMessage="The supplied password is incorrect" OnServerValidate="passwordValidator_ServerValidate" Display="Dynamic"></asp:CustomValidator>
+            <asp:RequiredFieldValidator ID="oldPasswordValidator" runat="server" ControlToValidate="oldPasswordTextbox" ErrorMessage="Please enter your old password"></asp:RequiredFieldValidator>
+            <asp:CustomValidator ID="oldPasswordCorrectValidator" runat="server" ControlToValidate="oldPasswordTextbox" ErrorMessage="The supplied password is incorrect" OnServerValidate="passwordValidator_ServerValidate" ValidationGroup="passwordControls" Display="Dynamic"></asp:CustomValidator>
             <br />
             <asp:Button ID="changePasswordButton" runat="server" Text="Change password" OnClick="changePasswordButton_Click" Validationgroup="passwordControls"/>
             <br />
         </div>
         <div>
-            <asp:TextBox ID="siteMessageTextbox" runat="server" Validationgroup="messageControls"></asp:TextBox>
+            <asp:TextBox ID="siteMessageTextbox" runat="server" TextMode="multiline" Validationgroup="messageControls"></asp:TextBox>
+            <br />
             <asp:Button ID="submitSiteMessageButton" runat="server" Text="Set message" OnClick="submitSiteMessageButton_Click" Validationgroup="messageControls"/>
         </div>
     </div>

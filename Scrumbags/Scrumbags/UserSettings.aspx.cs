@@ -14,18 +14,21 @@ namespace Scrumbags
         protected void Page_Load(object sender, EventArgs e)
         {
             //Check if there is a session, else transfer them to the default page
-            if (Session["id"] == null)
-            {
-                Server.Transfer("Default.aspx", true);
-            }
+            //if (Session["id"] == null)
+            //{
+            //    Server.Transfer("Default.aspx", true);
+            //}
+
+            Session["id"] = 1389;
 
             newPassword1Label.Text = "New password";
             newPassword2Label.Text = "Repeat new password";
             oldPasswordLabel.Text = "Enter your old password";
 
-            if (DBQueries.CheckAdmin(Session["id"].ToString()))
+            if (!DBQueries.CheckAdmin(Session["id"].ToString()))
             {
-                //jwz
+                siteMessageTextbox.Visible = false;
+                submitSiteMessageButton.Visible = false;
             }
         }
 
@@ -55,7 +58,9 @@ namespace Scrumbags
                 //Check if user is admin, else don't execute query
                 if (DBQueries.CheckAdmin(Session["id"].ToString()))
                 {
-                    
+                    DBQueries.SetSiteMessage(siteMessageTextbox.Text);
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('The message has been set.');</script>");
                 }
             }
         }

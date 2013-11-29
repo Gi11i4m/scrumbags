@@ -82,7 +82,7 @@ namespace Scrumbags
         }
 
         //This Method returns true if the given hash equals the saved hash found in the database. Identified through the emailaddress
-        public static Boolean login(string email, string password)
+        public static bool login(string email, string password)
         {
             string hash = Hashing.GetHash(password);
             DataTable t = DBConnection.executeQuery("SELECT password FROM lecturers WHERE email = '" + email + "'");
@@ -108,10 +108,8 @@ namespace Scrumbags
         //Set the site message
         public static void SetSiteMessage(string message)
         {
-            DBConnection.executeQuery("UPDATE siteMessage SET message='" + message + "'");
+            DBConnection.executeQuery("UPDATE message SET motd='" + message + "'");
         }
-
-
 
         //Code Pauwel voor de Dataset op te vragen
         public static DataSet getSlots()
