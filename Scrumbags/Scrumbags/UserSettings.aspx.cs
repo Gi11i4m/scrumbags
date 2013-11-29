@@ -14,17 +14,14 @@ namespace Scrumbags
         protected void Page_Load(object sender, EventArgs e)
         {
             //Check if there is a session, else transfer them to the default page
-            //if (Session["id"] == null)
-            //{
-            //    Server.Transfer("Default.aspx", true);
-            //}
-
-            Session["id"] = "1388";
+            if (Session["id"] == null)
+            {
+                Server.Transfer("Default.aspx", true);
+            }
 
             newPassword1Label.Text = "New password";
             newPassword2Label.Text = "Repeat new password";
             oldPasswordLabel.Text = "Enter your old password";
-
 
             if (DBQueries.CheckAdmin(Session["id"].ToString()))
             {
@@ -40,6 +37,7 @@ namespace Scrumbags
             
         }
 
+        //Changes the userpassword in DB
         protected void changePasswordButton_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
