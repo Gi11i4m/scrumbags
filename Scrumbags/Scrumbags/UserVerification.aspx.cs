@@ -24,7 +24,7 @@ namespace Scrumbags
             {
                 messageLabel.Text = "Your account has already been verified.";
             }
-            else if (DBQueries.userExists(email) && hash.Equals(Hashing.GetHash(email)))
+            else if (DBQueries.UserExists(email) && hash.Equals(Hashing.GetHash(email)))
             {
                 //Verify user in DB
                 DBQueries.verifyUser(email);

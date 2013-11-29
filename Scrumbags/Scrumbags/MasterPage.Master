@@ -14,7 +14,7 @@
         <asp:Button ID="logoutButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" />        
     </div>
     <div>
-        <asp:Label ID="errorMessage" runat="server"></asp:Label>
+        <asp:Label ID="siteMessage" runat="server"></asp:Label>
         <asp:ContentPlaceHolder ID="MasterContentPlaceHolder" runat="server">
             <!-- Niks inzetten, placeholder voor content pages -->
         </asp:ContentPlaceHolder>

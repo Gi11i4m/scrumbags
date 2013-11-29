@@ -38,7 +38,7 @@ namespace Scrumbags
                 String body = "Dear,\n " + 
                 "You recently requested a password reset on our site.\n" +
                 "This is your new password: " + password;
-                MailingRegistration mailsender = new MailingRegistration(email, subject, body);
+                MailSender mailsender = new MailSender(email, subject, body);
                 mailsender.Send();
                 emailLabel.Text = password;
 
@@ -53,7 +53,7 @@ namespace Scrumbags
         protected void emailExistsValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             //Check if email exists, invalidate page if not
-            args.IsValid = DBQueries.userExists(emailTextbox.Text);
+            args.IsValid = DBQueries.UserExists(emailTextbox.Text);
         }
     }
 }

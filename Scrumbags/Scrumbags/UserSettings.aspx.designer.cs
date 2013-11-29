@@ -103,12 +103,21 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.Button changePasswordButton;
         
         /// <summary>
-        /// Label1 control.
+        /// siteMessageTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox siteMessageTextbox;
+        
+        /// <summary>
+        /// submitSiteMessageButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submitSiteMessageButton;
     }
 }

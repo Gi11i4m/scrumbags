@@ -24,8 +24,8 @@ namespace Scrumbags
             */
             if (Session["id"] != null && !Page.IsPostBack)
             {
-                Gridview1.DataSource = DBQueries.getSlots();
-                Gridview1.DataBind();
+                SlotsDataGrid.DataSource = DBQueries.getSlots();
+                SlotsDataGrid.DataBind();
             }
             else
             {
@@ -40,8 +40,8 @@ namespace Scrumbags
         protected void SlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
             DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
-            Gridview1.DataSource = DBQueries.getSlots();
-            Gridview1.DataBind();
+            SlotsDataGrid.DataSource = DBQueries.getSlots();
+            SlotsDataGrid.DataBind();
 
         }
 
@@ -78,8 +78,8 @@ namespace Scrumbags
 
         protected void SlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Gridview1.DataSource = DBQueries.getSlots();
-            Gridview1.DataBind();
+            SlotsDataGrid.DataSource = DBQueries.getSlots();
+            SlotsDataGrid.DataBind();
             //Label1.Text = "blap";
         }
     }

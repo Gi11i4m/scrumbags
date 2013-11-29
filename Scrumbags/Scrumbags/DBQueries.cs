@@ -9,13 +9,14 @@ namespace Scrumbags
     public class DBQueries
     {
         //Checks if user exists
-        public static bool userExists(string email)
+        public static bool UserExists(string email)
         {
             DataTable dt = DBConnection.executeQuery("SELECT * FROM lecturers WHERE email = '" + email + "'");
 
             return dt.Rows.Count == 1;
         }
 
+        //Check if user is already verified
         public static bool userIsVefied(string email)
         {
             DataTable dt = DBConnection.executeQuery("SELECT verified FROM lecturers WHERE email = '" + email + "'");
@@ -23,6 +24,7 @@ namespace Scrumbags
             return (bool)dt.Rows[0]["verified"];
         }
 
+        //Get a datatable with all the user data
         public static DataTable getUserTable(string id)
         {
             DataTable t = DBConnection.executeQuery("SELECT * FROM lecturers WHERE id = '" + id + "'");
@@ -102,6 +104,15 @@ namespace Scrumbags
             Object obj = table.Rows[0]["isAdmin"];
             return (obj.ToString().Equals("1"));
         }
+
+        //Set the site message
+        public static void SetSiteMessage(string message)
+        {
+            DBConnection.executeQuery("UPDATE siteMessage SET message='" + message + "'");
+        }
+
+
+
         //Code Pauwel voor de Dataset op te vragen
         public static DataSet getSlots()
         {

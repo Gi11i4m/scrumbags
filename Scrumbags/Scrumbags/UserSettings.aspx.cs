@@ -47,5 +47,17 @@ namespace Scrumbags
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your new password has been set.');</script>");
             }
         }
+
+        protected void submitSiteMessageButton_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                //Check if user is admin, else don't execute query
+                if (DBQueries.CheckAdmin(Session["id"].ToString()))
+                {
+                    
+                }
+            }
+        }
     }
 }

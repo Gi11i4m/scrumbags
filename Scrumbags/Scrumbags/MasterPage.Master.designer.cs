@@ -40,13 +40,13 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.Button logoutButton;
         
         /// <summary>
-        /// errorMessage control.
+        /// siteMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorMessage;
+        protected global::System.Web.UI.WebControls.Label siteMessage;
         
         /// <summary>
         /// MasterContentPlaceHolder control.
