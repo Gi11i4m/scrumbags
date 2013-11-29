@@ -5,13 +5,16 @@
 <head runat="server">
     <title>Scrumbags</title>
     <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="masterform" runat="server">
     <div id="masterHeader">
-        <asp:Button ID="logoutButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" />        
+        <img src="AP.png" id="headerLogo" />
+        <asp:Button ID="logoutButton" CssClass="headerButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" /> 
+        <asp:Button ID="ReservationsHyperLink" CssClass="headerLink" runat="server" OnClick="ReservationsHyperLink_Click" Text="Check my reservations" />
     </div>
     <div>
         <asp:Label ID="siteMessage" runat="server"></asp:Label>

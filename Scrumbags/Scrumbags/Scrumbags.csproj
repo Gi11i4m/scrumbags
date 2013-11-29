@@ -57,11 +57,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AP.png" />
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
@@ -69,6 +71,7 @@
     <Content Include="Reservations.aspx" />
     <Content Include="StyleSheet.css" />
     <Content Include="UserVerification.aspx" />
+    <Content Include="Wallpaper.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

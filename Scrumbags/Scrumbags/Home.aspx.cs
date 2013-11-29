@@ -13,15 +13,6 @@ namespace Scrumbags
         protected void Page_Load(object sender, EventArgs e)
         {
             //Check if their is a Session atm. Else a big no no
-            //if (Session["id"] == null)
-            //{
-            //    Server.Transfer("Login.aspx", true);
-            //}
-
-            /**
-             * 1. Check if their is a Session atm
-             * 2. 
-            */
             if (Session["id"] == null)
             {
                 Server.Transfer("Login.aspx", true);
@@ -81,7 +72,6 @@ namespace Scrumbags
         {
             SlotsDataGrid.DataSource = DBQueries.getSlots();
             SlotsDataGrid.DataBind();
-            //Label1.Text = "blap";
         }
     }
 }
