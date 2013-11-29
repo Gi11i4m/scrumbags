@@ -71,7 +71,6 @@ namespace Scrumbags
         {
             SlotsDataGrid.DataSource = DBQueries.getSlots();
             SlotsDataGrid.DataBind();
-            Label1.Text = "blap";
         }
     }
 }

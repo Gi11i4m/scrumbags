@@ -13,7 +13,7 @@ namespace Scrumbags
         {
             if (Session["id"] == null)
             {
-                Server.Transfer("Default.aspx", true);
+                Server.Transfer("Login.aspx", true);
             }
         }
 

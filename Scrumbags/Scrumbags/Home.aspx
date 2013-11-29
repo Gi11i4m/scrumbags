@@ -1,10 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Scrumbags.Home" MasterPageFile="~/MasterPage.Master" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    <br />
-    <asp:HyperLink ID="ReservationsHyperLink" runat="server" NavigateUrl="~/Reservations.aspx">Check my reservations</asp:HyperLink>
-    <div style="margin-left: 40px">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">    
+    <div class="ContentDiv">
         <asp:DataGrid ID="SlotsDataGrid" runat="server"
             AutoGenerateColumns="False"
             OnItemDataBound="SlotsDataGrid_ItemDataBound"

@@ -11,7 +11,10 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            logoutButton.Visible = !MasterContentPlaceHolder.Page.Title.Equals("Login");
+            // Visible buttons en links in de banner code verplaatsen naar pagina's
+            bool isLoginPage = MasterContentPlaceHolder.Page.Title.Equals("Login");
+            logoutButton.Visible = !isLoginPage;
+            ReservationsHyperLink.Visible = !isLoginPage;
         }
 
         protected void LogoutButton_Click(object sender, EventArgs e)
@@ -25,6 +28,11 @@ namespace Scrumbags
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        protected void ReservationsHyperLink_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reservations.aspx");
         }
     }
 }
