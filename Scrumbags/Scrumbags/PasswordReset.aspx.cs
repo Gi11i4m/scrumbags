@@ -38,7 +38,7 @@ namespace Scrumbags
                 String body = "Dear,\n " + 
                 "You recently requested a password reset on our site.\n" +
                 "This is your new password: " + password;
-                MailSender mailsender = new MailSender(email, subject, body);
+                MailingRegistration mailsender = new MailingRegistration(email, subject, body);
                 mailsender.Send();
                 emailLabel.Text = password;
 

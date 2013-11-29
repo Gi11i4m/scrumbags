@@ -34,7 +34,7 @@ namespace Scrumbags
                 "You recently created an accounton our site.\n" +
                 "Please use the following link to verify your account: " +
                 "http://scrumbags.somee.com/UserVerification?email=" + email + "&hash=" + Hashing.GetHash(email); //juiste adres invullen!!
-                MailSender mailsender = new MailSender(email, subject, body);
+                MailingRegistration mailsender = new MailingRegistration(email, subject, body);
                 mailsender.Send();
 
                 //Redirect to loginpage

@@ -9,18 +9,27 @@ namespace Scrumbags
 {
     public partial class Home : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Check if their is a Session atm. Else a big no no
-            if (Session["id"] == null)
+            //if (Session["id"] == null)
+            //{
+            //    Server.Transfer("Login.aspx", true);
+            //}
+
+            /**
+             * 1. Check if their is a Session atm
+             * 2. 
+            */
+            if (Session["id"] != null && !Page.IsPostBack)
+            {
+                Gridview1.DataSource = DBQueries.getSlots();
+                Gridview1.DataBind();
+            }
+            else
             {
                 Server.Transfer("Login.aspx", true);
-            }
-
-            if (!Page.IsPostBack)
-            {
-                SlotsDataGrid.DataSource = DBQueries.getSlots();
-                SlotsDataGrid.DataBind();
             }
 
             // Use this statement to check if the user is an Admin
@@ -31,8 +40,8 @@ namespace Scrumbags
         protected void SlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
             DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
-            SlotsDataGrid.DataSource = DBQueries.getSlots();
-            SlotsDataGrid.DataBind();
+            Gridview1.DataSource = DBQueries.getSlots();
+            Gridview1.DataBind();
 
         }
 
@@ -69,9 +78,9 @@ namespace Scrumbags
 
         protected void SlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SlotsDataGrid.DataSource = DBQueries.getSlots();
-            SlotsDataGrid.DataBind();
-            Label1.Text = "blap";
+            Gridview1.DataSource = DBQueries.getSlots();
+            Gridview1.DataBind();
+            //Label1.Text = "blap";
         }
     }
 }
