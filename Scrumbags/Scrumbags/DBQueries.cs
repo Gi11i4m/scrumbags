@@ -130,7 +130,7 @@ namespace Scrumbags
         //Code Pauwel voor de Dataset op te vragen
         public static DataSet getSlots()
         {
-            DataSet ds = DBConnection.executeQueryDataSet("SELECT * FROM slots ORDER BY date;");
+            DataSet ds = DBConnection.executeQueryDataSet("SELECT * FROM slots WHERE capacity !=0 ORDER BY date;");
             int i = 0;
             string prevDate = "";
 
