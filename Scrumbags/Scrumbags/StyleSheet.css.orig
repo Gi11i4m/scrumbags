@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿/* Generieke stijlcode voor alle elementen */
 body {
     background: url('Wallpaper.jpg') no-repeat;
@@ -53,6 +54,9 @@ form {
 /* STYLE CODE VOOR PAGINA'S APART */
 /* Registratie-pagina elementen */
 #registrationDiv .Labels {
+=======
+﻿.Labels {
+>>>>>>> 3fa3b7fcccd33fdfca1ceb5d9508396eb0c0f9a9
     display: inline-block;
     width: 140px;
     padding-bottom: 10px;
@@ -102,5 +106,9 @@ form {
 .LoginOptionLinks {
     display: block;
     float: right;
+<<<<<<< HEAD
     color: white;
 }
+=======
+}
+>>>>>>> 3fa3b7fcccd33fdfca1ceb5d9508396eb0c0f9a9

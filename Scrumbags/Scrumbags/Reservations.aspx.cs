@@ -19,8 +19,8 @@ namespace Scrumbags
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DBQueries.DeleteReservation(int.Parse(Session["id"].ToString()), int.Parse(GridView1.SelectedRow.Cells[8].Text), 28);
-            GridView1.DataBind();
+            //DBQueries.DeleteReservation(int.Parse(Session["id"].ToString()), int.Parse(GridView1.SelectedRow.Cells[8].Text), 28);
+            //GridView1.DataBind();
         }
     }
 }

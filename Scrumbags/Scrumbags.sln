@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrumbags", "Scrumbags\Scrumbags.csproj", "{5F9E53CA-C35F-47A3-AFAF-7788650EB9CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestScrumbags", "UnitTestScrumbags\UnitTestScrumbags.csproj", "{C0485406-F9EA-4F4E-A0CC-92629C07C19B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5F9E53CA-C35F-47A3-AFAF-7788650EB9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F9E53CA-C35F-47A3-AFAF-7788650EB9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F9E53CA-C35F-47A3-AFAF-7788650EB9CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0485406-F9EA-4F4E-A0CC-92629C07C19B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0485406-F9EA-4F4E-A0CC-92629C07C19B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0485406-F9EA-4F4E-A0CC-92629C07C19B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0485406-F9EA-4F4E-A0CC-92629C07C19B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

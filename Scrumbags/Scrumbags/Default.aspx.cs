@@ -12,14 +12,15 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Redirect("Login.aspx");
             /**DIT ZIJN DE TE GEBRUIKEN COMMANDS OM TE MAILEN.
              * 
             MailingRegistration r = new MailingRegistration("yolan@coeman.net");
             r.Send();*/
 
-            emailLabel.Text = "Email adres";
-            passwordLabel.Text = "Password";
-            RegisterHyperlink.Text = "Register";
+            //emailLabel.Text = "Email adres";
+            //passwordLabel.Text = "Password";
+            //RegisterHyperlink.Text = "Register";
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {

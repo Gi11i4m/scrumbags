@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="Scrumbags.MasterPageClass" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="Scrumbags.MasterPageClass" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,7 +17,7 @@
         <asp:Button ID="ReservationsHyperLink" CssClass="headerLink" runat="server" OnClick="ReservationsHyperLink_Click" Text="Check my reservations" />
     </div>
     <div>
-        <asp:Label ID="errorMessage" runat="server"></asp:Label>
+        <asp:Label ID="siteMessage" runat="server"></asp:Label>
         <asp:ContentPlaceHolder ID="MasterContentPlaceHolder" runat="server">
             <!-- Niks inzetten, placeholder voor content pages -->
         </asp:ContentPlaceHolder>

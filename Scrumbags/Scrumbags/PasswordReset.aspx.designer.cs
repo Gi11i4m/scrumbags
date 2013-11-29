@@ -10,60 +10,42 @@
 namespace Scrumbags {
     
     
-    public partial class MasterPageClass {
+    public partial class WebForm1 {
         
         /// <summary>
-        /// head control.
+        /// emailLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Label emailLabel;
         
         /// <summary>
-        /// masterform control.
+        /// emailTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm masterform;
+        protected global::System.Web.UI.WebControls.TextBox emailTextbox;
         
         /// <summary>
-        /// logoutButton control.
+        /// emailExistsValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logoutButton;
+        protected global::System.Web.UI.WebControls.CustomValidator emailExistsValidator;
         
         /// <summary>
-        /// ReservationsHyperLink control.
+        /// resetButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ReservationsHyperLink;
-        
-        /// <summary>
-        /// errorMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label siteMessage;
-        
-        /// <summary>
-        /// MasterContentPlaceHolder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MasterContentPlaceHolder;
+        protected global::System.Web.UI.WebControls.Button resetButton;
     }
 }

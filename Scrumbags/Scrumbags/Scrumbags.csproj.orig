@@ -70,8 +70,11 @@
     <Content Include="Registration.aspx" />
     <Content Include="Reservations.aspx" />
     <Content Include="StyleSheet.css" />
-    <Content Include="UserVerification.aspx" />
+<<<<<<< HEAD
     <Content Include="Wallpaper.jpg" />
+=======
+    <Content Include="UserVerification.aspx" />
+>>>>>>> 3fa3b7fcccd33fdfca1ceb5d9508396eb0c0f9a9
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
