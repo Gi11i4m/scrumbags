@@ -58,6 +58,15 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.TextBox newPassword2Textbox;
         
         /// <summary>
+        /// newPassword2Validator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator newPassword2Validator;
+        
+        /// <summary>
         /// passwordsCompareValidator control.
         /// </summary>
         /// <remarks>

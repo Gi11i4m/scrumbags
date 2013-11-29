@@ -28,7 +28,8 @@
 
         <asp:Label ID="password2Label" AssociatedControlID="password2Textbox" runat="server" CssClass="Labels"></asp:Label>
         <asp:TextBox ID="password2Textbox" runat="server" TextMode="Password" CssClass="Textboxes" />
-        <asp:CompareValidator ID="CompareValidator" runat="server" ControlToValidate="password2Textbox" ControlToCompare="password1Textbox" CssClass="Errormessage" ErrorMessage="Passwords do not match." Display="Dynamic" />
+        <asp:RequiredFieldValidator ID="pw2Valdator" runat="server" ControlToValidate="password2Textbox" CssClass="Errormessage" ErrorMessage="Repeat your password" Display="Dynamic" />
+        <asp:CompareValidator ID="CompareValidator" runat="server" ControlToValidate="password2Textbox" ControlToCompare="password1Textbox" ValidateEmptyText="True" CssClass="Errormessage" ErrorMessage="Passwords do not match." Display="Dynamic" />
     </div>
     <br />
     <asp:Button ID="submitButton" runat="server" Text="Register" OnClick="submitButton_Click" />

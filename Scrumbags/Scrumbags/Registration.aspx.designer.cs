@@ -166,6 +166,15 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.TextBox password2Textbox;
         
         /// <summary>
+        /// pw2Valdator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator pw2Valdator;
+        
+        /// <summary>
         /// CompareValidator control.
         /// </summary>
         /// <remarks>

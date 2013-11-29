@@ -19,13 +19,21 @@ namespace Scrumbags
             //    Server.Transfer("Default.aspx", true);
             //}
 
-            Session["id"] = 1389;
+            Session["id"] = 1392;
 
             newPassword1Label.Text = "New password";
             newPassword2Label.Text = "Repeat new password";
             oldPasswordLabel.Text = "Enter your old password";
 
-            if (!DBQueries.CheckAdmin(Session["id"].ToString()))
+            if (!IsPostBack)
+            {
+                ViewState["isAdmin"] = DBQueries.CheckAdmin(Session["id"].ToString());
+                
+                DataTable t = DBQueries.getUserTable(Session["id"].ToString());
+                ViewState["email"] = t.Rows[0]["email"];
+            }
+
+            if (!(bool)ViewState["isAdmin"])
             {
                 siteMessageTextbox.Visible = false;
                 submitSiteMessageButton.Visible = false;
@@ -56,7 +64,7 @@ namespace Scrumbags
             if (Page.IsValid)
             {
                 //Check if user is admin, else don't execute query
-                if (DBQueries.CheckAdmin(Session["id"].ToString()))
+                if ((bool)ViewState["isAdmin"])
                 {
                     DBQueries.SetSiteMessage(siteMessageTextbox.Text);
 
