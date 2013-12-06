@@ -37,6 +37,39 @@ namespace Scrumbags
 
         }
 
+        private string returnMonth(int i)
+        {
+            switch (i)
+            {
+                case 1:
+                    return "March";
+                case 2:
+                    return "February";
+                case 3:
+                    return "March";
+                case 4:
+                    return "April";
+                case 5:
+                    return "July";
+                case 6:
+                    return "June";
+                case 7:
+                    return "August";
+                case 8:
+                    return "September";
+                case 9:
+                    return "September";
+                case 10:
+                    return "October";
+                case 11:
+                    return "November";
+                case 12:
+                    return "December";
+                default:
+                    return "null";
+            }
+        }
+
         protected void SlotsDataGrid_ItemDataBound(object sender, DataGridItemEventArgs e)
         {
             switch (e.Item.ItemType)
@@ -47,7 +80,7 @@ namespace Scrumbags
                     if (e.Item.Cells[6].Text.Equals("SubHeading"))
                     {
                         DateTime myDate = DateTime.Parse(e.Item.Cells[0].Text.ToString());
-                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + myDate.Month;
+                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + returnMonth(myDate.Month);
 
                         //De breedte van de toegevoegde subheader
                         e.Item.Cells[1].ColumnSpan = e.Item.Cells.Count;

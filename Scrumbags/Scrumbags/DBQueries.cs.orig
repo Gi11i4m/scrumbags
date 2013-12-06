@@ -121,6 +121,23 @@ namespace Scrumbags
         public static bool login(string email, string password)
         {
             string hash = Hashing.GetHash(password);
+<<<<<<< HEAD
+            DataTable t = DBConnection.executeQuery("SELECT password FROM lecturers WHERE email = '" + email + "'");
+            if (t.Rows.Count == 1)
+            {
+                Object o = t.Rows[0]["password"];
+                return hash.Equals(o.ToString());
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private static Exception Exception(string p)
+        {
+            throw new NotImplementedException();
+=======
 
             SqlCommand cmd = new SqlCommand("SELECT password FROM lecturers WHERE email = @email;");
             cmd.Parameters.AddWithValue("@email", email);
@@ -129,6 +146,7 @@ namespace Scrumbags
             Object o = t.Rows[0]["password"];
 
             return hash.Equals(o.ToString());
+>>>>>>> 450594cd83fe1f63ad9a8af3f731c07ad60f58e8
         }
 
         //Query voor rooster weer te geven per departement (YENS)

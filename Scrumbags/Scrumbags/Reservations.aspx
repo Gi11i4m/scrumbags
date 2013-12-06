@@ -4,22 +4,20 @@
     <div>
         <asp:HyperLink ID="HomePageHyperLink" runat="server" NavigateUrl="~/Home.aspx">Back to slots</asp:HyperLink>    
     </div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:DataGrid ID="ReservedSlotsDataGrid" runat="server"
+            AutoGenerateColumns="False"
+            OnItemDataBound="ReservedSlotsDataGrid_ItemDataBound"
+            OnItemCommand="ReservedSlotsDataGrid_OnItemCommand">
             <Columns>
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:BoundField DataField="date" HeaderText="date" SortExpression="date" />
-                <asp:BoundField DataField="start" HeaderText="start" SortExpression="start" />
-                <asp:BoundField DataField="einde" HeaderText="einde" SortExpression="einde" />
-                <asp:BoundField DataField="duration" HeaderText="duration" SortExpression="duration" />
-                <asp:BoundField DataField="capacity" HeaderText="capacity" SortExpression="capacity" />
-                <asp:BoundField DataField="digital" HeaderText="digital" SortExpression="digital" />
-                <asp:BoundField DataField="city" HeaderText="city" SortExpression="city" />
-                <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                <asp:BoundColumn DataField="date" Visible="false" />
+                <asp:BoundColumn DataField="start" HeaderText="Start hour" />
+                <asp:BoundColumn DataField="einde" HeaderText="End hour" />
+                <asp:BoundColumn DataField="duration" HeaderText="duration" />
+                <asp:BoundColumn DataField="capacity" HeaderText="Teachers needed" />
+                <asp:BoundColumn DataField="digital" HeaderText="Digital?" />
+                <asp:BoundColumn DataField="city" HeaderText="City" />
+                <asp:BoundColumn DataField="id" Visible="false" />
+                <asp:ButtonColumn HeaderText="Select Slot" ButtonType="PushButton" Text="Select" CommandName="SelectSlot" />
             </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LocalConnection %>" SelectCommand="SELECT [date], [start], [einde], [duration], [capacity], [digital], [city], [id] FROM [slots] WHERE id IN (SELECT slot_id FROM reservations  WHERE lecturer_id = @id)">
-            <SelectParameters>
-                <asp:SessionParameter Name="id" SessionField="id" />
-            </SelectParameters>
-        </asp:SqlDataSource>
+        </asp:DataGrid>
 </asp:Content>
