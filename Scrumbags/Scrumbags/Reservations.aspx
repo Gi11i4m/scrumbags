@@ -4,6 +4,7 @@
     <div>
         <asp:Button ID="HomePageButton" CssClass="BackButton" runat="server" Text="Back to slots" OnClick="HomePageButton_Click" />    
     </div>
+    <div class="ContentDiv">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>                
                 <asp:BoundField DataField="date" HeaderText="Date" SortExpression="date" />
@@ -22,4 +23,5 @@
                 <asp:SessionParameter Name="id" SessionField="id" />
             </SelectParameters>
         </asp:SqlDataSource>
+    </div>
 </asp:Content>
