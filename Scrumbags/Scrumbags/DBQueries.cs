@@ -216,7 +216,7 @@ namespace Scrumbags
             cmd.Parameters.AddWithValue(" @lecturer_id", lecturer_id);
             DataSet ds = DBConnection.executeQueryDataSet(cmd);
 
-            DataSet ds = DBConnection.executeQueryDataSet("SELECT * from dbo.slots where slots.id IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturer_id)");
+            
             int i = 0;
             string prevDate = "";
 
