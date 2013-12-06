@@ -86,8 +86,20 @@ namespace Scrumbags
         {
             string hash = Hashing.GetHash(password);
             DataTable t = DBConnection.executeQuery("SELECT password FROM lecturers WHERE email = '" + email + "'");
-            Object o = t.Rows[0]["password"];
-            return hash.Equals(o.ToString());
+            if (t.Rows.Count == 1)
+            {
+                Object o = t.Rows[0]["password"];
+                return hash.Equals(o.ToString());
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private static Exception Exception(string p)
+        {
+            throw new NotImplementedException();
         }
 
         //Query voor rooster weer te geven per departement (YENS)

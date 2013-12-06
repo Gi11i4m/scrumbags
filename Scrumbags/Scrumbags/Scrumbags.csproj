@@ -77,6 +77,7 @@
     </Content>
     <Content Include="PasswordReset.aspx" />
     <Content Include="UserSettings.aspx" />
+    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConnection.cs" />
@@ -151,6 +152,13 @@
     </Compile>
     <Compile Include="UserSettings.aspx.designer.cs">
       <DependentUpon>UserSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
