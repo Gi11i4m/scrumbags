@@ -31,7 +31,6 @@ namespace Scrumbags
 
                 messageLabel.Text = "Your account has been verified. \n You will be redirected automatically ";
                 Response.AppendHeader("REFRESH", "5;URL=Login.aspx");
-
             }
             else
             {
