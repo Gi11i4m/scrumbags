@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
 
 namespace Scrumbags
 {
@@ -47,10 +48,11 @@ namespace Scrumbags
                     if (e.Item.Cells[6].Text.Equals("SubHeading"))
                     {
                         DateTime myDate = DateTime.Parse(e.Item.Cells[0].Text.ToString());
-                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + myDate.Month;
+                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + "/" + myDate.Month;
 
                         //De breedte van de toegevoegde subheader
                         e.Item.Cells[1].ColumnSpan = e.Item.Cells.Count;
+                        e.Item.Cells[1].CssClass = "DayRow";
 
                         //De overigge cellen verwijderen
                         for (int i = e.Item.Cells.Count - 1; i > 1; i--)
