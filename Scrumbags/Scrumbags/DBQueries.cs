@@ -128,9 +128,10 @@ namespace Scrumbags
 
 
         //Code Pauwel voor de Dataset op te vragen
-        public static DataSet getSlots()
+        public static DataSet getSlots(string lecturer_id)
         {
-            DataSet ds = DBConnection.executeQueryDataSet("SELECT * FROM slots WHERE capacity !=0 ORDER BY date;");
+            DataSet ds =
+                DBConnection.executeQueryDataSet("select * from dbo.slots where dbo. slots.capacity !=0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = '" + lecturer_id +"');");
             int i = 0;
             string prevDate = "";
 

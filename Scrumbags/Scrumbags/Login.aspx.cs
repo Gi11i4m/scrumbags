@@ -13,7 +13,8 @@ namespace Scrumbags
         protected void Page_Load(object sender, EventArgs e)
         {
             loginButton.Text = "Log in";
-            passwordResetLinkButton.Text = "Reset your password";
+            passwordResetLinkButton.Text = "Reset je wachtwoord";
+            newUserLinkButton.Text = "Nieuwe gebruiker";
         }
 
         protected void loginButton_Click(object sender, EventArgs e)
@@ -32,7 +33,7 @@ namespace Scrumbags
                 }
                 else
                 {
-                    // ERROR
+                    // TODO: ERROR message genereren
                 }
             }
         }

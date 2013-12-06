@@ -5,7 +5,7 @@
         <asp:TextBox ID="emailTextBox" placeholder="Email" runat="server" CssClass="Textboxes" /><br />
         <asp:TextBox ID="passwordTextBox" placeholder="Password" TextMode="Password" runat="server" CssClass="Textboxes" /><br />
         <asp:Button ID="loginButton" runat="server" CssClass="Buttons" OnClick="loginButton_Click" /><br />
-        <asp:LinkButton ID="passwordResetLinkButton" runat="server" OnClick="passwordResetLinkButton_Click" /><br />
-        <asp:LinkButton ID="newUserLinkButton" runat="server" OnClick="newUserLinkButton_Click" Text="Nieuwe gebruiker" />
+        <asp:LinkButton ID="passwordResetLinkButton" CssClass="LoginOptionLinks" runat="server" OnClick="passwordResetLinkButton_Click" /><br />
+        <asp:LinkButton ID="newUserLinkButton" CssClass="LoginOptionLinks" runat="server" OnClick="newUserLinkButton_Click" />
     </div>
 </asp:Content>
