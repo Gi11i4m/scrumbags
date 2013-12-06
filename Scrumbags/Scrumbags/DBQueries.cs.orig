@@ -118,6 +118,8 @@ namespace Scrumbags
             DBConnection.executeQuery("UPDATE message SET motd='" + message + "'");
         }
 
+<<<<<<< HEAD
+=======
         //Get the site message
         public static DataTable GetSiteMessage()
         {
@@ -127,11 +129,11 @@ namespace Scrumbags
 
 
 
+>>>>>>> 83814ff39c07e826f743600c8a6b6810a4cacd21
         //Code Pauwel voor de Dataset op te vragen
-        public static DataSet getSlots(string lecturer_id)
+        public static DataSet getSlots()
         {
-            DataSet ds =
-                DBConnection.executeQueryDataSet("select * from dbo.slots where dbo. slots.capacity !=0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = '" + lecturer_id +"');");
+            DataSet ds = DBConnection.executeQueryDataSet("SELECT * FROM slots WHERE capacity !=0 ORDER BY date;");
             int i = 0;
             string prevDate = "";
 
