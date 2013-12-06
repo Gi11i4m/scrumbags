@@ -179,10 +179,12 @@ namespace Scrumbags
 
 
         //Code Pauwel voor de Dataset op te vragen
-        public static DataSet getSlots(string lecturer_id)
+        public static DataSet getSlots(string lecturerID)
         {
-            DataSet ds =
-                DBConnection.executeQueryDataSet("select * from dbo.slots where dbo. slots.capacity !=0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = '" + lecturer_id +"');");
+            SqlCommand cmd = new SqlCommand("select * from dbo.slots where dbo. slots.capacity !=0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturerID);");
+            cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+
+            DataSet ds = DBConnection.executeQueryDataSet(cmd);
             int i = 0;
             string prevDate = "";
 
