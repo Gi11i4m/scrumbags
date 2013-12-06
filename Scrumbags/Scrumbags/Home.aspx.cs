@@ -19,7 +19,7 @@ namespace Scrumbags
             }
             if (!Page.IsPostBack)
             {
-                SlotsDataGrid.DataSource = DBQueries.getSlots();
+                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
                 SlotsDataGrid.DataBind();
             }
             
@@ -32,7 +32,7 @@ namespace Scrumbags
         protected void SlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
             DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
-            SlotsDataGrid.DataSource = DBQueries.getSlots();
+            SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
             SlotsDataGrid.DataBind();
 
         }
@@ -70,7 +70,7 @@ namespace Scrumbags
 
         protected void SlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SlotsDataGrid.DataSource = DBQueries.getSlots();
+            SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
             SlotsDataGrid.DataBind();
         }
     }
