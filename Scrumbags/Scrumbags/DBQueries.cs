@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Data.SqlClient;
 
 namespace Scrumbags
 {
@@ -66,6 +67,10 @@ namespace Scrumbags
             //DBConnection.executeQuery("INSERT INTO reservations (slot_id, lecturer_id, created_at) VALUES ('" + slotID + "', '" + lecturerID + "', '" + TimeStamp.DateTimeToUnixTimestamp(DateTime.Now) + "')");
             DBConnection.executeQuery("INSERT INTO reservations (slot_id, lecturer_id) VALUES ('" + slotID + "', '" + lecturerID + "')");
         
+        }
+        public static void UnReserve(int lecturerID, int slotsID)
+        {
+            DBConnection.executeQuery("DELETE reservations WHERE reservations.slots_id = '" + slotsID + "' AND reservations.lecturerID = '" + lecturerID + "'");
         }
 
         //Change user password
@@ -151,7 +156,35 @@ namespace Scrumbags
                 }
                 i++;
             }
+            return ds;
+        }
 
+        public static DataSet getReservedSlots(string lecturer_id)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * from dbo.slots where slots.id IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturer_id)");
+            cmd.Parameters.AddWithValue(" @lecturer_id", lecturer_id);
+            DataSet ds = DBConnection.executeQueryDataSet(cmd);
+
+            DataSet ds = DBConnection.executeQueryDataSet("SELECT * from dbo.slots where slots.id IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturer_id)");
+            int i = 0;
+            string prevDate = "";
+
+            while (i <= ds.Tables[0].Rows.Count - 1)
+            {
+                DataRow dr = ds.Tables[0].Rows[i];
+
+                // if category field value changes add a new row
+                if (dr["date"].ToString() != prevDate)
+                {
+                    prevDate = dr["date"].ToString();
+                    DataRow newrow = ds.Tables[0].NewRow();
+                    newrow["city"] = "SubHeading";      // sub heading flag
+                    newrow["date"] = dr["date"];  // sub heading text
+                    // add row and increment counter to accommodate new row
+                    ds.Tables[0].Rows.InsertAt(newrow, i++);
+                }
+                i++;
+            }
             return ds;
         }
     }
