@@ -4,6 +4,7 @@
     <div>
         <asp:Button ID="HomePageButton" CssClass="BackButton" runat="server" Text="Back to slots" OnClick="HomePageButton_Click" />    
     </div>
+    <div class="ContentDiv">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>                
                 <asp:BoundField DataField="date" HeaderText="Date" SortExpression="date" />
@@ -16,5 +17,11 @@
                 <asp:BoundField DataField="id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                 <asp:CommandField ShowSelectButton="True" ButtonType="Button" SelectText="Remove" />
             </Columns>
-        </asp:DataGrid>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LocalConnection %>" SelectCommand="SELECT [date], [start], [einde], [duration], [capacity], [digital], [city], [id] FROM [slots] WHERE id IN (SELECT slot_id FROM reservations  WHERE lecturer_id = @id)">
+            <SelectParameters>
+                <asp:SessionParameter Name="id" SessionField="id" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+    </div>
 </asp:Content>
