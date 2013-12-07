@@ -16,10 +16,5 @@
                 <asp:BoundField DataField="id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                 <asp:CommandField ShowSelectButton="True" ButtonType="Button" SelectText="Remove" />
             </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LocalConnection %>" SelectCommand="SELECT [date], [start], [einde], [duration], [capacity], [digital], [city], [id] FROM [slots] WHERE id IN (SELECT slot_id FROM reservations  WHERE lecturer_id = @id)">
-            <SelectParameters>
-                <asp:SessionParameter Name="id" SessionField="id" />
-            </SelectParameters>
-        </asp:SqlDataSource>
+        </asp:DataGrid>
 </asp:Content>
