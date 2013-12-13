@@ -126,7 +126,13 @@ namespace Scrumbags
             cmd.Parameters.AddWithValue("@email", email);
 
             DataTable t = DBConnection.executeQuery(cmd);
-            Object o = t.Rows[0]["password"];
+
+            Object o = null;
+
+            if (t.Rows.Count == 1) //check if he found a password
+            {
+                o = t.Rows[0]["password"];
+            }
 
             return hash.Equals(o.ToString());
         }

@@ -26,10 +26,17 @@ namespace Scrumbags
 
                 if (DBQueries.login(emailInput, passwordInput))
                 {
-                    DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput + "'");
-                    Object o = t.Rows[0]["id"];
-                    Session["id"] = o.ToString();
-                    Response.Redirect("Home.aspx", true);
+                    if (DBQueries.userIsVefied(emailInput))
+                    {
+                        DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput + "'");
+                        Object o = t.Rows[0]["id"];
+                        Session["id"] = o.ToString();
+                        Response.Redirect("Home.aspx", true); 
+                    }
+                    else
+                    {
+                        // TO DO: Label Error een message geven om account nog te verifiëren
+                    }
                 }
                 else
                 {
