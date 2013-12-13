@@ -1,11 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reservations.aspx.cs" Inherits="Scrumbags.Reservations" MasterPageFile="~/MasterPage.Master" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
-    <div>
-        <asp:Button ID="HomePageButton" CssClass="BackButton" runat="server" Text="Back to slots" OnClick="HomePageButton_Click" />    
-    </div>
     <div class="ContentDiv">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="ReservedSlotsDataGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="id" OnSelectedIndexChanged="ReservedSlotsDataGrid_SelectedIndexChanged">
             <Columns>                
                 <asp:BoundField DataField="date" HeaderText="Date" SortExpression="date" />
                 <asp:BoundField DataField="start" HeaderText="Start" SortExpression="start" />
