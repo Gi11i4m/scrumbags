@@ -1,9 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reservations.aspx.cs" Inherits="Scrumbags.Reservations" MasterPageFile="~/MasterPage.Master" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
-    <div>
-        <asp:Button ID="HomePageButton" CssClass="BackButton" runat="server" Text="Back to slots" OnClick="HomePageButton_Click" />    
-    </div>
     <div class="ContentDiv">
         <asp:DataGrid ID="ReservedSlotsDataGrid" runat="server"
             AutoGenerateColumns="False"

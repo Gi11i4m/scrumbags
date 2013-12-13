@@ -49,10 +49,6 @@ div .ContentDiv {
 .DayRow {
     background: rgba(0, 0, 0, 0.4);
 }
-/* Backbuttons op een pagina */
-.BackButton {
-    float: right;
-}
 
 /* Messages op de website */
 .Errormessage {
@@ -79,11 +75,19 @@ div .ContentDiv {
     height: 100%;
     margin-left: 30%;
 }
-.headerLink {
+.headerLink div {
     display: inline-block;
+    background: rgba(255, 255, 255, 0.4);
+    text-align: center;
     text-decoration: none;
-    color: black;
-    margin: 15px 40px 0 0;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid gray;
+}
+.headerLink:hover div {
+    color: red;
+    background: rgba(0, 0, 0, 0.4);
 }
 .headerButton {
     height: 100%;
