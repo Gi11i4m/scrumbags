@@ -1,0 +1,55 @@
+ola boyos
+
+Dus voor als jullie willen pushen naar de server zijn er 3dingen die ge moet instaleren
+Het eerste is Curl op de downloads page naar beneden scrollen naar windows en dan een 32 of 64bit versie instaleren
+daarna cygwin van www.cygwin.com/install.html
+Daarnaa moet ge git ftp binnen halen. das een github projectje dus gwn met git binnen clonen van de volgende url
+https://github.com/git-ftp/git-ftp
+wel de uitleg volgen op de install.md
+enkel het windows gedeelte is belangrijk fucked da upstream symlinking
+
+Eens ge dat hebt moet ge het volgende doen:
+
+1 De connectionstring wisselen
+Als ge lokaal test gebruikt ge de connection string voor de lokale db
+in de klasse DBConnection de localconection string in comments zetten de cloudconnectionstring uitcomments halen.
+
+2 Daarna kunt ge pushen met het volgende commando 
+git ftp push -u "scrumbags" -p "Yolanisgay@" ftp://scrumbags.somee.com
+
+of als ge geen zin hebt om heel da te ctrl+c ctr+v 'en
+kunt ge ook de eerste keer het volgende doen
+git config git-ftp.user scrumbag
+git config git-ftp.url ftp://scrumbags.somee.com
+git config git-ftp.password Yolanisgay@
+
+dan moet ge vanaf dan enkel nog het volgende commando intypen
+git ftp push
+
+also:
+
+* * * * * * * * * * * * * * * * * * * * * * * * *  
+*                                               *
+* /     \             \            /    \       *
+*|       |             \          |      |      *
+*|       `.             |         |       :     *
+*`        |             |        \|       |     *
+* \       | /       /  \\\   ____ \\       :    *
+*  \      \/   ___~~          ~____| \     |    *
+*   \      \__~                    ~__\    |    *
+*    \_     \        _.______  .______\|   |    *
+*      \     \______// _ ___ _ (_(__>  \   |    *
+*       \   .  C ___)  ______ (_(____>  |  /    *
+*       /\ |   C ____)/      \ (_____>  |_/     *
+*      / /\|   C_____)       |  (___>   /  \    *
+*     |   (   _C_____)\______/  // _/ /     \   *
+*     |    \  |__   \\_________// (__/       |  *
+*    | \    \____)   `____  ___'             |  *
+*    |  \_          ___\       /_          _/ | *
+*   |              /    |     |  \            | *
+*   |             |    /       \  \           | *
+*   |          / /    |         |  \           |*
+*   |         / /      \__/\___/    |          |*
+*  |           /        |    |       |         |*
+*  |          |         |    |       |         |*
+* * * * * * * * * * * * * * * * * * * * * * * * * 

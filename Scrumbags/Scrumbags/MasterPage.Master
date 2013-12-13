@@ -1,0 +1,32 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="Scrumbags.MasterPageClass" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Scrumbags</title>
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="masterform" runat="server">
+    <div id="masterHeader">
+        <img src="AP.png" id="headerLogo" />
+        <div id="headerLinkPlaceholder">
+            <asp:HyperLink ID="HomeHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Home.aspx"><div>Home</div></asp:HyperLink>
+            <asp:HyperLink ID="ReservationsHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Reservations.aspx"><div>My reservations</div></asp:HyperLink> 
+            <asp:HyperLink ID="SomethingElseHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Reservations.aspx"><div>Something else</div></asp:HyperLink>
+            <asp:Button ID="logoutButton" CssClass="headerButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" />
+        </div>                
+    </div>
+    <div>
+        <asp:Label ID="siteMessage" runat="server"></asp:Label>
+        <asp:Label ID="errorMessageLabel" CssClass="Errormessage" runat="server"></asp:Label>
+        <asp:ContentPlaceHolder ID="MasterContentPlaceHolder" runat="server">
+            <!-- Niks inzetten, placeholder voor content pages -->
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
