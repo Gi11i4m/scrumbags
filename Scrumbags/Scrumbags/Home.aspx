@@ -15,7 +15,7 @@
                 <asp:BoundColumn DataField="digital" HeaderText="Digital?" />
                 <asp:BoundColumn DataField="city" HeaderText="City" />
                 <asp:BoundColumn DataField="id" Visible="false" />
-                <asp:ButtonColumn HeaderText="Select Slot" ButtonType="PushButton" Text="Select" CommandName="SelectSlot" />
+                <asp:ButtonColumn HeaderText="Select Slot" ButtonType="PushButton" Text="Reserveer" CommandName="SelectSlot" />
             </Columns>
         </asp:DataGrid>
     </div>

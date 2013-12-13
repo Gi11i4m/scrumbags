@@ -23,7 +23,7 @@ namespace Scrumbags
         }
         protected void ReservedSlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
-            DBQueries.UnReserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
+            DBQueries.UnReserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[6].Text));
             ReservedSlotsDataGrid.DataSource = DBQueries.getReservedSlots(Session["id"].ToString());
             ReservedSlotsDataGrid.DataBind();
 
@@ -73,7 +73,7 @@ namespace Scrumbags
                 case ListItemType.AlternatingItem:
 
                 case ListItemType.Item:
-                    if (e.Item.Cells[6].Text.Equals("SubHeading"))
+                    if (e.Item.Cells[5].Text.Equals("SubHeading"))
                     {
                         DateTime myDate = DateTime.Parse(e.Item.Cells[0].Text.ToString());
                         e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + returnMonth(myDate.Month);

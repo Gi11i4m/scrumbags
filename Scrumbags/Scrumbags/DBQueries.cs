@@ -93,7 +93,7 @@ namespace Scrumbags
         }
         public static void UnReserve(int lecturerID, int slotsID)
         {
-            DBConnection.executeQuery("DELETE reservations WHERE reservations.slots_id = '" + slotsID + "' AND reservations.lecturerID = '" + lecturerID + "'");
+            DBConnection.executeQuery("DELETE reservations WHERE slot_id = '" + slotsID + "' and lecturer_id = '" + lecturerID + "'");
         }
 
         //Change user password
