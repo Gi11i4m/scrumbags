@@ -13,30 +13,37 @@ namespace Scrumbags
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Check if there is a session, else transfer them to the default page
-            //if (Session["id"] == null)
-            //{
-            //    Server.Transfer("Default.aspx", true);
-            //}
-
-            Session["id"] = 1392;
-
-            newPassword1Label.Text = "New password";
-            newPassword2Label.Text = "Repeat new password";
-            oldPasswordLabel.Text = "Enter your old password";
-
-            if (!IsPostBack)
+            try
             {
-                ViewState["isAdmin"] = DBQueries.CheckAdmin(Session["id"].ToString());
-                
-                DataTable t = DBQueries.getUserTable(Session["id"].ToString());
-                ViewState["email"] = t.Rows[0]["email"];
+                //Check if there is a session, else transfer them to the default page
+                //if (Session["id"] == null)
+                //{
+                //    Server.Transfer("Default.aspx", true);
+                //}
+
+                Session["id"] = 1392; // WTF is dees?
+
+                newPassword1Label.Text = "New password";
+                newPassword2Label.Text = "Repeat new password";
+                oldPasswordLabel.Text = "Enter your old password";
+
+                if (!IsPostBack)
+                {
+                    ViewState["isAdmin"] = DBQueries.CheckAdmin(Session["id"].ToString());
+
+                    DataTable t = DBQueries.getUserTable(Session["id"].ToString());
+                    ViewState["email"] = t.Rows[0]["email"];
+                }
+
+                if (!(bool)ViewState["isAdmin"])
+                {
+                    siteMessageTextbox.Visible = false;
+                    submitSiteMessageButton.Visible = false;
+                }
             }
-
-            if (!(bool)ViewState["isAdmin"])
+            catch (Exception ex)
             {
-                siteMessageTextbox.Visible = false;
-                submitSiteMessageButton.Visible = false;
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = ex.Message;
             }
         }
 
@@ -51,25 +58,39 @@ namespace Scrumbags
         //Changes the userpassword in DB
         protected void changePasswordButton_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            try
             {
-                DBQueries.changePassword(ViewState["email"].ToString(), newPassword1Textbox.Text);
+                if (Page.IsValid)
+                {
+                    DBQueries.changePassword(ViewState["email"].ToString(), newPassword1Textbox.Text);
 
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your new password has been set.');</script>");
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your new password has been set.');</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = ex.Message;
             }
         }
 
         protected void submitSiteMessageButton_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            try
             {
-                //Check if user is admin, else don't execute query
-                if ((bool)ViewState["isAdmin"])
+                if (Page.IsValid)
                 {
-                    DBQueries.SetSiteMessage(siteMessageTextbox.Text);
+                    //Check if user is admin, else don't execute query
+                    if ((bool)ViewState["isAdmin"])
+                    {
+                        DBQueries.SetSiteMessage(siteMessageTextbox.Text);
 
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('The message has been set.');</script>");
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('The message has been set.');</script>");
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = ex.Message;
             }
         }
     }

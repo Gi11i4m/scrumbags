@@ -20,6 +20,9 @@
         </div>
         <asp:Button ID="logoutButton" CssClass="headerButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" />         
     </div>
+        <div>
+            <asp:Label ID="errorMessageLabel" runat="server"></asp:Label>
+        </div>
     <div>
         <asp:Label ID="siteMessage" runat="server"></asp:Label>
         <asp:ContentPlaceHolder ID="MasterContentPlaceHolder" runat="server">
