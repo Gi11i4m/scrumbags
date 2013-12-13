@@ -11,7 +11,6 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Beveiligen!!
             string email = Request["email"];
             string hash = Request["hash"];
 
