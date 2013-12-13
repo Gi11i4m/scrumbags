@@ -14,14 +14,15 @@
     <div id="masterHeader">
         <img src="AP.png" id="headerLogo" />
         <div id="headerLinkPlaceholder">
-            <asp:HyperLink ID="HomeHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
-            <asp:HyperLink ID="ReservationsHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Reservations.aspx">My reservations</asp:HyperLink>            
-            <asp:HyperLink ID="SomethingElseHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Reservations.aspx">Something else</asp:HyperLink>
-        </div>
-        <asp:Button ID="logoutButton" CssClass="headerButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" />         
+            <asp:HyperLink ID="HomeHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Home.aspx"><div>Home</div></asp:HyperLink>
+            <asp:HyperLink ID="ReservationsHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Reservations.aspx"><div>My reservations</div></asp:HyperLink> 
+            <asp:HyperLink ID="SomethingElseHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Reservations.aspx"><div>Something else</div></asp:HyperLink>
+            <asp:Button ID="logoutButton" CssClass="headerButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" />
+        </div>                
     </div>
     <div>
         <asp:Label ID="siteMessage" runat="server"></asp:Label>
+        <asp:Label ID="errorMessageLabel" CssClass="Errormessage" runat="server"></asp:Label>
         <asp:ContentPlaceHolder ID="MasterContentPlaceHolder" runat="server">
             <!-- Niks inzetten, placeholder voor content pages -->
         </asp:ContentPlaceHolder>
