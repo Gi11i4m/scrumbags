@@ -31,6 +31,33 @@ namespace Scrumbags {
         protected global::System.Web.UI.HtmlControls.HtmlForm masterform;
         
         /// <summary>
+        /// HomeHyperLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HomeHyperLink;
+        
+        /// <summary>
+        /// ReservationsHyperLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ReservationsHyperLink;
+        
+        /// <summary>
+        /// SomethingElseHyperLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink SomethingElseHyperLink;
+        
+        /// <summary>
         /// logoutButton control.
         /// </summary>
         /// <remarks>
@@ -40,16 +67,7 @@ namespace Scrumbags {
         protected global::System.Web.UI.WebControls.Button logoutButton;
         
         /// <summary>
-        /// ReservationsHyperLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ReservationsHyperLink;
-        
-        /// <summary>
-        /// errorMessage control.
+        /// siteMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

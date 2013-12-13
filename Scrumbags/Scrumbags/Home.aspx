@@ -8,9 +8,9 @@
             OnItemCommand="SlotsDataGrid_OnItemCommand">
             <Columns>
                 <asp:BoundColumn DataField="date" Visible="false" />
-                <asp:BoundColumn DataField="start" HeaderText="Start hour" />
-                <asp:BoundColumn DataField="einde" HeaderText="End hour" />
-                <asp:BoundColumn DataField="duration" HeaderText="duration" />
+                <asp:BoundColumn DataField="start" HeaderText="Start" />
+                <asp:BoundColumn DataField="einde" HeaderText="End" />
+                <asp:BoundColumn DataField="duration" HeaderText="Duration" />
                 <asp:BoundColumn DataField="capacity" HeaderText="Teachers needed" />
                 <asp:BoundColumn DataField="digital" HeaderText="Digital?" />
                 <asp:BoundColumn DataField="city" HeaderText="City" />
