@@ -213,10 +213,9 @@ namespace Scrumbags
         public static DataSet getReservedSlots(string lecturer_id)
         {
             SqlCommand cmd = new SqlCommand("SELECT * from dbo.slots where slots.id IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturer_id)");
-            cmd.Parameters.AddWithValue(" @lecturer_id", lecturer_id);
+            cmd.Parameters.AddWithValue("@lecturer_id", lecturer_id);
             DataSet ds = DBConnection.executeQueryDataSet(cmd);
 
-            
             int i = 0;
             string prevDate = "";
 
