@@ -14,26 +14,37 @@ namespace Scrumbags
             string email = Request["email"];
             string hash = Request["hash"];
 
-            //Check if parameters are present, user is already verified, user exists and hash is valid
-            if (email == null || hash == null)
+            try
             {
-                messageLabel.Text = "There was a problem processing your request - The supplied link is not correct.";
-            }
-            else if (DBQueries.userIsVefied(email))
-            {
-                messageLabel.Text = "Your account has already been verified.";
-            }
-            else if (DBQueries.UserExists(email) && hash.Equals(Hashing.GetHash(email)))
-            {
-                //Verify user in DB
-                DBQueries.verifyUser(email);
+                //Check if parameters are present, user is already verified, user exists and hash is valid
+                if (email == null || hash == null)
+                {
+                    messageLabel.Text = "There was a problem processing your request - The supplied link is not correct.";
+                }
+                else if (DBQueries.userIsVefied(email))
+                {
+                    messageLabel.Text = "Your account has already been verified.";
+                }
+                else if (DBQueries.UserExists(email) && hash.Equals(Hashing.GetHash(email)))
+                {
+                    //Verify user in DB
+                    DBQueries.verifyUser(email);
 
-                messageLabel.Text = "Your account has been verified. \n You will be redirected automatically ";
-                Response.AppendHeader("REFRESH", "5;URL=Login.aspx");
+                    messageLabel.Text = "Your account has been verified. \n You will be redirected automatically ";
+                    Response.AppendHeader("REFRESH", "5;URL=Login.aspx");
+                }
+                else
+                {
+                    messageLabel.Text = "There was a problem processing your request - Your email address does not exist."; //Redirect?
+                }
             }
-            else
+            catch (Exception ex)
             {
-                messageLabel.Text = "There was a problem processing your request - Your email address does not exist."; //Redirect?
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
+
+                errorMessageLabel.Text = "An error occured while verifying your account:";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
             }
         }
     }

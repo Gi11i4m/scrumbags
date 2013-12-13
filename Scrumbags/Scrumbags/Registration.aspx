@@ -19,7 +19,7 @@
             <asp:Label ID="emailLabel" AssociatedControlID="emailTextbox" runat="server" CssClass="Labels"></asp:Label>
             <asp:TextBox ID="emailTextbox" runat="server" TextMode="Email" CssClass="Textboxes" />
             <asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="emailTextbox" CssClass="Errormessage" ErrorMessage="Email is required." Display="Dynamic" />
-            <asp:CustomValidator ID="emailExistsValidator" runat="server" ErrorMessage="This email address is already in use" ControlToValidate="emailTextbox" onServerValidate="emailExistsValidator_ServerValidate" Display="Dynamic" />
+            <asp:CustomValidator ID="emailExistsValidator" runat="server" CssClass="Errormessage" ErrorMessage="This email address is already in use" ControlToValidate="emailTextbox" onServerValidate="emailExistsValidator_ServerValidate" Display="Dynamic" />
             <br />
 
             <asp:Label ID="password1Label" AssociatedControlID="password1Textbox" runat="server" CssClass="Labels"></asp:Label>

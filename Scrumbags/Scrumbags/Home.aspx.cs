@@ -17,11 +17,24 @@ namespace Scrumbags
             if (Session["id"] == null)
             {
                 Server.Transfer("Login.aspx", true);
-            }
-            if (!Page.IsPostBack)
+            } 
+            
+            try
             {
-                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
-                SlotsDataGrid.DataBind();
+
+                if (!Page.IsPostBack)
+                {
+                    SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                    SlotsDataGrid.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
+
+                errorMessageLabel.Text = "An error occured while retrieving your slots:";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
             }
             
 
@@ -32,9 +45,20 @@ namespace Scrumbags
 
         protected void SlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
-            DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
-            SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
-            SlotsDataGrid.DataBind();
+            try
+            {
+                DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
+                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                SlotsDataGrid.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
+
+                errorMessageLabel.Text = "An error occured while reserving your slots:";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
+            }
 
         }
 
@@ -97,15 +121,20 @@ namespace Scrumbags
             }
         }
 
-        protected void gvEmp_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "SelectSlots")
-            { }
-        }
-
         protected void SlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+            try
+            {
+                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+            }
+            catch (Exception ex)
+            {
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
+
+                errorMessageLabel.Text = "An error occured while retrieving your slots:";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
+            }
             SlotsDataGrid.DataBind();
         }
     }
