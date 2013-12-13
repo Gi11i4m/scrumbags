@@ -13,8 +13,12 @@
     <form id="masterform" runat="server">
     <div id="masterHeader">
         <img src="AP.png" id="headerLogo" />
-        <asp:Button ID="logoutButton" CssClass="headerButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" /> 
-        <asp:Button ID="ReservationsHyperLink" CssClass="headerLink" runat="server" OnClick="ReservationsHyperLink_Click" Text="Check my reservations" />
+        <div id="headerLinkPlaceholder">
+            <asp:HyperLink ID="HomeHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
+            <asp:HyperLink ID="ReservationsHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Reservations.aspx">My reservations</asp:HyperLink>            
+            <asp:HyperLink ID="SomethingElseHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Reservations.aspx">Something else</asp:HyperLink>
+        </div>
+        <asp:Button ID="logoutButton" CssClass="headerButton" runat="server" OnClick="LogoutButton_Click" Text="Log out" />         
     </div>
     <div>
         <asp:Label ID="siteMessage" runat="server"></asp:Label>

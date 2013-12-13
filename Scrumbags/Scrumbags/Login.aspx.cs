@@ -33,7 +33,7 @@ namespace Scrumbags
                 }
                 else
                 {
-                    // TODO: ERROR message genereren
+                   // TO DO: Label Error een message geven met foute login gegevens ofzo
                 }
             }
         }

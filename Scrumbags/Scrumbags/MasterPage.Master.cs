@@ -14,7 +14,9 @@ namespace Scrumbags
             // Visible buttons en links in de banner code verplaatsen naar pagina's
             bool isLoginPage = MasterContentPlaceHolder.Page.Title.Equals("Login");
             logoutButton.Visible = !isLoginPage;
+            HomeHyperLink.Visible = !isLoginPage;
             ReservationsHyperLink.Visible = !isLoginPage;
+            SomethingElseHyperLink.Visible = !isLoginPage;
         }
 
         protected void LogoutButton_Click(object sender, EventArgs e)
