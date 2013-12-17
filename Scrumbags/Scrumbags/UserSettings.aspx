@@ -20,7 +20,7 @@
             <asp:Label ID="oldPasswordLabel" AssociatedControlID="oldPasswordTextbox" runat="server" CssClass="Labels"></asp:Label>
             <asp:TextBox ID="oldPasswordTextbox" runat="server" TextMode="Password" CssClass="Textboxes" />
             <asp:RequiredFieldValidator ID="oldPasswordValidator" runat="server" ControlToValidate="oldPasswordTextbox" ErrorMessage="Please enter your old password" Validationgroup="passwordControls" Display="Dynamic"></asp:RequiredFieldValidator>
-            <asp:CustomValidator ID="oldPasswordCorrectValidator" runat="server" ControlToValidate="oldPasswordTextbox" ErrorMessage="The supplied password is incorrect" OnServerValidate="passwordValidator_ServerValidate" ValidationGroup="passwordControls" Display="Dynamic"></asp:CustomValidator>
+            <asp:CustomValidator ID="oldPasswordCorrectValidator" runat="server" ControlToValidate="oldPasswordTextbox" CssClass="Errormessage" ErrorMessage="The supplied password is incorrect" OnServerValidate="passwordValidator_ServerValidate" ValidationGroup="passwordControls" Display="Dynamic"></asp:CustomValidator>
             <br />
             <asp:Button ID="changePasswordButton" runat="server" Text="Change password" OnClick="changePasswordButton_Click" Validationgroup="passwordControls"/>
             <br />

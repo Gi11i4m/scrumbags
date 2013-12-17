@@ -5,7 +5,8 @@
         <asp:DataGrid ID="SlotsDataGrid" runat="server"
             AutoGenerateColumns="False"
             OnItemDataBound="SlotsDataGrid_ItemDataBound"
-            OnItemCommand="SlotsDataGrid_OnItemCommand">
+            OnItemCommand="SlotsDataGrid_OnItemCommand"
+            HeaderStyle-CssClass="TableTitle">
             <Columns>
                 <asp:BoundColumn DataField="date" Visible="false" />
                 <asp:BoundColumn DataField="start" HeaderText="Start" />
