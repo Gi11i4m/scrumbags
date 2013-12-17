@@ -113,12 +113,12 @@ label {
 /* ----------------------------- */
 
 /* Registratie-pagina elementen */
-#registrationDiv .Labels {
+.Labels {
     display: inline-block;
-    width: 140px;
+    width: 160px;
     padding-bottom: 10px;
 }
-#registrationDiv .Textboxes {
+.Textboxes {
     Width: 200px;
     margin-right: 20px;
 }
