@@ -14,7 +14,7 @@ namespace Scrumbags
         {
             string email = Request["email"];
             string hash = Request["hash"];
-
+            try {
             //Check if parameters are present, user is already verified, user exists and hash is valid
             if (email == null || hash == null)
             {
@@ -36,7 +36,7 @@ namespace Scrumbags
                 {
                     messageLabel.Text = "There was a problem processing your request - Your email address does not exist."; //Redirect?
                 }
-            }
+            }           
             catch (Exception ex)
             {
                 Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");

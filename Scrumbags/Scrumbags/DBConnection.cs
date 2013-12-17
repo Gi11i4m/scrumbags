@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -69,7 +69,7 @@ namespace Scrumbags
             }
             catch (Exception ex)
             {
-                return null;
+                return null; // TODO whut?
             }
         }
 

@@ -21,7 +21,6 @@ namespace Scrumbags
             
             try
             {
-
                 if (!Page.IsPostBack)
                 {
                     SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
@@ -36,8 +35,6 @@ namespace Scrumbags
                 errorMessageLabel.Text += "\n\n";
                 errorMessageLabel.Text = ex.Message;
             }
-            
-
             // Use this statement to check if the user is an Admin
             //if ((bool)Session["isAdmin"])
             //{}
@@ -59,7 +56,6 @@ namespace Scrumbags
                 errorMessageLabel.Text += "\n\n";
                 errorMessageLabel.Text = ex.Message;
             }
-
         }
 
         private string returnMonth(int i)
@@ -105,7 +101,7 @@ namespace Scrumbags
                     if (e.Item.Cells[6].Text.Equals("SubHeading"))
                     {
                         DateTime myDate = DateTime.Parse(e.Item.Cells[0].Text.ToString());
-                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + "/" + returnMonth(myDate.Month);
+                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + returnMonth(myDate.Month).ToString().ToLower();
 
                         //De breedte van de toegevoegde subheader
                         e.Item.Cells[1].ColumnSpan = e.Item.Cells.Count;
