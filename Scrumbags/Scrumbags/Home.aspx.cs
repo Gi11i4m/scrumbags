@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,11 +17,24 @@ namespace Scrumbags
             if (Session["id"] == null)
             {
                 Server.Transfer("Login.aspx", true);
-            }
-            if (!Page.IsPostBack)
+            } 
+            
+            try
             {
-                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
-                SlotsDataGrid.DataBind();
+
+                if (!Page.IsPostBack)
+                {
+                    SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                    SlotsDataGrid.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
+
+                errorMessageLabel.Text = "An error occured while retrieving your slots:";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
             }
             
 
@@ -32,10 +45,54 @@ namespace Scrumbags
 
         protected void SlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
-            DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
-            SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
-            SlotsDataGrid.DataBind();
+            try
+            {
+                DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
+                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                SlotsDataGrid.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
 
+                errorMessageLabel.Text = "An error occured while reserving your slots:";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
+            }
+
+        }
+
+        private string returnMonth(int i)
+        {
+            switch (i)
+            {
+                case 1:
+                    return "March";
+                case 2:
+                    return "February";
+                case 3:
+                    return "March";
+                case 4:
+                    return "April";
+                case 5:
+                    return "July";
+                case 6:
+                    return "June";
+                case 7:
+                    return "August";
+                case 8:
+                    return "September";
+                case 9:
+                    return "September";
+                case 10:
+                    return "October";
+                case 11:
+                    return "November";
+                case 12:
+                    return "December";
+                default:
+                    return "null";
+            }
         }
 
         private string returnMonth(int i)
@@ -97,15 +154,20 @@ namespace Scrumbags
             }
         }
 
-        protected void gvEmp_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "SelectSlots")
-            { }
-        }
-
         protected void SlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+            try
+            {
+                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+            }
+            catch (Exception ex)
+            {
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
+
+                errorMessageLabel.Text = "An error occured while retrieving your slots:";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
+            }
             SlotsDataGrid.DataBind();
         }
     }

@@ -52,9 +52,33 @@ namespace Scrumbags
         //Code pauwel voor een dataset terug te krijgen voor in de datagrid te steken
         public static DataSet executeQueryDataSet(string query)
         {
+            try
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalConnection"].ConnectionString);
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                return null; // TODO whut?
+            }
+        }
+
+        public static DataSet executeQueryDataSet(SqlCommand cmd)
+        {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalConnection"].ConnectionString);
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+
+            cmd.Connection = conn;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
 

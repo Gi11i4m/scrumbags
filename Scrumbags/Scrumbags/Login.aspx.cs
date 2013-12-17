@@ -21,7 +21,7 @@ namespace Scrumbags
         {
             if (Page.IsValid)
             {
-                String emailInput = emailTextBox.Text;
+                String emailInput = emailTextBox.Text.ToLower();
                 String passwordInput = passwordTextBox.Text;
 
                 if (DBQueries.login(emailInput, passwordInput))
