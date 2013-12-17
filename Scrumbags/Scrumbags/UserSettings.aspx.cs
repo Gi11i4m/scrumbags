@@ -16,12 +16,10 @@ namespace Scrumbags
             try
             {
                 //Check if there is a session, else transfer them to the default page
-                //if (Session["id"] == null)
-                //{
-                //    Server.Transfer("Default.aspx", true);
-                //}
-
-                Session["id"] = 1392; // WTF is dees?
+                if (Session["id"] == null)
+                {
+                    Server.Transfer("Login.aspx", true);
+                }
 
                 newPassword1Label.Text = "New password";
                 newPassword2Label.Text = "Repeat new password";
