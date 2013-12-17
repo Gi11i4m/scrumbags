@@ -1,3 +1,6 @@
+#Fuck .orig files op de server
+*.orig
+
 # Database files
 *.mdf
 *.ldf
