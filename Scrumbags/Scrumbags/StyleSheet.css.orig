@@ -1,4 +1,4 @@
-/* --------------------------------- */
+﻿/* --------------------------------- */
 /* ALGEMENE CODE VOOR DE HELE WEBSITE */
 /* -------------------------------- */
 html, body {
@@ -48,13 +48,24 @@ div .ContentDiv {
 /* Zorgt ervoor dat elke dag-kolom een donkere achtergrond heeft */
 .DayRow {
     background: rgba(0, 0, 0, 0.4);
+<<<<<<< HEAD
     text-align: center;
     padding: 10px;
+=======
+}
+/* Backbuttons op een pagina */
+.BackButton {
+    float: right;
+>>>>>>> 22d299654ccc4dff696cd31b3d1028d7a7bb9892
 }
 
 /* Messages op de website */
 .Errormessage {
+<<<<<<< HEAD
     color: #DBB312;
+=======
+    color: red;
+>>>>>>> 22d299654ccc4dff696cd31b3d1028d7a7bb9892
 }
 .Message {
     border-width: 2px;
@@ -77,6 +88,7 @@ div .ContentDiv {
     height: 100%;
     margin-left: 30%;
 }
+<<<<<<< HEAD
 .headerLink div {
     display: inline-block;
     background: rgba(255, 255, 255, 0.4);
@@ -90,6 +102,13 @@ div .ContentDiv {
 .headerLink:hover div {
     color: red;
     background: rgba(0, 0, 0, 0.4);
+=======
+.headerLink {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    margin: 15px 40px 0 0;
+>>>>>>> 22d299654ccc4dff696cd31b3d1028d7a7bb9892
 }
 .headerButton {
     height: 100%;
@@ -112,6 +131,12 @@ div .ContentDiv {
     Width: 200px;
     margin-right: 20px;
 }
+<<<<<<< HEAD
+=======
+#registrationDiv .Errormessage {
+    color: red;
+}
+>>>>>>> 22d299654ccc4dff696cd31b3d1028d7a7bb9892
 /* Login pagina */
 #loginContainer {
     border: 1px outset gray;

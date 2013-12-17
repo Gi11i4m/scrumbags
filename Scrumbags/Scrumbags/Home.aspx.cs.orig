@@ -1,34 +1,44 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
 
 namespace Scrumbags
 {
-    public partial class Reservations : System.Web.UI.Page
+    public partial class Home : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Check if their is a Session atm. Else a big no no
             if (Session["id"] == null)
             {
                 Server.Transfer("Login.aspx", true);
             }
             if (!Page.IsPostBack)
             {
-                ReservedSlotsDataGrid.DataSource = DBQueries.getReservedSlots(Session["id"].ToString());
-                ReservedSlotsDataGrid.DataBind();
+                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                SlotsDataGrid.DataBind();
             }
+            
+
+            // Use this statement to check if the user is an Admin
+            //if ((bool)Session["isAdmin"])
+            //{}
         }
-        protected void ReservedSlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
+
+        protected void SlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
-            DBQueries.UnReserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
-            ReservedSlotsDataGrid.DataSource = DBQueries.getReservedSlots(Session["id"].ToString());
-            ReservedSlotsDataGrid.DataBind();
+            DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
+            SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+            SlotsDataGrid.DataBind();
 
         }
 
+<<<<<<< HEAD
         private string returnMonth(int i)
         {
             switch (i)
@@ -61,12 +71,10 @@ namespace Scrumbags
                     return "null";
             }
         }
-        protected void ReservedSlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ReservedSlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
-            ReservedSlotsDataGrid.DataBind();
-        }
-        protected void ReservedSlotsDataGrid_ItemDataBound(object sender, DataGridItemEventArgs e)
+
+=======
+>>>>>>> 22d299654ccc4dff696cd31b3d1028d7a7bb9892
+        protected void SlotsDataGrid_ItemDataBound(object sender, DataGridItemEventArgs e)
         {
             switch (e.Item.ItemType)
             {
@@ -76,10 +84,15 @@ namespace Scrumbags
                     if (e.Item.Cells[6].Text.Equals("SubHeading"))
                     {
                         DateTime myDate = DateTime.Parse(e.Item.Cells[0].Text.ToString());
-                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + returnMonth(myDate.Month);
+<<<<<<< HEAD
+                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + returnMonth(myDate.Month).ToString().ToLower();
+=======
+                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + "/" + myDate.Month;
+>>>>>>> 22d299654ccc4dff696cd31b3d1028d7a7bb9892
 
                         //De breedte van de toegevoegde subheader
                         e.Item.Cells[1].ColumnSpan = e.Item.Cells.Count;
+                        e.Item.Cells[1].CssClass = "DayRow";
 
                         //De overigge cellen verwijderen
                         for (int i = e.Item.Cells.Count - 1; i > 1; i--)
@@ -91,9 +104,16 @@ namespace Scrumbags
             }
         }
 
-        protected void HomePageButton_Click(object sender, EventArgs e)
+        protected void gvEmp_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            Response.Redirect("Home.aspx", true);
+            if (e.CommandName == "SelectSlots")
+            { }
+        }
+
+        protected void SlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+            SlotsDataGrid.DataBind();
         }
     }
 }
