@@ -35,6 +35,7 @@ label {
 /* Content div met transparante background */
 div .DivWithBackground {
     display: inline-block;
+    left: 40%;
     background: rgba(0, 0, 0, 0.4);
     margin: 0 10px 10px 10px;
     padding: 10px;
@@ -49,9 +50,9 @@ div .ContentDiv {
 .DayRow {
     background: rgba(0, 0, 0, 0.4);
     text-align: center;
+    font-weight: bold;
     padding: 10px;
 }
-
 /* Messages op de website */
 .Errormessage {
     color: #DBB312;
@@ -61,7 +62,10 @@ div .ContentDiv {
     padding: 5px;
     margin: 3px;
 }
-/* Header balk */
+
+/* ------ */
+/* HEADER */
+/* ------ */
 #masterHeader {
     width: 100%;
     height: 50px;
@@ -83,7 +87,7 @@ div .ContentDiv {
     text-align: center;
     text-decoration: none;
     color: white;
-    margin: 5px;
+    margin: 4px;
     padding: 10px;
     border: 1px solid gray;
 }

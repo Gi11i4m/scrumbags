@@ -21,7 +21,6 @@ namespace Scrumbags
             
             try
             {
-
                 if (!Page.IsPostBack)
                 {
                     SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
@@ -36,8 +35,6 @@ namespace Scrumbags
                 errorMessageLabel.Text += "\n\n";
                 errorMessageLabel.Text = ex.Message;
             }
-            
-
             // Use this statement to check if the user is an Admin
             //if ((bool)Session["isAdmin"])
             //{}
@@ -58,40 +55,6 @@ namespace Scrumbags
                 errorMessageLabel.Text = "An error occured while reserving your slots:";
                 errorMessageLabel.Text += "\n\n";
                 errorMessageLabel.Text = ex.Message;
-            }
-
-        }
-
-        private string returnMonth(int i)
-        {
-            switch (i)
-            {
-                case 1:
-                    return "March";
-                case 2:
-                    return "February";
-                case 3:
-                    return "March";
-                case 4:
-                    return "April";
-                case 5:
-                    return "July";
-                case 6:
-                    return "June";
-                case 7:
-                    return "August";
-                case 8:
-                    return "September";
-                case 9:
-                    return "September";
-                case 10:
-                    return "October";
-                case 11:
-                    return "November";
-                case 12:
-                    return "December";
-                default:
-                    return "null";
             }
         }
 
