@@ -1,7 +1,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reservations.aspx.cs" Inherits="Scrumbags.Reservations" MasterPageFile="~/MasterPage.Master" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
-    <div class="ContentDiv">
+    <div class="TableDiv">
         <asp:GridView ID="ReservedSlotsDataGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="id" OnSelectedIndexChanged="ReservedSlotsDataGrid_SelectedIndexChanged">
             <Columns>                
                 <asp:BoundField DataField="date" HeaderText="Date" SortExpression="date" />

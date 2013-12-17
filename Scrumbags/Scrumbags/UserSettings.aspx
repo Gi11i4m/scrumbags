@@ -1,11 +1,10 @@
-﻿<%@ Page Title="User-settings Page" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="UserSettings.aspx.cs" Inherits="Scrumbags.UserSettings" %>
+﻿<%@ Page Title="Settings" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="UserSettings.aspx.cs" Inherits="Scrumbags.UserSettings" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Body" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
-    <div>
-        <h1>User-settings Page</h1>
-
+    <div class="DivWithBackground">
+        <h1>Settings</h1>
         <div>
             <asp:Label ID="newPassword1Label" AssociatedControlID="newPassword1Textbox" runat="server" CssClass="Labels"></asp:Label>
             <asp:TextBox ID="newPassword1Textbox" runat="server" TextMode="Password" CssClass="Textboxes"/>

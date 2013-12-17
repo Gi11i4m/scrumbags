@@ -15,23 +15,10 @@ namespace Scrumbags
             bool isOutsideSessionPage = MasterContentPlaceHolder.Page.Title.Equals("Login") ||
                                 MasterContentPlaceHolder.Page.Title.Equals("Registration") ||
                                 MasterContentPlaceHolder.Page.Title.Equals("Password Reset");
-            logoutButton.Visible = !isOutsideSessionPage;
+            LogoutHyperLink.Visible = !isOutsideSessionPage;
             HomeHyperLink.Visible = !isOutsideSessionPage;
             ReservationsHyperLink.Visible = !isOutsideSessionPage;
             UserSettingsHyperLink.Visible = !isOutsideSessionPage;
-        }
-
-        protected void LogoutButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Session.Abandon();
-                Response.Redirect("Login.aspx", true);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
         }
     }
 }
