@@ -5,13 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Data.SqlClient;
 
 namespace Scrumbags
 {
     public class DBQueries
     {
-
         //Checks if user exists
         public static bool UserExists(string email)
         {

@@ -69,7 +69,7 @@ namespace Scrumbags
             }
             catch (Exception ex)
             {
-                return null;
+                return null; // TODO whut?
             }
         }
 
