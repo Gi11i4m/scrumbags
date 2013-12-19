@@ -107,6 +107,12 @@ label {
 #LogoutHyperLink {
     float: right;
 }
+#siteMessage {
+    display: inline-block;
+    position: relative;
+    left: 30px;
+    color: white;
+}
 
 /* ----------------------------- */
 /* STYLE CODE VOOR PAGINA'S APART */

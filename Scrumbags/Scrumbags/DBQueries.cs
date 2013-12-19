@@ -178,12 +178,12 @@ namespace Scrumbags
         }
 
         //Get the site message
-        public static DataTable GetSiteMessage()
+        public static string GetSiteMessage()
         {
             SqlCommand cmd = new SqlCommand("SELECT motd FROM message");
 
             DataTable message = DBConnection.executeQuery(cmd);
-            return message;
+            return message.Rows[0].ItemArray[0].ToString();
         }
 
 
