@@ -14,13 +14,13 @@
             <asp:TextBox ID="lastNameTextbox" runat="server" CssClass="Textboxes" />
             <asp:RequiredFieldValidator ID="lastNameValidator" runat="server" ControlToValidate="lastNameTextbox" CssClass="Errormessage" ErrorMessage="Last name is required." Display="Dynamic" />
             <asp:RegularExpressionValidator ID="lastNameRegexValidator" runat="server" ControlToValidate="lastNameTextbox" CssClass="Errormessage" ErrorMessage="Last name can only contain letters" ValidationExpression="^[A-z][- A-z]+$" />
-            <br />
+            <br /><br />
 
             <asp:Label ID="emailLabel" AssociatedControlID="emailTextbox" runat="server" CssClass="Labels"></asp:Label>
             <asp:TextBox ID="emailTextbox" runat="server" TextMode="Email" CssClass="Textboxes" />
             <asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="emailTextbox" CssClass="Errormessage" ErrorMessage="Email is required." Display="Dynamic" />
             <asp:CustomValidator ID="emailExistsValidator" runat="server" CssClass="Errormessage" ErrorMessage="This email address is already in use" ControlToValidate="emailTextbox" onServerValidate="emailExistsValidator_ServerValidate" Display="Dynamic" />
-            <br />
+            <br /><br />
 
             <asp:Label ID="password1Label" AssociatedControlID="password1Textbox" runat="server" CssClass="Labels"></asp:Label>
             <asp:TextBox ID="password1Textbox" runat="server" TextMode="Password" CssClass="Textboxes" />
