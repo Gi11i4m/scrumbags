@@ -46,7 +46,7 @@ namespace Scrumbags
                 String body = "Dear " + name + ",\n\n" +
                 "You recently created an accounton our site.\n" +
                 "Please use the following link to verify your account: " +
-                "http://scrumbags.somee.com/UserVerification?email=" + email + "&hash=" + Hashing.GetHash(email); //juiste adres invullen!!
+                "http://localhost:4333/UserVerification.aspx?email=" + email + "&hash=" + Hashing.GetHash(email); //juiste adres invullen!!
                 try
                 {
                     MailSender mailsender = new MailSender(email, subject, body);
