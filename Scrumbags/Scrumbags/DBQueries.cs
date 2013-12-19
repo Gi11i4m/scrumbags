@@ -174,19 +174,19 @@ namespace Scrumbags
         //Set the site message
         public static void SetSiteMessage(string message)
         {
-            SqlCommand cmd = new SqlCommand("UPDATE message SET motd= @message;");
+            SqlCommand cmd = new SqlCommand("UPDATE message SET motd=@message;");
             cmd.Parameters.AddWithValue("@message", message);
 
             DBConnection.executeQuery(cmd);
         }
 
         //Get the site message
-        public static DataTable GetSiteMessage()
+        public static string GetSiteMessage()
         {
             SqlCommand cmd = new SqlCommand("SELECT motd FROM message");
 
             DataTable message = DBConnection.executeQuery(cmd);
-            return message;
+            return message.Rows[0].ItemArray[0].ToString();
         }
 
 

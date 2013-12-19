@@ -19,40 +19,76 @@ namespace Scrumbags
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            try
             {
-                String emailInput = emailTextBox.Text.ToLower();
-                String passwordInput = passwordTextBox.Text;
-
-                if (DBQueries.login(emailInput, passwordInput))
+                if (Page.IsValid)
                 {
-                    if (DBQueries.userIsVefied(emailInput))
+                    String emailInput = emailTextBox.Text.ToLower();
+                    String passwordInput = passwordTextBox.Text;
+
+                    if (DBQueries.login(emailInput, passwordInput))
                     {
-                        DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput + "'");
-                        Object o = t.Rows[0]["id"];
-                        Session["id"] = o.ToString();
-                        Response.Redirect("Home.aspx", true); 
+                        if (DBQueries.userIsVefied(emailInput))
+                        {
+                            DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput + "'");
+                            Object o = t.Rows[0]["id"];
+                            Session["id"] = o.ToString();
+                            Response.Redirect("Home.aspx", true);
+                        }
+                        else
+                        {
+                            // TO DO: Label Error een message geven om account nog te verifiëren
+                        }
                     }
                     else
                     {
-                        // TO DO: Label Error een message geven om account nog te verifiëren
+                        // TO DO: Label Error een message geven met foute login gegevens ofzo
                     }
                 }
-                else
-                {
-                   // TO DO: Label Error een message geven met foute login gegevens ofzo
-                }
+            }
+            catch (Exception error)
+            {
+                string err = "Shit broke ~Girmi";
+                err += "\n\n";
+                err += error.Message;
+
+                //NOG TOE TE VOEGEN AAN LABEL
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
             }
         }
 
         protected void passwordResetLinkButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("PasswordReset.aspx");
+            try
+            {
+                Response.Redirect("PasswordReset.aspx");
+            }
+            catch (Exception error)
+            {
+                string err = "Shit broke ~Girmi";
+                err += "\n\n";
+                err += error.Message;
+
+                //NOG TOE TE VOEGEN AAN LABEL
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
+            }
         }
 
         protected void newUserLinkButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Registration.aspx");
+            try
+            {
+                Response.Redirect("Registration.aspx");
+            }
+            catch (Exception error)
+            {
+                string err = "Shit broke ~Girmi";
+                err += "\n\n";
+                err += error.Message;
+
+                //NOG TOE TE VOEGEN AAN LABEL
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
+            }
         }
     }
 }

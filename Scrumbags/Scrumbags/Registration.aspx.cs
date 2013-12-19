@@ -9,6 +9,7 @@ namespace Scrumbags
 {
     public partial class Registration : System.Web.UI.Page
     {
+        //Set the label text at pageload
         protected void Page_Load(object sender, EventArgs e)
         {
             firstNameLabel.Text = "First Name";
@@ -18,6 +19,7 @@ namespace Scrumbags
             password2Label.Text = "Repeat password";
         }
 
+        //Submit the registration form
         protected void submitButton_Click(object sender, EventArgs e)
         {
             string name = lastNameTextbox.Text + " " + firstNameTextbox.Text;
@@ -65,9 +67,9 @@ namespace Scrumbags
             }
         }
 
+        //Check if email already exists, invalidate page if it does
         protected void emailExistsValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            //Check if email already exists, invalidate page if it does
             try
             {
                 args.IsValid = !DBQueries.UserExists(emailTextbox.Text);

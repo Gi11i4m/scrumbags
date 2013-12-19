@@ -1,7 +1,7 @@
 ﻿BEGIN TRANSACTION;
 CREATE TABLE lecturers (id integer IDENTITY(1,1) NOT FOR REPLICATION NOT NULL, name varchar(255), email varchar(255),  password varchar(255), PRIMARY KEY(id));
 SET IDENTITY_INSERT lecturers ON
-INSERT INTO lecturers (id,name,email,password) VALUES(1157,'Test Account','test','F97FBE57FAA2D2F451DDA1557BAC6B43');
+INSERT INTO lecturers (id,name,email,password) VALUES(1156,'Test Account','test','F97FBE57FAA2D2F451DDA1557BAC6B43');
 INSERT INTO lecturers (id,name,email,password) VALUES(1157,'Acke Tim','tim.acke@artesis.be',NULL);
 INSERT INTO lecturers (id,name,email,password) VALUES(1158,'Adriaensen Heidi','heidi.adriaensen@artesis.be',NULL);
 INSERT INTO lecturers (id,name,email,password) VALUES(1159,'Aelbrecht Eddy','eddy.aelbrecht@artesis.be',NULL);
@@ -235,7 +235,7 @@ SET IDENTITY_INSERT lecturers OFF
 
 CREATE TABLE admins(id integer IDENTITY(1,1) NOT FOR REPLICATION NOT NULL, lecturer_id integer, PRIMARY KEY(id));
 SET IDENTITY_INSERT admins ON
-INSERT INTO admins(lecturer_id) VALUES('1157');
+INSERT INTO admins(id, lecturer_id) VALUES('1', '1157');
 SET IDENTITY_INSERT admins OFF
 
 
@@ -269,6 +269,6 @@ SET IDENTITY_INSERT slots OFF
 
 
 CREATE TABLE message (motd varchar(255));
-INSERT INTO message(motd) VALUES('Messaag van de dag');
+INSERT INTO message(motd) VALUES('Message of the day');
 
 COMMIT;

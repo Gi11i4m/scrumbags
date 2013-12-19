@@ -11,22 +11,45 @@ namespace Scrumbags
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["id"] == null)
+            try
             {
-                Server.Transfer("Login.aspx", true);
+                if (Session["id"] == null)
+                {
+                    Server.Transfer("Login.aspx", true);
+                }
+                if (!Page.IsPostBack)
+                {
+                    ReservedSlotsDataGrid.DataSource = DBQueries.getReservedSlots(Session["id"].ToString());
+                    ReservedSlotsDataGrid.DataBind();
+                }
             }
-            if (!Page.IsPostBack)
+            catch (Exception error)
             {
-                ReservedSlotsDataGrid.DataSource = DBQueries.getReservedSlots(Session["id"].ToString());
-                ReservedSlotsDataGrid.DataBind();
+                string err = "Shit broke ~Girmi";
+                err += "\n\n";
+                err += error.Message;
+
+                //NOG TOE TE VOEGEN AAN LABEL
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
             }
         }
         protected void ReservedSlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
-            DBQueries.UnReserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[6].Text));
-            ReservedSlotsDataGrid.DataSource = DBQueries.getReservedSlots(Session["id"].ToString());
-            ReservedSlotsDataGrid.DataBind();
+            try
+            {
+                DBQueries.UnReserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[6].Text));
+                ReservedSlotsDataGrid.DataSource = DBQueries.getReservedSlots(Session["id"].ToString());
+                ReservedSlotsDataGrid.DataBind();
+            }
+            catch (Exception error)
+            {
+                string err = "Shit broke ~Girmi";
+                err += "\n\n";
+                err += error.Message;
 
+                //NOG TOE TE VOEGEN AAN LABEL
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
+            }
         }
 
         private string returnMonth(int i)
@@ -63,14 +86,28 @@ namespace Scrumbags
         }
         protected void ReservedSlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ReservedSlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
-            ReservedSlotsDataGrid.DataBind();
+            try
+            {
+                ReservedSlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                ReservedSlotsDataGrid.DataBind();
+            }
+            catch (Exception error)
+            {
+                string err = "Shit broke ~Girmi";
+                err += "\n\n";
+                err += error.Message;
+
+                //NOG TOE TE VOEGEN AAN LABEL
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
+            }
         }
         protected void ReservedSlotsDataGrid_ItemDataBound(object sender, DataGridItemEventArgs e)
         {
-            switch (e.Item.ItemType)
+            try
             {
-                case ListItemType.AlternatingItem:
+                switch (e.Item.ItemType)
+                {
+                    case ListItemType.AlternatingItem:
 
                 case ListItemType.Item:
                     if (e.Item.Cells[5].Text.Equals("SubHeading"))
@@ -78,22 +115,45 @@ namespace Scrumbags
                         DateTime myDate = DateTime.Parse(e.Item.Cells[0].Text.ToString());
                         e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + returnMonth(myDate.Month);
 
-                        //De breedte van de toegevoegde subheader
-                        e.Item.Cells[1].ColumnSpan = e.Item.Cells.Count;
+                            //De breedte van de toegevoegde subheader
+                            e.Item.Cells[1].ColumnSpan = e.Item.Cells.Count;
 
-                        //De overigge cellen verwijderen
-                        for (int i = e.Item.Cells.Count - 1; i > 1; i--)
-                            e.Item.Cells.RemoveAt(i);
-                    }
-                    break;
-                default:
-                    break;
+                            //De overigge cellen verwijderen
+                            for (int i = e.Item.Cells.Count - 1; i > 1; i--)
+                                e.Item.Cells.RemoveAt(i);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception error)
+            {
+                string err = "Shit broke ~Girmi";
+                err += "\n\n";
+                err += error.Message;
+
+                //NOG TOE TE VOEGEN AAN LABEL
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
             }
         }
 
         protected void HomePageButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Home.aspx", true);
+            try
+            {
+                Response.Redirect("Home.aspx", true);
+            }
+            catch (Exception error)
+            {
+                string err = "Shit broke ~Girmi";
+                err += "\n\n";
+                err += error.Message;
+
+                //NOG TOE TE VOEGEN AAN LABEL
+                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
+            }
+
         }
     }
 }
