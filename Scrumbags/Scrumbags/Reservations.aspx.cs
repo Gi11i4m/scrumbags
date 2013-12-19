@@ -84,23 +84,7 @@ namespace Scrumbags
                     return "null";
             }
         }
-        protected void ReservedSlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ReservedSlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
-                ReservedSlotsDataGrid.DataBind();
-            }
-            catch (Exception error)
-            {
-                string err = "Shit broke ~Girmi";
-                err += "\n\n";
-                err += error.Message;
-
-                //NOG TOE TE VOEGEN AAN LABEL
-                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
-            }
-        }
+        
         protected void ReservedSlotsDataGrid_ItemDataBound(object sender, DataGridItemEventArgs e)
         {
             try
@@ -113,7 +97,7 @@ namespace Scrumbags
                     if (e.Item.Cells[5].Text.Equals("SubHeading"))
                     {
                         DateTime myDate = DateTime.Parse(e.Item.Cells[0].Text.ToString());
-                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + returnMonth(myDate.Month).ToString().ToLower();
+                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + returnMonth(myDate.Month);
 
                             //De breedte van de toegevoegde subheader
                             e.Item.Cells[1].ColumnSpan = e.Item.Cells.Count;
