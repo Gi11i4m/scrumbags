@@ -23,7 +23,7 @@ namespace Scrumbags
             {
                 if (!Page.IsPostBack)
                 {
-                    SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                    SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(), "*");
                     SlotsDataGrid.DataBind();
                 }
             }
@@ -40,12 +40,33 @@ namespace Scrumbags
             //{}
         }
 
+        protected void SelectedCity_Selection_Change(Object sender, EventArgs e)
+        {
+            switch (SelectedCity.SelectedItem.Value)
+            {
+                case "Antwerpen":
+                    SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(),"Antwerpen");
+                    SlotsDataGrid.DataBind();
+                    break;
+                case "Lier":
+                    SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(), "Lier");
+                    SlotsDataGrid.DataBind();
+                    break;
+                default:
+                    SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(), "All");
+                    SlotsDataGrid.DataBind();
+                    break;
+            }
+                
+
+        }
+
         protected void SlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
             try
             {
                 DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
-                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(), SelectedCity.SelectedItem.Value);
                 SlotsDataGrid.DataBind();
             }
             catch (Exception ex)
@@ -121,7 +142,7 @@ namespace Scrumbags
         {
             try
             {
-                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(), SelectedCity.SelectedItem.Value);
             }
             catch (Exception ex)
             {

@@ -92,7 +92,10 @@ namespace Scrumbags
         }
         public static void UnReserve(int lecturerID, int slotsID)
         {
-            DBConnection.executeQuery("DELETE reservations WHERE reservations.slots_id = '" + slotsID + "' AND reservations.lecturerID = '" + lecturerID + "'");
+            SqlCommand cmd = new SqlCommand("DELETE reservations WHERE reservations.slot_id = @slotsID AND reservations.lecturer_id = @lecturerID");
+            cmd.Parameters.AddWithValue("@slotsID", slotsID);
+            cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+            DBConnection.executeQuery(cmd);
         }
 
         //Change user password
@@ -189,10 +192,22 @@ namespace Scrumbags
 
 
         //Code Pauwel voor de Dataset op te vragen
-        public static DataSet getSlots(string lecturerID)
+        public static DataSet getSlots(string lecturerID, string City)
         {
-            SqlCommand cmd = new SqlCommand("select * from dbo.slots where dbo. slots.capacity !=0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturerID);");
-            cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+            SqlCommand cmd;
+            if (City == "*")
+            {
+                cmd = new SqlCommand("select * from dbo.slots where dbo.slots.capacity > 0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturerID);");
+                cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+            }
+            else
+            {
+                cmd = new SqlCommand("select * from dbo.slots where dbo.slots.city = @city and dbo. slots.capacity > 0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturerID);");
+                cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+                cmd.Parameters.AddWithValue("@city", City);
+            }
+                
+            
 
             DataSet ds = DBConnection.executeQueryDataSet(cmd);
             int i = 0;
