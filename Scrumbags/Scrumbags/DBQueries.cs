@@ -106,7 +106,7 @@ namespace Scrumbags
         {
             string pwhash = Hashing.GetHash(password);
 
-            SqlCommand cmd = new SqlCommand("UPDATE lecturers SET password= @pwhash + WHERE email= @email;");
+            SqlCommand cmd = new SqlCommand("UPDATE lecturers SET password = @pwhash WHERE email= @email;");
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@pwhash", pwhash);
 

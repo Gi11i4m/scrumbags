@@ -42,12 +42,12 @@ namespace Scrumbags
                     "This is your new password: " + password;
                     MailSender mailsender = new MailSender(email, subject, body);
                     mailsender.Send();
-                    emailLabel.Text = password;
 
                     //Save new password in DB
                     DBQueries.changePassword(email, password);
 
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your new password has been sent to your email address');</script>");
+                    Session.Abandon();
                     Response.AppendHeader("REFRESH", "1;URL=Login.aspx");
                 }
             }
