@@ -1,14 +1,22 @@
 ﻿<%@ Page Title="Home" Language="C#" AutoEventWireup="True" CodeBehind="Home.aspx.cs" Inherits="Scrumbags.Home" MasterPageFile="~/MasterPage.Master" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">    
-    City?: 
+    City?:  
     <asp:DropDownList id="SelectedCity"
                     AutoPostBack="True"
                     OnSelectedIndexChanged="SelectedCity_Selection_Change"
                     runat="server">
         <asp:ListItem Value="Antwerpen"> Antwerpen </asp:ListItem>
         <asp:ListItem Value="Lier"> Lier </asp:ListItem>
-        <asp:ListItem Selected="True" Value="All"> All </asp:ListItem>
+        <asp:ListItem Selected="True" Value="*"> All </asp:ListItem>
+    </asp:DropDownList> Digital?: 
+    <asp:DropDownList id="SelectDigital"
+                    AutoPostBack="True"
+                    OnSelectedIndexChanged="SelectedDigital_Selection_Change"
+                    runat="server">
+        <asp:ListItem Value="1"> Yes </asp:ListItem>
+        <asp:ListItem Value="0"> No </asp:ListItem>
+        <asp:ListItem Selected="True" Value="*"> All </asp:ListItem>
     </asp:DropDownList>
 
     <div class="TableDiv">

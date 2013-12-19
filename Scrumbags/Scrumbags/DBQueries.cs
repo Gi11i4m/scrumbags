@@ -78,7 +78,7 @@ namespace Scrumbags
         // Var capacity will be decremented by 1 when reservation is made
         public static void Reserve(int lecturerID, int slotID)
         {
-            SqlCommand cmd1 = new SqlCommand("SELECT capacity FROM slots WHERE id = @slotID;");
+            SqlCommand cmd1 = new SqlCommand("UPDATE slots SET capacity = capacity -1 WHERE id = @slotID;");
             cmd1.Parameters.AddWithValue("@slotID", slotID);
 
             DBConnection.executeQuery(cmd1);
@@ -93,9 +93,12 @@ namespace Scrumbags
         public static void UnReserve(int lecturerID, int slotsID)
         {
             SqlCommand cmd = new SqlCommand("DELETE reservations WHERE reservations.slot_id = @slotsID AND reservations.lecturer_id = @lecturerID");
+            SqlCommand cmd2 = new SqlCommand("UPDATE slots SET capacity = capacity + 1 WHERE id = @slotsID");
             cmd.Parameters.AddWithValue("@slotsID", slotsID);
             cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+            cmd2.Parameters.AddWithValue("@slotsID", slotsID);
             DBConnection.executeQuery(cmd);
+            DBConnection.executeQuery(cmd2);
         }
 
         //Change user password
@@ -192,22 +195,41 @@ namespace Scrumbags
 
 
         //Code Pauwel voor de Dataset op te vragen
-        public static DataSet getSlots(string lecturerID, string City)
+        public static DataSet getSlots(string lecturerID, string City, string Digital)
         {
             SqlCommand cmd;
+            
             if (City == "*")
             {
-                cmd = new SqlCommand("select * from dbo.slots where dbo.slots.capacity > 0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturerID);");
-                cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+                if (Digital == "*")
+                {
+                    cmd = new SqlCommand("select * from dbo.slots where dbo.slots.capacity > 0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturerID);");
+                    cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+                }
+                else
+                {
+                    cmd = new SqlCommand("select * from dbo.slots where dbo.slots.capacity > 0 AND dbo.slots.digital = @digital and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturerID);");
+                    cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+                    cmd.Parameters.AddWithValue("@digital", Digital);
+                }
+                
             }
             else
             {
-                cmd = new SqlCommand("select * from dbo.slots where dbo.slots.city = @city and dbo. slots.capacity > 0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturerID);");
-                cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
-                cmd.Parameters.AddWithValue("@city", City);
+                if (Digital == "*")
+                {
+                    cmd = new SqlCommand("select * from dbo.slots where dbo.slots.city = @city and dbo. slots.capacity > 0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturerID);");
+                    cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+                    cmd.Parameters.AddWithValue("@city", City);
+                }
+                else
+                {
+                    cmd = new SqlCommand("select * from dbo.slots where dbo.slots.digital = @digital AND dbo.slots.city = @city AND dbo. slots.capacity > 0 and dbo.slots.id NOT IN (select dbo.reservations.slot_id from dbo.reservations where dbo.reservations.lecturer_id = @lecturerID);");
+                    cmd.Parameters.AddWithValue("@lecturerID", lecturerID);
+                    cmd.Parameters.AddWithValue("@city", City);
+                    cmd.Parameters.AddWithValue("@digital", Digital);
+                }
             }
-                
-            
 
             DataSet ds = DBConnection.executeQueryDataSet(cmd);
             int i = 0;

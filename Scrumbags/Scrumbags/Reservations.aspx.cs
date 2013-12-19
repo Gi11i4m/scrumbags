@@ -84,23 +84,7 @@ namespace Scrumbags
                     return "null";
             }
         }
-        /*protected void ReservedSlotsDataGrid_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ReservedSlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
-                ReservedSlotsDataGrid.DataBind();
-            }
-            catch (Exception error)
-            {
-                string err = "Shit broke ~Girmi";
-                err += "\n\n";
-                err += error.Message;
-
-                //NOG TOE TE VOEGEN AAN LABEL
-                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
-            }
-        }*/
+        
         protected void ReservedSlotsDataGrid_ItemDataBound(object sender, DataGridItemEventArgs e)
         {
             try
