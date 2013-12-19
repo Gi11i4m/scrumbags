@@ -62,8 +62,9 @@ namespace Scrumbags
                 if (Page.IsValid)
                 {
                     DBQueries.changePassword(ViewState["email"].ToString(), newPassword1Textbox.Text);
-
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your new password has been set.');</script>");
+                    Session.Abandon();
+                    Response.Redirect("~/Login.aspx");
                 }
             }
             catch (Exception ex)
