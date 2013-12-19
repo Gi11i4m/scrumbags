@@ -51,6 +51,10 @@ namespace Scrumbags
                 {
                     MailSender mailsender = new MailSender(email, subject, body);
                     mailsender.Send();
+
+                    //Redirect to loginpage
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your account has been created, an email has been sent to your email address to verify your account');</script>");
+                    Response.AppendHeader("REFRESH", "1;URL=Login.aspx");
                 }
                 catch (Exception ex)
                 {
@@ -60,10 +64,6 @@ namespace Scrumbags
                     errorMessageLabel.Text += "\n\n";
                     errorMessageLabel.Text = ex.Message;
                 }
-
-                //Redirect to loginpage
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your account has been created, an email has been sent to your email address to verify your account');</script>");
-                Response.AppendHeader("REFRESH", "1;URL=Login.aspx");
             }
         }
 

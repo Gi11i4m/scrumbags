@@ -15,7 +15,7 @@ namespace Scrumbags
         // MAILCONSTRUCTOR (OK)
         public Mailing()
         {
-            client.Port = 25;
+            client.Port = 587;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
             client.Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["SendMailSMTPUserName"].ToString(), ConfigurationManager.AppSettings["SendMailSMTPUserPassword"].ToString());
