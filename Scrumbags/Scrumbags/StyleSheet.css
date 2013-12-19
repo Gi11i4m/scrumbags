@@ -68,6 +68,10 @@ label {
     padding: 5px;
     margin: 3px;
 }
+/* Kleur tekst selectievakjes */
+.SelectionLabels {
+    color: white;
+}
 
 /* ------ */
 /* HEADER */

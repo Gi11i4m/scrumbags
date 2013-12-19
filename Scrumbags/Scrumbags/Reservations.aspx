@@ -15,7 +15,7 @@
                 <asp:BoundColumn DataField="digital" HeaderText="Digital?" />
                 <asp:BoundColumn DataField="city" HeaderText="City" />
                 <asp:BoundColumn DataField="id" Visible="false" />
-                <asp:ButtonColumn HeaderText="Select Slot" ButtonType="PushButton" Text="Annuleer Reservatie" CommandName="SelectSlot" />
+                <asp:ButtonColumn HeaderText="Select Slot" ButtonType="PushButton" Text="Cancel booking" CommandName="SelectSlot" />
             </Columns>
         </asp:DataGrid>
     </div>

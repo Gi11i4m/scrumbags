@@ -1,24 +1,26 @@
 ﻿<%@ Page Title="Home" Language="C#" AutoEventWireup="True" CodeBehind="Home.aspx.cs" Inherits="Scrumbags.Home" MasterPageFile="~/MasterPage.Master" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">    
-    City?:  
-    <asp:DropDownList id="SelectedCity"
-                    AutoPostBack="True"
-                    OnSelectedIndexChanged="SelectedCity_Selection_Change"
-                    runat="server">
-        <asp:ListItem Value="Antwerpen"> Antwerpen </asp:ListItem>
-        <asp:ListItem Value="Lier"> Lier </asp:ListItem>
-        <asp:ListItem Selected="True" Value="*"> All </asp:ListItem>
-    </asp:DropDownList> Digital?: 
-    <asp:DropDownList id="SelectDigital"
-                    AutoPostBack="True"
-                    OnSelectedIndexChanged="SelectedDigital_Selection_Change"
-                    runat="server">
-        <asp:ListItem Value="1"> Yes </asp:ListItem>
-        <asp:ListItem Value="0"> No </asp:ListItem>
-        <asp:ListItem Selected="True" Value="*"> All </asp:ListItem>
-    </asp:DropDownList>
-
+    <div class="DivWithBackground">
+        <asp:Label CssClass="SelectionLabels" runat="server">City:</asp:Label>
+        <asp:DropDownList id="SelectedCity"
+                        AutoPostBack="True"
+                        OnSelectedIndexChanged="SelectedCity_Selection_Change"
+                        runat="server">
+            <asp:ListItem Value="Antwerpen"> Antwerpen </asp:ListItem>
+            <asp:ListItem Value="Lier"> Lier </asp:ListItem>
+            <asp:ListItem Selected="True" Value="*"> All </asp:ListItem>
+        </asp:DropDownList> 
+        <asp:Label CssClass="SelectionLabels" runat="server">Digital?</asp:Label>
+        <asp:DropDownList id="SelectDigital"
+                        AutoPostBack="True"
+                        OnSelectedIndexChanged="SelectedDigital_Selection_Change"
+                        runat="server">
+            <asp:ListItem Value="1"> Yes </asp:ListItem>
+            <asp:ListItem Value="0"> No </asp:ListItem>
+            <asp:ListItem Selected="True" Value="*"> All </asp:ListItem>
+        </asp:DropDownList>
+    </div>
     <div class="TableDiv">
         <asp:DataGrid ID="SlotsDataGrid" runat="server"
             AutoGenerateColumns="False"
@@ -34,7 +36,7 @@
                 <asp:BoundColumn DataField="digital" HeaderText="Digital?" />
                 <asp:BoundColumn DataField="city" HeaderText="City" />
                 <asp:BoundColumn DataField="id" Visible="false" />
-                <asp:ButtonColumn HeaderText="Select Slot" ButtonType="PushButton" Text="Select" CommandName="SelectSlot" />
+                <asp:ButtonColumn HeaderText="Select Slot" ButtonType="PushButton" Text="Book" CommandName="SelectSlot" />
             </Columns>
         </asp:DataGrid>
     </div>
