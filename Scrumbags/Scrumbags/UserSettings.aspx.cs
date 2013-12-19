@@ -25,6 +25,7 @@ namespace Scrumbags
                 newPassword2Label.Text = "Repeat new password";
                 oldPasswordLabel.Text = "Enter your old password";
 
+                //Check if user is an admin, set the variable in the viewstate
                 if (!IsPostBack)
                 {
                     ViewState["isAdmin"] = DBQueries.CheckAdmin(Session["id"].ToString());
@@ -33,6 +34,7 @@ namespace Scrumbags
                     ViewState["email"] = t.Rows[0]["email"];
                 }
 
+                //Disable the message field if the user isn't an admin
                 if (!(bool)ViewState["isAdmin"])
                 {
                     siteMessageTextbox.Visible = false;
@@ -45,8 +47,7 @@ namespace Scrumbags
             }
         }
 
-        //Check if a new password is being set
-        //Then check if the supplied password is correct, if not invalidates the page
+        //Check if the supplied password is correct, if not invalidates the page
         protected void passwordValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             args.IsValid = DBQueries.login(ViewState["email"].ToString(), oldPasswordTextbox.Text);
@@ -73,23 +74,22 @@ namespace Scrumbags
 
         protected void submitSiteMessageButton_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 if (Page.IsValid)
                 {
                     //Check if user is admin, else don't execute query
                     if ((bool)ViewState["isAdmin"])
                     {
-                        DBQueries.SetSiteMessage(siteMessageTextbox.Text);
-
+                        DBQueries.SetSiteMessage(siteMessageTextbox.Text.Replace(Environment.NewLine, "\n"));
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('The message has been set.');</script>");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = ex.Message;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    ((Label)Page.Master.FindControl("errorMessageLabel")).Text = ex.Message;
+            //}
         }
     }
 }
