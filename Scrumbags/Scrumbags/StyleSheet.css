@@ -16,8 +16,8 @@ table {
     background: rgba(0, 0, 0, 0.4);
     color: white;
 }
-table td {
-    padding: 5px 10px 5px 10px;
+table td, th {
+    padding: 10px;
 }    
 form {
     margin: 0;
@@ -43,7 +43,6 @@ label {
 /* Content div voor elke pagina */
 .TableDiv {
     padding: 10px;
-    margin: 10px;
 }
 /* Zorgt ervoor dat elke dag-kolom een donkere achtergrond heeft */
 .DayRow {
@@ -51,6 +50,14 @@ label {
     text-align: center;
     font-weight: bold;
     padding: 10px;
+}
+/* Zorgt voor een duidelijke weergave van de tabel titels */
+.TableTitle {
+    background: rgba(255, 125, 125, 0.3);
+    color: #D6D6D6;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
 }
 /* Messages op de website */
 .Errormessage {

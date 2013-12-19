@@ -2,7 +2,11 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MasterContentPlaceHolder" runat="server">
     <div class="TableDiv">
-        <asp:GridView ID="ReservedSlotsDataGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="id" OnSelectedIndexChanged="ReservedSlotsDataGrid_SelectedIndexChanged">
+        <asp:GridView ID="ReservedSlotsDataGrid" runat="server" 
+            AutoGenerateColumns="False" 
+            DataKeyNames="id" 
+            OnSelectedIndexChanged="ReservedSlotsDataGrid_SelectedIndexChanged"
+            HeaderStyle-CssClass="TableTitle">
             <Columns>                
                 <asp:BoundField DataField="date" HeaderText="Date" SortExpression="date" />
                 <asp:BoundField DataField="start" HeaderText="Start" SortExpression="start" />
