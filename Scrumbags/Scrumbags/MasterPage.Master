@@ -13,11 +13,11 @@
     <form id="masterform" runat="server">
     <div id="masterHeader">
         <img src="AP.png" id="headerLogo" />
-        <div id="headerLinkPlaceholder">
+        <asp:Label ID="siteMessage" CssClass="headerLink" runat="server"></asp:Label>
+        <div id="headerLinkPlaceholder">            
             <asp:HyperLink ID="HomeHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Home.aspx"><div>Home</div></asp:HyperLink>
             <asp:HyperLink ID="ReservationsHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Reservations.aspx"><div>My reservations</div></asp:HyperLink> 
-            <asp:HyperLink ID="UserSettingsHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/UserSettings.aspx"><div>Settings</div></asp:HyperLink>
-            <asp:Label ID="siteMessage" CssClass="headerLink" runat="server"></asp:Label>
+            <asp:HyperLink ID="UserSettingsHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/UserSettings.aspx"><div>Settings</div></asp:HyperLink>            
             <asp:HyperLink ID="LogoutHyperLink" CssClass="headerLink" runat="server" NavigateUrl="~/Logout.aspx"><div>Log out</div></asp:HyperLink>
         </div>                
     </div>

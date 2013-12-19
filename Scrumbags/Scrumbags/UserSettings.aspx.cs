@@ -83,6 +83,7 @@ namespace Scrumbags
                     {
                         DBQueries.SetSiteMessage(siteMessageTextbox.Text.Replace(Environment.NewLine, "\n"));
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('The message has been set.');</script>");
+                        Response.Redirect(Request.RawUrl);
                     }
                 }
             //}

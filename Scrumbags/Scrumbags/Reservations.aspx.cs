@@ -113,10 +113,11 @@ namespace Scrumbags
                     if (e.Item.Cells[5].Text.Equals("SubHeading"))
                     {
                         DateTime myDate = DateTime.Parse(e.Item.Cells[0].Text.ToString());
-                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + returnMonth(myDate.Month);
+                        e.Item.Cells[1].Text = myDate.DayOfWeek.ToString() + " " + myDate.Day + " " + returnMonth(myDate.Month).ToString().ToLower();
 
                             //De breedte van de toegevoegde subheader
                             e.Item.Cells[1].ColumnSpan = e.Item.Cells.Count;
+                            e.Item.Cells[1].CssClass = "DayRow";
 
                             //De overigge cellen verwijderen
                             for (int i = e.Item.Cells.Count - 1; i > 1; i--)
