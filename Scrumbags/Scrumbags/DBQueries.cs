@@ -171,7 +171,7 @@ namespace Scrumbags
         //Set the site message
         public static void SetSiteMessage(string message)
         {
-            SqlCommand cmd = new SqlCommand("UPDATE message SET motd= @message;");
+            SqlCommand cmd = new SqlCommand("UPDATE message SET motd=@message;");
             cmd.Parameters.AddWithValue("@message", message);
 
             DBConnection.executeQuery(cmd);
