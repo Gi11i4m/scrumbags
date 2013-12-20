@@ -38,11 +38,10 @@ namespace Scrumbags
                     //Send new password to email address 
                     String subject = "Scrumbags - Password reset";
                     String body = "Dear,\n " +
-                    "You recently requested a password reset on our site.\n" +
+                    "You recently requested a password reset on our website.\n" +
                     "This is your new password: " + password;
                     MailSender mailsender = new MailSender(email, subject, body);
                     mailsender.Send();
-                    emailLabel.Text = password;
 
                     //Save new password in DB
                     DBQueries.changePassword(email, password);

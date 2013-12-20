@@ -35,12 +35,12 @@ namespace Scrumbags
                     }
                     else
                     {
-                        // TO DO: Label Error een message geven om account nog te verifiëren
+                        ((Label)Page.Master.FindControl("errorMessageLabel")).Text = "Your account hasn't been verified yet, please check your email.";
                     }
                 }
                 else
                 {
-                   // TO DO: Label Error een message geven met foute login gegevens ofzo
+                    ((Label)Page.Master.FindControl("errorMessageLabel")).Text = "Wrong username or password.";
                 }
             }
         }

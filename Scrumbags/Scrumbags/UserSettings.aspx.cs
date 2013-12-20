@@ -43,14 +43,29 @@ namespace Scrumbags
             }
             catch (Exception ex)
             {
-                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = ex.Message;
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
+
+                errorMessageLabel.Text = "An error occured while retrieving your data";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
             }
         }
 
         //Check if the supplied password is correct, if not invalidates the page
         protected void passwordValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            args.IsValid = DBQueries.login(ViewState["email"].ToString(), oldPasswordTextbox.Text);
+            try
+            {
+                args.IsValid = DBQueries.login(ViewState["email"].ToString(), oldPasswordTextbox.Text);
+            }
+            catch (Exception ex)
+            {
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
+
+                errorMessageLabel.Text = "An error occured while retrieving your data";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
+            }
             
         }
 
@@ -68,14 +83,18 @@ namespace Scrumbags
             }
             catch (Exception ex)
             {
-                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = ex.Message;
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
+
+                errorMessageLabel.Text = "An error occured while changing your password";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
             }
         }
 
         protected void submitSiteMessageButton_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 if (Page.IsValid)
                 {
                     //Check if user is admin, else don't execute query
@@ -85,11 +104,15 @@ namespace Scrumbags
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('The message has been set.');</script>");
                     }
                 }
-            //}
-            //catch (Exception ex)
-            //{
-            //    ((Label)Page.Master.FindControl("errorMessageLabel")).Text = ex.Message;
-            //}
+            }
+            catch (Exception ex)
+            {
+                Label errorMessageLabel = (Label)Page.Master.FindControl("errorMessageLabel");
+
+                errorMessageLabel.Text = "An error occured while changing the site message";
+                errorMessageLabel.Text += "\n\n";
+                errorMessageLabel.Text = ex.Message;
+            }
         }
     }
 }

@@ -128,9 +128,13 @@ namespace Scrumbags
 
             Object o = null;
 
-            if (t.Rows.Count == 1) //check if he found a password
+            if (t.Rows.Count == 1) //check if a password is found
             {
                 o = t.Rows[0]["password"];
+            }
+            else
+            {
+                return false;
             }
 
             return hash.Equals(o.ToString());
