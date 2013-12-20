@@ -68,6 +68,10 @@ label {
     padding: 5px;
     margin: 3px;
 }
+/* Kleur tekst selectievakjes */
+.SelectionLabels {
+    color: white;
+}
 
 /* ------ */
 /* HEADER */
@@ -84,8 +88,12 @@ label {
     height: 45px;    
 }
 #headerLinkPlaceholder {
-    height: 100%;
-    margin-left: 30%;
+    display: inline-block;
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    margin-left: -60px;
+    padding-left: 500px;
 }
 .headerLink div {
     display: inline-block;
@@ -106,6 +114,17 @@ label {
 }
 #LogoutHyperLink {
     float: right;
+    margin-right: 440px;
+}
+#siteMessage {
+    display: inline-block;
+    position: absolute;
+    color: yellow;
+    margin-top: 13px;
+    margin-left: 100px;
+    padding-right: 5px;
+    max-width: 330px;
+    overflow: hidden;
 }
 
 /* ----------------------------- */

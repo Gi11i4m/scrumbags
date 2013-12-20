@@ -19,6 +19,7 @@ namespace Scrumbags
             HomeHyperLink.Visible = !isOutsideSessionPage;
             ReservationsHyperLink.Visible = !isOutsideSessionPage;
             UserSettingsHyperLink.Visible = !isOutsideSessionPage;
+            siteMessage.Text = DBQueries.GetSiteMessage();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Scrumbags
             {
                 if (!Page.IsPostBack)
                 {
-                    SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                    SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(), SelectedCity.SelectedItem.Value, SelectDigital.SelectedItem.Value);
                     SlotsDataGrid.DataBind();
                 }
             }
@@ -40,12 +40,23 @@ namespace Scrumbags
             //{}
         }
 
+        protected void SelectedCity_Selection_Change(Object sender, EventArgs e)
+        {
+            SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(), SelectedCity.SelectedItem.Value, SelectDigital.SelectedItem.Value);
+                    SlotsDataGrid.DataBind();
+        }
+        protected void SelectedDigital_Selection_Change(Object sender, EventArgs e)
+        {
+            SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(), SelectedCity.SelectedItem.Value, SelectDigital.SelectedItem.Value);
+            SlotsDataGrid.DataBind();
+        }
+
         protected void SlotsDataGrid_OnItemCommand(object sender, DataGridCommandEventArgs e)
         {
             try
             {
                 DBQueries.Reserve(int.Parse(Session["id"].ToString()), int.Parse(e.Item.Cells[7].Text));
-                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(), SelectedCity.SelectedItem.Value, SelectDigital.SelectedItem.Value);
                 SlotsDataGrid.DataBind();
             }
             catch (Exception ex)
@@ -63,7 +74,7 @@ namespace Scrumbags
             switch (i)
             {
                 case 1:
-                    return "March";
+                    return "January";
                 case 2:
                     return "February";
                 case 3:
@@ -121,7 +132,7 @@ namespace Scrumbags
         {
             try
             {
-                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString());
+                SlotsDataGrid.DataSource = DBQueries.getSlots(Session["id"].ToString(), SelectedCity.SelectedItem.Value, SelectDigital.SelectedItem.Value);
             }
             catch (Exception ex)
             {

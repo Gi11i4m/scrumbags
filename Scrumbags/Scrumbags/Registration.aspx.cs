@@ -46,11 +46,15 @@ namespace Scrumbags
                 String body = "Dear " + name + ",\n\n" +
                 "You recently created an accounton our site.\n" +
                 "Please use the following link to verify your account: " +
-                "http://scrumbags.somee.com/UserVerification?email=" + email + "&hash=" + Hashing.GetHash(email); //juiste adres invullen!!
+                "http://localhost:4333/UserVerification.aspx?email=" + email + "&hash=" + Hashing.GetHash(email); //juiste adres invullen!!
                 try
                 {
                     MailSender mailsender = new MailSender(email, subject, body);
                     mailsender.Send();
+
+                    //Redirect to loginpage
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your account has been created, an email has been sent to your email address to verify your account');</script>");
+                    Response.AppendHeader("REFRESH", "1;URL=Login.aspx");
                 }
                 catch (Exception ex)
                 {
@@ -60,10 +64,6 @@ namespace Scrumbags
                     errorMessageLabel.Text += "\n\n";
                     errorMessageLabel.Text = ex.Message;
                 }
-
-                //Redirect to loginpage
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your account has been created, an email has been sent to your email address to verify your account');</script>");
-                Response.AppendHeader("REFRESH", "1;URL=Login.aspx");
             }
         }
 

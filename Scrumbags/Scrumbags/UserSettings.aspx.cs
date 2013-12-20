@@ -77,8 +77,9 @@ namespace Scrumbags
                 if (Page.IsValid)
                 {
                     DBQueries.changePassword(ViewState["email"].ToString(), newPassword1Textbox.Text);
-
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('Your new password has been set.');</script>");
+                    Session.Abandon();
+                    Response.Redirect("~/Login.aspx");
                 }
             }
             catch (Exception ex)
@@ -102,6 +103,7 @@ namespace Scrumbags
                     {
                         DBQueries.SetSiteMessage(siteMessageTextbox.Text.Replace(Environment.NewLine, "\n"));
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "<script>alert('The message has been set.');</script>");
+                        Response.Redirect(Request.RawUrl);
                     }
                 }
             }
