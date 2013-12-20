@@ -100,12 +100,11 @@ label {
     height: 45px;    
 }
 #headerLinkPlaceholder {
-    display: inline-block;
+    display: inline;
     position: absolute;
+    left: 30%;    
     height: 50px;
-    width: 100%;
-    margin-left: -60px;
-    padding-left: 500px;
+    width: 70%;
 }
 .headerLink div {
     display: inline-block;
@@ -126,17 +125,16 @@ label {
 }
 #LogoutHyperLink {
     float: right;
-    margin-right: 440px;
 }
 #siteMessage {
     display: inline-block;
     position: absolute;
     color: yellow;
-    margin-top: 13px;
-    margin-left: 100px;
+    margin-top: 5px;
+    margin-left: 105px;
     padding-right: 5px;
-    max-width: 330px;
-    overflow: hidden;
+    width: 15%;
+    overflow: auto;
 }
 
 /* ----------------------------- */
