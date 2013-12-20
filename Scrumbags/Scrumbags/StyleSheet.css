@@ -73,7 +73,7 @@ label {
 }
 /* Messages op de website */
 .Errormessage {
-    color: red;
+    color: #FF1414;
 }
 .Message {
     border-width: 2px;
@@ -175,4 +175,7 @@ label {
 .LoginOptionLinks {
     display: block;
     float: right;
+}
+#loginErrorDiv {
+    display: inline-block;
 }

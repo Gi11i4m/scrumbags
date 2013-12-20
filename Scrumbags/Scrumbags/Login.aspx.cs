@@ -35,12 +35,12 @@ namespace Scrumbags
                         }
                         else
                         {
-                            ((Label)Page.Master.FindControl("errorMessageLabel")).Text = "Your account hasn't been verified yet, please check your email.";
+                            loginErrorMessageLabel.Text = "Your account hasn't been verified yet, please check your email.";
                         }
                     }
                     else
                     {
-                        ((Label)Page.Master.FindControl("errorMessageLabel")).Text = "Wrong username or password.";
+                        loginErrorMessageLabel.Text = "Wrong username or password.";
                     }
                 }
             }
@@ -51,7 +51,7 @@ namespace Scrumbags
                 err += error.Message;
 
                 //NOG TOE TE VOEGEN AAN LABEL
-                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
+                loginErrorMessageLabel.Text = err;
             }
         }
 
@@ -68,7 +68,7 @@ namespace Scrumbags
                 err += error.Message;
 
                 //NOG TOE TE VOEGEN AAN LABEL
-                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
+                loginErrorMessageLabel.Text = err;
             }
         }
 
@@ -85,7 +85,7 @@ namespace Scrumbags
                 err += error.Message;
 
                 //NOG TOE TE VOEGEN AAN LABEL
-                ((Label)Page.Master.FindControl("errorMessageLabel")).Text = err;
+                loginErrorMessageLabel.Text = err;
             }
         }
     }

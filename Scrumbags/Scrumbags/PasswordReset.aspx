@@ -4,7 +4,7 @@
     <div class="DivWithBackground">
         <asp:Label ID="emailLabel" AssociatedControlID="emailTextbox" runat="server" CssClass="Labels" />
         <asp:TextBox ID="emailTextbox" TextMode="Email" runat="server" CssClass="Textboxes" />
-        <asp:CustomValidator runat="server" ID="emailExistsValidator" ControlToValidate="emailTextbox" onServerValidate="emailExistsValidator_ServerValidate" ErrorMessage="This email address does not exist." Display="Dynamic"/>
+        <asp:CustomValidator runat="server" ID="emailExistsValidator" CssClass="Errormessage" ControlToValidate="emailTextbox" onServerValidate="emailExistsValidator_ServerValidate" ErrorMessage="This email address does not exist." Display="Dynamic"/>
         <br />
         <asp:Button ID="resetButton" runat="server" Text="Reset password" onClick="resetButton_Click"/>
     </div>

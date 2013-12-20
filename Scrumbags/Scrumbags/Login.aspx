@@ -7,8 +7,8 @@
         <asp:Button ID="loginButton" runat="server" CssClass="Buttons" OnClick="loginButton_Click" /><br />
         <asp:LinkButton ID="passwordResetLinkButton" CssClass="LoginOptionLinks" runat="server" OnClick="passwordResetLinkButton_Click" /><br />
         <asp:LinkButton ID="newUserLinkButton" CssClass="LoginOptionLinks" runat="server" OnClick="newUserLinkButton_Click" />
-        <div>
-            <asp:Label ID="loginErrorMessageLabel" CssClass="Errormessage" runat="server" />
+        <div id="loginErrorDiv">
+            <asp:Label ID="loginErrorMessageLabel" CssClass="Errormessage" runat="server"></asp:Label>
         </div>
     </div>
 </asp:Content>
