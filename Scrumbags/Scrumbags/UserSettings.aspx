@@ -25,10 +25,10 @@
         <br />
     </div>
     <br />
-    <div class="DivWithBackground">
-        <h1>Site message</h1>
-        <asp:TextBox ID="siteMessageTextbox" runat="server" TextMode="multiline" Rows="5" Width="300 px"></asp:TextBox>
+    <div class="DivWithBackgroundHidable">
+        <asp:Literal ID="siteMessageHeaderLiteral" runat="server"><h1 class="HidableControl">Site message</h1></asp:Literal>
+        <asp:TextBox ID="siteMessageTextbox" runat="server" TextMode="multiline" Rows="5" Width="300 px" CssClass="HidableControl"></asp:TextBox>
         <br /><br />
-        <asp:Button ID="submitSiteMessageButton" runat="server" Text="Set message" OnClick="submitSiteMessageButton_Click" />
+        <asp:Button ID="submitSiteMessageButton" runat="server" Text="Set message" OnClick="submitSiteMessageButton_Click" CssClass="HidableControl"/>
     </div>
 </asp:Content>

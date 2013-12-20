@@ -37,8 +37,10 @@ namespace Scrumbags
                 //Disable the message field if the user isn't an admin
                 if (!(bool)ViewState["isAdmin"])
                 {
+                    siteMessageHeaderLiteral.Visible = false;
                     siteMessageTextbox.Visible = false;
                     submitSiteMessageButton.Visible = false;
+
                 }
             }
             catch (Exception ex)

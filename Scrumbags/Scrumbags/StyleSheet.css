@@ -40,6 +40,18 @@ label {
     padding: 10px;
     width: auto;
 }
+
+.DivWithBackgroundHidable {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.4);
+    margin: 10px;
+    width: auto;
+}
+
+.HidableControl {
+    margin: 10px;
+}
+
 /* Content div voor elke pagina */
 .TableDiv {
     padding: 10px;

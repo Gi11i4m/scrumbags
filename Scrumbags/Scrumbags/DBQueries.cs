@@ -83,7 +83,7 @@ namespace Scrumbags
 
             DBConnection.executeQuery(cmd1);
             //DBConnection.executeQuery("INSERT INTO reservations (slot_id, lecturer_id, created_at) VALUES ('" + slotID + "', '" + lecturerID + "', '" + TimeStamp.DateTimeToUnixTimestamp(DateTime.Now) + "')");
-            SqlCommand cmd2 = new SqlCommand("INSERT INTO reservations (slot_id, lecturer_id) VALUES (@slotID, @lecturerID);");
+            SqlCommand cmd2 = new SqlCommand("INSERT INTO reservations (slot_id, lecturer_id) VALUES (@slotID, @lecturerID);"); //Moet hier geen created_at value meegegeven worden?
             cmd2.Parameters.AddWithValue("@slotID", slotID);
             cmd2.Parameters.AddWithValue("@lecturerID", lecturerID);
             

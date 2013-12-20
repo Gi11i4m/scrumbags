@@ -70,6 +70,7 @@ namespace Scrumbags
             catch (Exception ex)
             {
                 return null; // TODO whut?
+                // Moet dit nie verder doorgethrowed worden naar de front-end?
             }
         }
 
