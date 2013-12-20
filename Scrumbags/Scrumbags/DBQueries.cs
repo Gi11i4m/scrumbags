@@ -122,6 +122,16 @@ namespace Scrumbags
             DBConnection.executeQuery(cmd);
         }
 
+        public static int getLoggedInUserID(string emailInput)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT id FROM lecturers WHERE email = @emailInput");
+            cmd.Parameters.AddWithValue("@emailInput", emailInput);
+            DataTable t = DBConnection.executeQuery(cmd);
+            Object o = t.Rows[0]["id"];
+            int sessionID = int.Parse(o.ToString());
+            return sessionID;
+        }
+
         //This Method returns true if the given hash equals the saved hash found in the database. Identified through the emailaddress
         public static bool login(string email, string password)
         {

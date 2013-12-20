@@ -30,9 +30,7 @@ namespace Scrumbags
                     {
                         if (DBQueries.userIsVefied(emailInput))
                         {
-                            DataTable t = DBConnection.executeQuery("SELECT id FROM lecturers WHERE email = '" + emailInput + "'");
-                            Object o = t.Rows[0]["id"];
-                            Session["id"] = o.ToString();
+                            Session["id"] = DBQueries.getLoggedInUserID(emailInput);
                             Response.Redirect("Home.aspx", true);
                         }
                         else
