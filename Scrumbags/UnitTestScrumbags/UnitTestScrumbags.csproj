@@ -55,12 +55,16 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestDatabaseQueries.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scrumbags\Scrumbags.csproj">
       <Project>{5f9e53ca-c35f-47a3-afaf-7788650eb9cf}</Project>
       <Name>Scrumbags</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
