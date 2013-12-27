@@ -25,12 +25,18 @@ namespace Scrumbags
         //SEND FUNCTION
         public void Send()
         {
-            Mailing mail = new Mailing();
-            mail.to = this.emailaddress;   // HIER WORD HET EMAIL ADRES VAN DE ONTVANGER INGEVULD
-            mail.subject = this.subject; // HIER KOMT HET ONDERWERP VAN DE MAIL
-            mail.body = this.body; //HIER DE BOODSCHAP
-            mail.from = "";
-            mail.send();
+            try
+            {
+                Mailing mail = new Mailing();
+                mail.to = this.emailaddress;   // HIER WORD HET EMAIL ADRES VAN DE ONTVANGER INGEVULD
+                mail.subject = this.subject; // HIER KOMT HET ONDERWERP VAN DE MAIL
+                mail.body = this.body; //HIER DE BOODSCHAP
+                mail.send();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
