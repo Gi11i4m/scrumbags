@@ -34,14 +34,6 @@ namespace UnitTestScrumbags
             Assert.AreEqual(expected, actual.Length);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Argument_Null_Exception_Mailing()
-        {
-            Mailing m = new Mailing();
-            m.client.Send(null);
-        }
-
        
     }
 }

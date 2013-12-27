@@ -11,7 +11,7 @@ namespace Scrumbags
     {
         public MailMessage msg = new MailMessage();
         public SmtpClient client = new SmtpClient();
-        public System.Net.NetworkCredential cr = new System.Net.NetworkCredential("dvlsanit","bZDtNd7f");
+        //public System.Net.NetworkCredential cr = new System.Net.NetworkCredential("dvlsanit","bZDtNd7f");
         
         // MAILCONSTRUCTOR (OK)
         public Mailing()
@@ -19,10 +19,8 @@ namespace Scrumbags
             client.Port = 587;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = cr;
-                //new System.Net.NetworkCredential(ConfigurationManager.AppSettings["SendMailSMTPUserName"].ToString(), ConfigurationManager.AppSettings["SendMailSMTPUserPassword"].ToString());
-            client.Host = "mail.dvl-sanitair.be";
-                //ConfigurationManager.AppSettings["SendMailSMTPHostAddress"].ToString();
+            client.Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["SendMailSMTPUserName"].ToString(), ConfigurationManager.AppSettings["SendMailSMTPUserPassword"].ToString());
+            client.Host = ConfigurationManager.AppSettings["SendMailSMTPHostAddress"].ToString();
         }
 
 
@@ -58,8 +56,7 @@ namespace Scrumbags
         {
             set
             {
-                msg.Sender = msg.From = new MailAddress("hallo@cats.com");
-                    //new MailAddress(ConfigurationManager.AppSettings["SendMailMessagesFromAddress"].ToString());
+                msg.Sender = msg.From = new MailAddress(ConfigurationManager.AppSettings["SendMailMessagesFromAddress"].ToString());
             }
         }
 
