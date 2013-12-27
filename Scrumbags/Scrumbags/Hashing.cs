@@ -10,6 +10,7 @@ namespace Scrumbags
 {
     public static class Hashing
     {
+        //UNIT TESTED
         // Dit is zonder seed. ge moet zelf eens zien hoe ge met seeds wilt werken.
         // ge kunt ne seed late genereren door een andere functie en die bij het creeeren mee geven.
         // of een 2e methode toevoegen hier ApplyHashWithSeed.
