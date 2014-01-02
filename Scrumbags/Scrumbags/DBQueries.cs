@@ -157,10 +157,10 @@ namespace Scrumbags
         }
 
         //Query voor rooster weer te geven per departement (YENS)
-        public static DataTable RoosterPerDepartement(string departement)
+        public static DataTable RoosterPerDepartement(string department)
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM slots WHERE departement = @departement;");
-            cmd.Parameters.AddWithValue("@departement", departement);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM slots WHERE department = @department;");
+            cmd.Parameters.AddWithValue("@department", department);
 
             DataTable depPerRooster = DBConnection.executeQuery(cmd);
             return depPerRooster;
